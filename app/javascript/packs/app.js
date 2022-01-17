@@ -1,13 +1,20 @@
-// Run this example by adding <%= javascript_pack_tag 'hello_react' %> to the head of your layout file,
-// like app/views/layouts/application.html.erb. All it does is render <div>Hello React</div> at the bottom
-// of the page.
-
 import React from 'react'
 import ReactDOM from 'react-dom'
+import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
+
+import AdminLayout from "layouts/Admin.js";
+import AuthLayout from "layouts/Auth.js";
+
 
 export default function App(){
   return (
-    <h1>Hello webpacker</h1>
+    <BrowserRouter>
+      <Switch>
+        <Route path="/admin" render={(props) => <AdminLayout {...props} />} />
+        <Route path="/auth" render={(props) => <AuthLayout {...props} />} />
+        <Redirect from="/" to="/admin/index" />
+      </Switch>
+  </BrowserRouter>
   )
 }
 
