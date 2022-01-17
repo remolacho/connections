@@ -1,24 +1,23 @@
-# README
+# CONNECTUS
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+To setup the project:
 
-Things you may want to cover:
+First use `bundle` to install all the gems for the rails project
 
-* Ruby version
+    bundle install
 
-* System dependencies
+And use `yarn` to install all package for the frontend
 
-* Configuration
+    yarn install
+    
+Finally run Foreman to start project
 
-* Database creation
+    foreman start -f Procfile.dev -p 3000
 
-* Database initialization
+Or run this in one terminal to start backend
 
-* How to run the test suite
+    rails s
 
-* Services (job queues, cache servers, search engines, etc.)
+And run this in another terminal to start frontend
 
-* Deployment instructions
-
-* ...
+    bin/webpack-dev-server
