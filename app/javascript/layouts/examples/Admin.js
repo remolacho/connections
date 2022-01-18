@@ -2,9 +2,10 @@ import React from "react";
 import { useLocation, Route, Switch, Redirect } from "react-router-dom";
 import { Container } from "reactstrap";
 
-import AdminNavbar from "components/Navbars/AdminNavbar.js";
-import AdminFooter from "components/Footers/AdminFooter.js";
-import Sidebar from "components/Sidebar/Sidebar.js";
+import AdminNavbar from "components/examples/Navbars/AdminNavbar.js";
+import AdminFooter from "components/examples/Footers/AdminFooter.js";
+import Sidebar from "components/examples/Sidebar/Sidebar.js";
+
 import routes from "packs/routes.js";
 
 const Admin = (props) => {
@@ -19,7 +20,7 @@ const Admin = (props) => {
 
   const getRoutes = (routes) => {
     return routes.map((prop, key) => {
-      if (prop.layout === "/admin") {
+      if (prop.layout === "/example/admin") {
         return (
           <Route
             path={prop.layout + prop.path}
@@ -51,7 +52,7 @@ const Admin = (props) => {
         {...props}
         routes={routes}
         logo={{
-          innerLink: "/admin/index",
+          innerLink: "/example/admin/index",
           imgSrc: require("assets/img/brand/argon-react.png"),
           imgAlt: "...",
         }}
@@ -63,7 +64,7 @@ const Admin = (props) => {
         />
         <Switch>
           {getRoutes(routes)}
-          <Redirect from="*" to="/admin/index" />
+          <Redirect from="*" to="/example/admin/index" />
         </Switch>
         <Container fluid>
           <AdminFooter />

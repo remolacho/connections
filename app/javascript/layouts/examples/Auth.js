@@ -4,8 +4,8 @@ import { useLocation, Route, Switch, Redirect } from "react-router-dom";
 import { Container, Row, Col } from "reactstrap";
 
 // core components
-import AuthNavbar from "components/Navbars/AuthNavbar.js";
-import AuthFooter from "components/Footers/AuthFooter.js";
+import AuthNavbar from "components/examples/Navbars/AuthNavbar.js";
+import AuthFooter from "components/examples/Footers/AuthFooter.js";
 
 import routes from "packs/routes.js";
 
@@ -27,7 +27,7 @@ const Auth = (props) => {
 
   const getRoutes = (routes) => {
     return routes.map((prop, key) => {
-      if (prop.layout === "/auth") {
+      if (prop.layout === "/example/auth") {
         return (
           <Route
             path={prop.layout + prop.path}
@@ -81,7 +81,7 @@ const Auth = (props) => {
           <Row className="justify-content-center">
             <Switch>
               {getRoutes(routes)}
-              <Redirect from="*" to="/auth/login" />
+              <Redirect from="*" to="/example/auth/login" />
             </Switch>
           </Row>
         </Container>

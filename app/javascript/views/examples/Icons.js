@@ -10,7 +10,7 @@ import {
   UncontrolledTooltip,
 } from "reactstrap";
 
-import Header from "components/Headers/Header.js";
+import Header from "components/examples/Headers/Header.js";
 
 const Icons = () => {
   const [copiedText, setCopiedText] = React.useState();
