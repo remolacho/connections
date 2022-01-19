@@ -8,7 +8,57 @@ import Login from "views/examples/Login.js";
 import Tables from "views/examples/Tables.js";
 import Icons from "views/examples/Icons.js";
 
+import Admin from "views/admin"
+import Superadmin from "views/superadmin"
+import Home from "views/home"
+import Contact from "views/contact"
+import Email from "views/email"
+import SMS from "views/sms"
+
 var routes = [
+  {
+    path: "/home",
+    name: "Panel de control",
+    icon: "ni ni-tv-2 text-primary",
+    component: Home,
+    layout: "/dashboard"
+  },
+  {
+    path: "/contact",
+    name: "Contactos",
+    icon: "ni ni-single-02 text-blue",
+    component: Contact,
+    layout: "/dashboard"
+  },
+  {
+    path: "/sms",
+    name: "SMS",
+    icon: "ni ni-chat-round text-info",
+    component: SMS,
+    layout: "/dashboard"
+  },
+  {
+    path: "/email",
+    name: "Email",
+    icon: "ni ni-email-83 text-primary",
+    component: Email,
+    layout: "/dashboard"
+  },
+  {
+    path: "/admin",
+    name: "Administración",
+    icon: "fas fa-cog",
+    component: Admin,
+    layout: "/dashboard"
+  },
+  {
+    path: "/superadmin",
+    name: "Superamin",
+    icon: "fas fa-cog",
+    component: Superadmin,
+    layout: "/dashboard"
+  },
+  // Example Routes
   {
     path: "/index",
     name: "Dashboard",
