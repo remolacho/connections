@@ -33,13 +33,12 @@ export default function SMS() {
                           </label>
                         </Col>
                         <Col md="9">
-                          <Input
-                            className="form-control-alternative"
-                            defaultValue="lucky.jesse"
-                            id="input-send"
-                            placeholder="send"
-                            type="text"
-                          />
+                          <btn className="cn-btn-pill cn-btn-pill-left cn-btn-pill-select">
+                            Individual
+                          </btn>
+                          <btn className="cn-btn-pill cn-btn-pill-right">
+                            Masivo
+                          </btn>
                         </Col>
                       </Row>
                     </FormGroup>
@@ -170,13 +169,12 @@ export default function SMS() {
                           </label>
                         </Col>
                         <Col md="9">
-                          <Input
-                            className="form-control-alternative"
-                            defaultValue="lucky.jesse"
-                            id="input-send"
-                            placeholder="send"
-                            type="text"
-                          />
+                          <btn className="cn-btn-pill cn-btn-pill-left">
+                            Lo antes posible
+                          </btn>
+                          <btn className="cn-btn-pill cn-btn-pill-right cn-btn-pill-select">
+                            Programado
+                          </btn>
                         </Col>
                       </Row>
                     </FormGroup>
