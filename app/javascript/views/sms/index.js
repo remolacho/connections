@@ -33,12 +33,14 @@ export default function SMS() {
                           </label>
                         </Col>
                         <Col md="9">
-                          <btn className="cn-btn-pill cn-btn-pill-left cn-btn-pill-select">
-                            Individual
-                          </btn>
-                          <btn className="cn-btn-pill cn-btn-pill-right">
-                            Masivo
-                          </btn>
+                          <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                            <label class="btn btn-secondary active">
+                              <input type="radio" name="options" id="option1" checked /> Individual
+                            </label>
+                            <label class="btn btn-secondary">
+                              <input type="radio" name="options" id="option2" /> Masivo
+                            </label>
+                          </div>
                         </Col>
                       </Row>
                     </FormGroup>
@@ -169,17 +171,19 @@ export default function SMS() {
                           </label>
                         </Col>
                         <Col md="9">
-                          <btn className="cn-btn-pill cn-btn-pill-left">
-                            Lo antes posible
-                          </btn>
-                          <btn className="cn-btn-pill cn-btn-pill-right cn-btn-pill-select">
-                            Programado
-                          </btn>
+                          <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                            <label class="btn btn-secondary active">
+                              <input type="radio" name="options" id="option1" checked /> Lo antes posible
+                            </label>
+                            <label class="btn btn-secondary">
+                              <input type="radio" name="options" id="option2" /> Programado
+                            </label>
+                          </div>
                         </Col>
                       </Row>
                     </FormGroup>
                     <FormGroup>
-                      <label className="form-control-label pt-2">Calendar</label>
+                      <input className="form-control" type="datetime-local" value="2018-11-23T10:30:00"/>
                     </FormGroup>
                   </div>
                 </CardBody>
