@@ -19,8 +19,8 @@ import {
 
 export default function DashboardNavbar(props){
   return (
-    <>
-      <Navbar className="navbar-top navbar-dark" expand="md" id="navbar-main">
+    <div className="header">
+      <Navbar className="navbar-top navbar-dark bg-info" expand="md" id="navbar-main">
         <Container fluid>
           <Link
             className="h4 mb-0 text-white text-uppercase d-none d-lg-inline-block"
@@ -89,6 +89,6 @@ export default function DashboardNavbar(props){
           </Nav>
         </Container>
       </Navbar>
-    </>
+    </div>
   );
 };

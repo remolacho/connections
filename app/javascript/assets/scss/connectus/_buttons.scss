@@ -1,0 +1,26 @@
+.cn {
+  &-btn-pill {
+    background-color: white;
+    color: #32325D;
+    font-weight: 600;
+    font-size: 14px;
+    padding: 10px;
+
+    &-select {
+      background-color: #5DB7E5;
+    }
+    
+    &-left {
+      border-radius: 5px 0 0 5px;
+    }
+  
+    &-right {
+      border-radius: 0 5px 5px 0;
+    }
+  
+    &:hover {
+      background-color: #D2E3EE;
+      cursor: pointer;
+    }
+  }
+}
