@@ -1,7 +1,10 @@
 import React from "react";
 import { Card, CardBody, Form, FormGroup, Input, Container, Row, Col, CardHeader, Button } from "reactstrap";
 
-export default function SMS() {
+export default function Index() {
+  const [shippingType, setShippingType] = React.useState('individual')
+  const [shippingTime, setShippingTime] = React.useState('as_possible')
+
   return (
     <div className="pt-7">
       <Container fluid>
@@ -33,57 +36,114 @@ export default function SMS() {
                           </label>
                         </Col>
                         <Col md="9">
-                          <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                            <label class="btn btn-secondary active">
-                              <input type="radio" name="options" id="option1" checked /> Individual
+                          <div className="btn-group btn-group-toggle" data-toggle="buttons">
+                            <label className={`btn btn-secondary ${shippingType === 'individual' ? 'active' : ''}`}>
+                              <input onClick={event => setShippingType(event.target.id)} type="radio" name="options" id="individual" defaultChecked /> Individual
                             </label>
-                            <label class="btn btn-secondary">
-                              <input type="radio" name="options" id="option2" /> Masivo
+                            <label className={`btn btn-secondary ${shippingType === 'massive' ? 'active' : ''}`}>
+                              <input onClick={event => setShippingType(event.target.id)} type="radio" name="options" id="massive" /> Masivo
                             </label>
                           </div>
                         </Col>
                       </Row>
                     </FormGroup>
-                    <FormGroup>
-                      <Row className="my-3">
-                        <Col md="3">
-                          <label
-                            className="form-control-label pt-2"
-                            htmlFor="input-pais"
-                          >
-                            País 
-                          </label>
-                        </Col>
-                        <Col md="9">
-                          <select class="form-control">
-                            <option selected>Choose...</option>
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
-                          </select>
-                        </Col>
-                    </Row>
-                    </FormGroup>
-                    <FormGroup>
-                      <Row className="my-3">
-                        <Col md="3">
-                          <label
-                            className="form-control-label pt-2"
-                            htmlFor="input-phone"
-                          >
-                            Número de teléfono 
-                          </label>
-                        </Col>
-                        <Col md="9">
-                          <Input
-                            className="form-control-alternative"
-                            id="input-phone"
-                            placeholder="Número de teléfono"
-                            type="text"
-                          />
-                        </Col>
-                      </Row>
-                    </FormGroup>
+                    { shippingType === 'individual' ?
+                      <>
+                        <FormGroup>
+                          <Row className="my-3">
+                            <Col md="3">
+                              <label
+                                className="form-control-label pt-2"
+                                htmlFor="input-pais"
+                              >
+                                País 
+                              </label>
+                            </Col>
+                            <Col md="9">
+                              <select className="form-control">
+                                <option defaultValue>Choose...</option>
+                                <option value="1">One</option>
+                                <option value="2">Two</option>
+                                <option value="3">Three</option>
+                              </select>
+                            </Col>
+                        </Row>
+                        </FormGroup>
+                        <FormGroup>
+                          <Row className="my-3">
+                            <Col md="3">
+                              <label
+                                className="form-control-label pt-2"
+                                htmlFor="input-phone"
+                              >
+                                Número de teléfono 
+                              </label>
+                            </Col>
+                            <Col md="9">
+                              <Input
+                                className="form-control-alternative"
+                                id="input-phone"
+                                placeholder="Número de teléfono"
+                                type="text"
+                              />
+                            </Col>
+                          </Row>
+                        </FormGroup>
+                      </>
+                      :
+                      <>
+                        <FormGroup>
+                          <Row className="my-3">
+                            <Col md="3">
+                              <label
+                                className="form-control-label pt-2"
+                                htmlFor="input-pais"
+                              >
+                                Lista de contactos 
+                              </label>
+                            </Col>
+                            <Col md="6">
+                              <select className="form-control">
+                                <option defaultValue>Elija una lista de contactos</option>
+                                <option value="1">One</option>
+                                <option value="2">Two</option>
+                                <option value="3">Three</option>
+                              </select>
+                            </Col>
+                            <Col md="3">
+                              <Button block className="btn-outline-danger">
+                                Agregar Lista
+                              </Button>
+                            </Col>
+                        </Row>
+                        </FormGroup>
+                        <FormGroup>
+                          <Row className="my-3">
+                            <Col md="3">
+                              <label
+                                className="form-control-label pt-2"
+                                htmlFor="input-phone"
+                              >
+                                Números baneados
+                              </label>
+                            </Col>
+                            <Col md="6">
+                              <select className="form-control">
+                                <option defaultValue>Números baneados de la lista de contactos</option>
+                                <option value="1">One</option>
+                                <option value="2">Two</option>
+                                <option value="3">Three</option>
+                              </select>
+                            </Col>
+                            <Col md="3">
+                              <Button block className="btn-outline-danger">
+                                Editar
+                              </Button>
+                            </Col>
+                          </Row>
+                        </FormGroup>
+                      </>
+                    }
                   </div>
                 </CardBody>
               </Card>
@@ -111,8 +171,8 @@ export default function SMS() {
                           </label>
                         </Col>
                         <Col md="9">
-                          <select class="form-control">
-                            <option selected>Elija un mensaje</option>
+                          <select className="form-control">
+                            <option defaultValue>Elija un mensaje</option>
                             <option value="1">One</option>
                             <option value="2">Two</option>
                             <option value="3">Three</option>
@@ -143,6 +203,21 @@ export default function SMS() {
                         defaultValue="Hola! esto es una Prueba!!"
                         type="textarea"
                       />
+                      { shippingType === 'massive' &&
+                        <>
+                          <label className="form-control-label">Insertar campo especial</label>
+                          <br />
+                          <Button color="primary" size="sm">
+                            %TELEFONO
+                          </Button>
+                          <Button color="primary" size="sm">
+                            %NOMBRE
+                          </Button>
+                          <Button color="primary" size="sm">
+                            %EDAD
+                          </Button>
+                        </>
+                       }
                     </FormGroup>
                   </div>
                 </CardBody>
@@ -171,19 +246,23 @@ export default function SMS() {
                           </label>
                         </Col>
                         <Col md="9">
-                          <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                            <label class="btn btn-secondary active">
-                              <input type="radio" name="options" id="option1" checked /> Lo antes posible
+                          <div className="btn-group btn-group-toggle" data-toggle="buttons">
+                            <label className={`btn btn-secondary ${shippingTime === 'as_possible' ? 'active' : ''}`}>
+                              <input onClick={event => setShippingTime(event.target.id)} type="radio" name="options" id="as_possible" defaultChecked /> Lo antes posible
                             </label>
-                            <label class="btn btn-secondary">
-                              <input type="radio" name="options" id="option2" /> Programado
+                            <label className={`btn btn-secondary ${shippingTime === 'programmed' ? 'active' : ''}`}>
+                              <input onClick={event => setShippingTime(event.target.id)} type="radio" name="options" id="programmed" /> Programado
                             </label>
                           </div>
                         </Col>
                       </Row>
                     </FormGroup>
                     <FormGroup>
-                      <input className="form-control" type="datetime-local" value="2018-11-23T10:30:00"/>
+                      <Row>
+                        <Col md="8">
+                          <input className="form-control" type="datetime-local" defaultValue="2018-11-23T10:30:00"/>
+                        </Col>
+                      </Row>
                     </FormGroup>
                   </div>
                 </CardBody>
@@ -212,8 +291,8 @@ export default function SMS() {
                           </label>
                         </Col>
                         <Col md="9">
-                          <select class="form-control">
-                            <option selected>Número de origen</option>
+                          <select className="form-control">
+                            <option defaultValue>Número de origen</option>
                             <option value="1">One</option>
                             <option value="2">Two</option>
                             <option value="3">Three</option>
@@ -224,6 +303,45 @@ export default function SMS() {
                   </div>
                 </CardBody>
               </Card>
+              {
+                shippingType === 'massive' &&
+                  <Card className="shadow my-3">
+                    <CardHeader className="bg-white">
+                      <h6 className="align-items-center d-flex heading mb-0">
+                        <span 
+                          className="align-items-center bg-info text-white d-flex justify-content-center mr-3 rounded-circle" 
+                          style={{height: '25px', width: '25px'}}>
+                          5
+                        </span>
+                        Mensaje de Prueba
+                      </h6>
+                    </CardHeader>
+                    <CardBody className="bg-secondary">
+                      <div className="pl-lg-4">
+                        <FormGroup>
+                          <Row className="my-3">
+                            <Col md="3">
+                              <label
+                                className="form-control-label pt-2"
+                                htmlFor="input-phone"
+                              >
+                                Número de teléfono 
+                              </label>
+                            </Col>
+                            <Col md="9">
+                              <Input
+                                className="form-control-alternative"
+                                id="input-phone"
+                                placeholder="Número de teléfono"
+                                type="text"
+                              />
+                            </Col>
+                          </Row>
+                        </FormGroup>
+                      </div>
+                    </CardBody>
+                  </Card>
+              }
               <Row className="mt-4">
                 <Col className="text-left" xs="4">
                   <Button
