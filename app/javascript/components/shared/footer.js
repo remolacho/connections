@@ -20,7 +20,7 @@ export default function Footer(){
         </Col>
 
         <Col xl="6">
-          <Nav className="nav-footer justify-content-center justify-content-xl-end">
+          {/* <Nav className="nav-footer justify-content-center justify-content-xl-end">
             <NavItem>
               <NavLink
                 href="#"
@@ -51,7 +51,7 @@ export default function Footer(){
               </NavLink>
             </NavItem>
 
-          </Nav>
+          </Nav> */}
         </Col>
       </Row>
     </footer>
