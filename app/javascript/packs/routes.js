@@ -15,6 +15,7 @@ import Contact from "views/contact"
 import Email from "views/email"
 import SMS from "views/sms"
 import ShippedScheduled from "views/sms/shipped-and-scheduled"
+import AutoPreset from "views/sms/auto-preset"
 
 var routes = [
   {
@@ -43,6 +44,13 @@ var routes = [
     name: "Enviados y programados",
     icon: "ni ni-chat-round text-info",
     component: ShippedScheduled,
+    layout: "/dashboard"
+  },
+  {
+    path: "/auto-preset",
+    name: "Predefinidos y automáticos",
+    icon: "ni ni-chat-round text-info",
+    component: AutoPreset,
     layout: "/dashboard"
   },
   {
