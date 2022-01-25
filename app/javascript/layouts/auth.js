@@ -41,7 +41,17 @@ export default function Auth(props){
     <>
       <div className="main-content" ref={mainContent}>
         <div className="header bg-white py-7 py-lg-8">
-          <div className="separator separator-bottom separator-skew bg-gradient-info zindex-100" style={{ height: '58px'}}>
+          <Container>
+            <div className="header-body text-center mb-7">
+              <Row className="justify-content-center">
+                <img
+                  alt='ConnectUs'
+                  src={require("assets/img/brand/connectus.png")}
+                />
+              </Row>
+            </div>
+          </Container>
+          <div className="d-none d-sm-block separator separator-bottom separator-skew bg-gradient-info zindex-100" style={{ height: '58px'}}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               preserveAspectRatio="none"
