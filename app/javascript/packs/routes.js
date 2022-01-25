@@ -22,6 +22,7 @@ import EmailAutoPreset from "views/email/auto-preset"
 import EmailUnsubscribed from "views/email/unsubscribed"
 import Login from "views/auth/login";
 import RecoveryPassword from "views/auth/recovery-password";
+import SelectType from "views/auth/select-type";
 
 var routes = [
   {
@@ -120,6 +121,13 @@ var routes = [
     name: "Recuperar contraseña",
     icon: "ni ni-key-25 text-info",
     component: RecoveryPassword,
+    layout: "/auth",
+  },
+  {
+    path: "/select-type",
+    name: "Selecciona un tipo de cuenta",
+    icon: "ni ni-key-25 text-info",
+    component: SelectType,
     layout: "/auth",
   },
   // Example Routes
