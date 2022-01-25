@@ -14,6 +14,7 @@ import Home from "views/home"
 import Contact from "views/contact"
 import Email from "views/email"
 import SMS from "views/sms"
+import ShippedScheduled from "views/sms/shipped-and-scheduled"
 
 var routes = [
   {
@@ -35,6 +36,13 @@ var routes = [
     name: "SMS",
     icon: "ni ni-chat-round text-info",
     component: SMS,
+    layout: "/dashboard"
+  },
+  {
+    path: "/shipped-and-scheduled",
+    name: "Enviados y programados",
+    icon: "ni ni-chat-round text-info",
+    component: ShippedScheduled,
     layout: "/dashboard"
   },
   {
