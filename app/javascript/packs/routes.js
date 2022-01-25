@@ -19,6 +19,7 @@ import SMSAutoPreset from "views/sms/auto-preset"
 import SMSReceived from "views/sms/received"
 import EmailShippedScheduled from "views/email/shipped-and-scheduled"
 import EmailAutoPreset from "views/email/auto-preset"
+import EmailUnsubscribed from "views/email/unsubscribed"
 
 var routes = [
   {
@@ -82,6 +83,13 @@ var routes = [
     name: "Predefinidos y automáticos",
     icon: "ni ni-email-83 text-primary",
     component: EmailAutoPreset,
+    layout: "/dashboard"
+  },
+  {
+    path: "/email-unsubscribed",
+    name: "Emails desuscritos",
+    icon: "ni ni-email-83 text-primary",
+    component: EmailUnsubscribed,
     layout: "/dashboard"
   },
   {
