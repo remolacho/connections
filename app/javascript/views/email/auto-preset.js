@@ -6,7 +6,6 @@ import {
   Container,
   Row,
   Col,
-  Button,
   Input
 } from "reactstrap";
 
@@ -35,111 +34,107 @@ export default function AutoPreset(){
                 </Col>
               </Row>
             </CardHeader>
-            {/* <Row>
-              <Col md='12'> */}
-                <Table className="align-items-center table-flush" responsive borderless>
-                  <thead className="thead-light">
-                    <tr>
-                      <th scope="col" className="text-center">Nombre</th>
-                      <th scope="col" className="text-center">Contenido</th>
-                      <th scope="col" className="text-center">SMS automático</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <th scope="row">
-                        <span className="mb-0 text-sm text-center d-block">
-                          Mensaje TT.OO Ecoaventura
-                        </span>
-                      </th>
-                      <td className="px-9" style={{ whiteSpace: 'initial'}}>
-                        <span>
-                          Hola! Ecoaventura quisiera saber si tienen disponibilidad para 2 personas
-                          para las siguientes actividades: Orden 9265 <br/>
-                          2 archivos / 2 imágenes
-                        </span>
-                      </td>
-                      <td className="text-center">
-                        <a href="#" type="button" className="mx-2">Editar</a>
-                        <a href="#" type="button" className="mx-2 text-red">Eliminar</a>
-                      </td>
-                    </tr>
-                    <tr>
-                      <th scope="row">
-                        <span className="mb-0 text-sm text-center d-block">
-                          Mensaje TT.OO Ecoaventura
-                        </span>
-                      </th>
-                      <td className="px-9" style={{ whiteSpace: 'initial'}}>
-                        <span>
-                          Hola! Ecoaventura quisiera saber si tienen disponibilidad para 2 personas
-                          para las siguientes actividades: Orden 9265 <br/>
-                          2 archivos / 2 imágenes 
-                        </span>
-                      </td>
-                      <td className="text-center">
-                        <a href="#" type="button" className="mx-2">Editar</a>
-                        <a href="#" type="button" className="mx-2 text-red">Eliminar</a>
-                      </td>
-                    </tr>
-                    <tr>
-                      <th scope="row">
-                        <span className="mb-0 text-sm text-center d-block">
-                          Mensaje TT.OO Ecoaventura
-                        </span>
-                      </th>
-                      <td className="px-9" style={{ whiteSpace: 'initial'}}>
-                        <span>
-                          Hola! Ecoaventura quisiera saber si tienen disponibilidad para 2 personas
-                          para las siguientes actividades: Orden 9265 <br/>
-                          2 archivos / 2 imágenes 
-                        </span>
-                      </td>
-                      <td className="text-center">
-                        <a href="#" type="button" className="mx-2">Editar</a>
-                        <a href="#" type="button" className="mx-2 text-red">Eliminar</a>
-                      </td>
-                    </tr>
-                    <tr>
-                      <th scope="row">
-                        <span className="mb-0 text-sm text-center d-block">
-                          Mensaje TT.OO Ecoaventura
-                        </span>
-                      </th>
-                      <td className="px-9" style={{ whiteSpace: 'initial'}}>
-                        <span>
-                          Hola! Ecoaventura quisiera saber si tienen disponibilidad para 2 personas
-                          para las siguientes actividades: Orden 9265 <br/>
-                          2 archivos / 2 imágenes 
-                        </span>
-                      </td>
-                      <td className="text-center">
-                        <a href="#" type="button" className="mx-2">Editar</a>
-                        <a href="#" type="button" className="mx-2 text-red">Eliminar</a>
-                      </td>
-                    </tr>
-                    <tr>
-                      <th scope="row">
-                        <span className="mb-0 text-sm text-center d-block">
-                          Mensaje TT.OO Ecoaventura
-                        </span>
-                      </th>
-                      <td className="px-9" style={{ whiteSpace: 'initial'}}>
-                        <span>
-                          Hola! Ecoaventura quisiera saber si tienen disponibilidad para 2 personas
-                          para las siguientes actividades: Orden 9265 <br/>
-                          2 archivos / 2 imágenes 
-                        </span>
-                      </td>
-                      <td className="text-center">
-                        <a href="#" type="button" className="mx-2">Editar</a>
-                        <a href="#" type="button" className="mx-2 text-red">Eliminar</a>
-                      </td>
-                    </tr>
-                  </tbody>
-                </Table>
-              {/* </Col>
-            </Row> */}
+            <Table className="align-items-center table-flush" responsive borderless>
+              <thead className="thead-light">
+                <tr>
+                  <th scope="col" className="text-center">Nombre</th>
+                  <th scope="col" className="text-center">Contenido</th>
+                  <th scope="col" className="text-center">SMS automático</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">
+                    <span className="mb-0 text-sm text-center d-block">
+                      Mensaje TT.OO Ecoaventura
+                    </span>
+                  </th>
+                  <td className="px-9" style={{ whiteSpace: 'initial'}}>
+                    <span>
+                      Hola! Ecoaventura quisiera saber si tienen disponibilidad para 2 personas
+                      para las siguientes actividades: Orden 9265 <br/>
+                      2 archivos / 2 imágenes
+                    </span>
+                  </td>
+                  <td className="text-center">
+                    <a href="#" type="button" className="mx-2">Editar</a>
+                    <a href="#" type="button" className="mx-2 text-red">Eliminar</a>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">
+                    <span className="mb-0 text-sm text-center d-block">
+                      Mensaje TT.OO Ecoaventura
+                    </span>
+                  </th>
+                  <td className="px-9" style={{ whiteSpace: 'initial'}}>
+                    <span>
+                      Hola! Ecoaventura quisiera saber si tienen disponibilidad para 2 personas
+                      para las siguientes actividades: Orden 9265 <br/>
+                      2 archivos / 2 imágenes 
+                    </span>
+                  </td>
+                  <td className="text-center">
+                    <a href="#" type="button" className="mx-2">Editar</a>
+                    <a href="#" type="button" className="mx-2 text-red">Eliminar</a>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">
+                    <span className="mb-0 text-sm text-center d-block">
+                      Mensaje TT.OO Ecoaventura
+                    </span>
+                  </th>
+                  <td className="px-9" style={{ whiteSpace: 'initial'}}>
+                    <span>
+                      Hola! Ecoaventura quisiera saber si tienen disponibilidad para 2 personas
+                      para las siguientes actividades: Orden 9265 <br/>
+                      2 archivos / 2 imágenes 
+                    </span>
+                  </td>
+                  <td className="text-center">
+                    <a href="#" type="button" className="mx-2">Editar</a>
+                    <a href="#" type="button" className="mx-2 text-red">Eliminar</a>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">
+                    <span className="mb-0 text-sm text-center d-block">
+                      Mensaje TT.OO Ecoaventura
+                    </span>
+                  </th>
+                  <td className="px-9" style={{ whiteSpace: 'initial'}}>
+                    <span>
+                      Hola! Ecoaventura quisiera saber si tienen disponibilidad para 2 personas
+                      para las siguientes actividades: Orden 9265 <br/>
+                      2 archivos / 2 imágenes 
+                    </span>
+                  </td>
+                  <td className="text-center">
+                    <a href="#" type="button" className="mx-2">Editar</a>
+                    <a href="#" type="button" className="mx-2 text-red">Eliminar</a>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">
+                    <span className="mb-0 text-sm text-center d-block">
+                      Mensaje TT.OO Ecoaventura
+                    </span>
+                  </th>
+                  <td className="px-9" style={{ whiteSpace: 'initial'}}>
+                    <span>
+                      Hola! Ecoaventura quisiera saber si tienen disponibilidad para 2 personas
+                      para las siguientes actividades: Orden 9265 <br/>
+                      2 archivos / 2 imágenes 
+                    </span>
+                  </td>
+                  <td className="text-center">
+                    <a href="#" type="button" className="mx-2">Editar</a>
+                    <a href="#" type="button" className="mx-2 text-red">Eliminar</a>
+                  </td>
+                </tr>
+              </tbody>
+            </Table>
           </Card>
         </div>
       </Row>
