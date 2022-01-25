@@ -21,6 +21,7 @@ import EmailShippedScheduled from "views/email/shipped-and-scheduled"
 import EmailAutoPreset from "views/email/auto-preset"
 import EmailUnsubscribed from "views/email/unsubscribed"
 import Login from "views/auth/login";
+import RecoveryPassword from "views/auth/recovery-password";
 
 var routes = [
   {
@@ -112,6 +113,13 @@ var routes = [
     name: "Login",
     icon: "ni ni-key-25 text-info",
     component: Login,
+    layout: "/auth",
+  },
+  {
+    path: "/recovery-password",
+    name: "Recuperar contraseña",
+    icon: "ni ni-key-25 text-info",
+    component: RecoveryPassword,
     layout: "/auth",
   },
   // Example Routes
