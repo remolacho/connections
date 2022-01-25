@@ -18,6 +18,7 @@ import SMSShippedScheduled from "views/sms/shipped-and-scheduled"
 import SMSAutoPreset from "views/sms/auto-preset"
 import SMSReceived from "views/sms/received"
 import EmailShippedScheduled from "views/email/shipped-and-scheduled"
+import EmailAutoPreset from "views/email/auto-preset"
 
 var routes = [
   {
@@ -74,6 +75,13 @@ var routes = [
     name: "Enviados y programados",
     icon: "ni ni-email-83 text-primary",
     component: EmailShippedScheduled,
+    layout: "/dashboard"
+  },
+  {
+    path: "/email-auto-preset",
+    name: "Predefinidos y automáticos",
+    icon: "ni ni-email-83 text-primary",
+    component: EmailAutoPreset,
     layout: "/dashboard"
   },
   {
