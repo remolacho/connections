@@ -5,6 +5,7 @@ import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 import AdminExampleLayout from "layouts/examples/Admin.js";
 import AuthExampleLayout from "layouts/examples/Auth.js";
 import Dashboard from "layouts/dashboard"
+import AuthLayour from "layouts/auth"
 
 
 export default function App(){
@@ -12,6 +13,7 @@ export default function App(){
     <BrowserRouter>
       <Switch>
         <Route path="/dashboard" render={(props) => <Dashboard {...props} />}/>
+        <Route path="/auth" render={(props) => <AuthLayour {...props} />}/>
         {/* <Redirect from="/" to="/dashboard/home" /> */}
         {/* Routes to Template */}
         <Route path="/example/admin" render={(props) => <AdminExampleLayout {...props} />} />
