@@ -14,9 +14,10 @@ import Home from "views/home"
 import Contact from "views/contact"
 import Email from "views/email"
 import SMS from "views/sms"
-import ShippedScheduled from "views/sms/shipped-and-scheduled"
-import AutoPreset from "views/sms/auto-preset"
-import Received from "views/sms/received"
+import SMSShippedScheduled from "views/sms/shipped-and-scheduled"
+import SMSAutoPreset from "views/sms/auto-preset"
+import SMSReceived from "views/sms/received"
+import EmailShippedScheduled from "views/email/shipped-and-scheduled"
 
 var routes = [
   {
@@ -44,21 +45,21 @@ var routes = [
     path: "/shipped-and-scheduled",
     name: "Enviados y programados",
     icon: "ni ni-chat-round text-info",
-    component: ShippedScheduled,
+    component: SMSShippedScheduled,
     layout: "/dashboard"
   },
   {
     path: "/auto-preset",
     name: "Predefinidos y automáticos",
     icon: "ni ni-chat-round text-info",
-    component: AutoPreset,
+    component: SMSAutoPreset,
     layout: "/dashboard"
   },
   {
     path: "/received",
     name: "Recibidos",
     icon: "ni ni-chat-round text-info",
-    component: Received,
+    component: SMSReceived,
     layout: "/dashboard"
   },
   {
@@ -66,6 +67,13 @@ var routes = [
     name: "Email",
     icon: "ni ni-email-83 text-primary",
     component: Email,
+    layout: "/dashboard"
+  },
+  {
+    path: "/email-shipped-and-scheduled",
+    name: "Enviados y programados",
+    icon: "ni ni-email-83 text-primary",
+    component: EmailShippedScheduled,
     layout: "/dashboard"
   },
   {
