@@ -4,7 +4,7 @@ import Index from "views/examples/Index.js";
 import Profile from "views/examples/Profile.js";
 import Maps from "views/examples/Maps.js";
 import Register from "views/examples/Register.js";
-import Login from "views/examples/Login.js";
+import ExampleLogin from "views/examples/Login.js";
 import Tables from "views/examples/Tables.js";
 import Icons from "views/examples/Icons.js";
 
@@ -20,6 +20,7 @@ import SMSReceived from "views/sms/received"
 import EmailShippedScheduled from "views/email/shipped-and-scheduled"
 import EmailAutoPreset from "views/email/auto-preset"
 import EmailUnsubscribed from "views/email/unsubscribed"
+import Login from "views/auth/login";
 
 var routes = [
   {
@@ -106,6 +107,13 @@ var routes = [
     component: Superadmin,
     layout: "/dashboard"
   },
+  {
+    path: "/login",
+    name: "Login",
+    icon: "ni ni-key-25 text-info",
+    component: Login,
+    layout: "/auth",
+  },
   // Example Routes
   {
     path: "/index",
@@ -146,7 +154,7 @@ var routes = [
     path: "/login",
     name: "Login",
     icon: "ni ni-key-25 text-info",
-    component: Login,
+    component: ExampleLogin,
     layout: "/example/auth",
   },
   {
