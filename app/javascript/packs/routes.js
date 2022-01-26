@@ -4,7 +4,7 @@ import Index from "views/examples/Index.js";
 import Profile from "views/examples/Profile.js";
 import Maps from "views/examples/Maps.js";
 import Register from "views/examples/Register.js";
-import Login from "views/examples/Login.js";
+import ExampleLogin from "views/examples/Login.js";
 import Tables from "views/examples/Tables.js";
 import Icons from "views/examples/Icons.js";
 
@@ -20,6 +20,11 @@ import SMSReceived from "views/sms/received"
 import EmailShippedScheduled from "views/email/shipped-and-scheduled"
 import EmailAutoPreset from "views/email/auto-preset"
 import EmailUnsubscribed from "views/email/unsubscribed"
+import Login from "views/auth/login";
+import RecoveryPassword from "views/auth/recovery-password";
+import SelectType from "views/auth/select-type";
+import SignupCompany from "views/auth/signup-company";
+import SignupPerson from "views/auth/signup-person";
 
 var routes = [
   {
@@ -106,6 +111,41 @@ var routes = [
     component: Superadmin,
     layout: "/dashboard"
   },
+  {
+    path: "/login",
+    name: "Login",
+    icon: "ni ni-key-25 text-info",
+    component: Login,
+    layout: "/auth",
+  },
+  {
+    path: "/recovery-password",
+    name: "Recuperar contraseña",
+    icon: "ni ni-key-25 text-info",
+    component: RecoveryPassword,
+    layout: "/auth",
+  },
+  {
+    path: "/select-type",
+    name: "Selecciona un tipo de cuenta",
+    icon: "ni ni-key-25 text-info",
+    component: SelectType,
+    layout: "/auth",
+  },
+  {
+    path: "/signup-company",
+    name: "Registrarse como empresa",
+    icon: "ni ni-key-25 text-info",
+    component: SignupCompany,
+    layout: "/auth",
+  },
+  {
+    path: "/signup-person",
+    name: "Registrarse como persona",
+    icon: "ni ni-key-25 text-info",
+    component: SignupPerson,
+    layout: "/auth",
+  },
   // Example Routes
   {
     path: "/index",
@@ -146,7 +186,7 @@ var routes = [
     path: "/login",
     name: "Login",
     icon: "ni ni-key-25 text-info",
-    component: Login,
+    component: ExampleLogin,
     layout: "/example/auth",
   },
   {

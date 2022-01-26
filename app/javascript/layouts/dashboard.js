@@ -20,7 +20,7 @@ export default function Dashboard(props) {
 
   function getRoutes(routes) {
     return routes.map((prop, key) => {
-      if (prop.layout == "/dashboard") {
+      if (prop.layout == "/dashboard" || prop.layout == "/auth") {
         return (
           <Route
             path={prop.layout + prop.path}
@@ -47,7 +47,7 @@ export default function Dashboard(props) {
     <>
       <Sidebar
         {...props}
-        routes={routes.filter( route => route.layout == "/dashboard")}
+        routes={routes.filter( route => route.layout == "/dashboard" || route.layout == "/auth")}
         logo={{
           innerLink: "/dashboard/home",
           imgSrc: require("assets/img/brand/argon-react.png"),
