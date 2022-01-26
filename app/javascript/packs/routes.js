@@ -25,6 +25,7 @@ import RecoveryPassword from "views/auth/recovery-password";
 import SelectType from "views/auth/select-type";
 import SignupCompany from "views/auth/signup-company";
 import SignupPerson from "views/auth/signup-person";
+import ShoppingHistory from "views/admin/shopping-history";
 
 var routes = [
   {
@@ -102,6 +103,13 @@ var routes = [
     name: "Administración",
     icon: "fas fa-cog",
     component: Admin,
+    layout: "/dashboard"
+  },
+  {
+    path: "/admin-shopping-history",
+    name: "Admin / Compras",
+    icon: "fas fa-cog",
+    component: ShoppingHistory,
     layout: "/dashboard"
   },
   {
