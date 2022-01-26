@@ -16,18 +16,31 @@ export default function SelectType(){
             <h1 className="py-3">Seleccionar tipo de cuenta</h1>
           </CardHeader>
           <CardBody className="px-lg-5">
-            <input type="radio" id="type1" name="type" value="Empresa" />
-            <label for="type1" className="ml-2">
-              <i className="ni ni-building mr-2"></i>
-              Empresa
-            </label>
-            <br />
-            <input type="radio" id="type2" name="type" value="Persona Natural" />
-            <label for="type2" className="ml-2">
-              <i className="ni ni-single-02 mr-2"></i>
-              Persona Natural
-            </label>
-            <br />  
+            <div className="custom-control custom-control-alternative custom-radio mb-3">
+              <input
+                className="custom-control-input"
+                id="customRadio1"
+                name="custom-radio-1"
+                type="radio"
+              />
+              <label className="custom-control-label" htmlFor="customRadio1">
+                <i className="ni ni-building mr-2"></i>
+                Empresa
+              </label>
+            </div>
+            <div className="custom-control custom-control-alternative custom-radio mb-3">
+              <input
+                className="custom-control-input"
+                defaultChecked
+                id="customRadio2"
+                name="custom-radio-1"
+                type="radio"
+              />
+              <label className="custom-control-label" htmlFor="customRadio2">
+                <i className="ni ni-single-02 mr-2"></i>
+                Persona Natural
+              </label>
+            </div>
             <div className="text-center">
               <Button className="my-4" color="info" type="button" block>
                 Crear cuenta
