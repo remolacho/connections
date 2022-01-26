@@ -26,6 +26,7 @@ import SelectType from "views/auth/select-type";
 import SignupCompany from "views/auth/signup-company";
 import SignupPerson from "views/auth/signup-person";
 import ShoppingHistory from "views/admin/shopping-history";
+import AdminUsers from "views/admin/user";
 
 var routes = [
   {
@@ -110,6 +111,13 @@ var routes = [
     name: "Admin / Compras",
     icon: "fas fa-cog",
     component: ShoppingHistory,
+    layout: "/dashboard"
+  },
+  {
+    path: "/admin-users",
+    name: "Admin / Usuarios",
+    icon: "fas fa-cog",
+    component: AdminUsers,
     layout: "/dashboard"
   },
   {
