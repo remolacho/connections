@@ -23,6 +23,7 @@ import EmailUnsubscribed from "views/email/unsubscribed"
 import Login from "views/auth/login";
 import RecoveryPassword from "views/auth/recovery-password";
 import SelectType from "views/auth/select-type";
+import SignupCompany from "views/auth/signup-company";
 
 var routes = [
   {
@@ -128,6 +129,13 @@ var routes = [
     name: "Selecciona un tipo de cuenta",
     icon: "ni ni-key-25 text-info",
     component: SelectType,
+    layout: "/auth",
+  },
+  {
+    path: "/signup-company",
+    name: "Registrarse como empresa",
+    icon: "ni ni-key-25 text-info",
+    component: SignupCompany,
     layout: "/auth",
   },
   // Example Routes
