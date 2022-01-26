@@ -24,6 +24,7 @@ import Login from "views/auth/login";
 import RecoveryPassword from "views/auth/recovery-password";
 import SelectType from "views/auth/select-type";
 import SignupCompany from "views/auth/signup-company";
+import SignupPerson from "views/auth/signup-person";
 
 var routes = [
   {
@@ -136,6 +137,13 @@ var routes = [
     name: "Registrarse como empresa",
     icon: "ni ni-key-25 text-info",
     component: SignupCompany,
+    layout: "/auth",
+  },
+  {
+    path: "/signup-person",
+    name: "Registrarse como persona",
+    icon: "ni ni-key-25 text-info",
+    component: SignupPerson,
     layout: "/auth",
   },
   // Example Routes
