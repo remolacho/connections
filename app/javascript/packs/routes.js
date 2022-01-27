@@ -29,6 +29,7 @@ import ShoppingHistory from "views/admin/shopping-history";
 import AdminUser from "views/admin/user";
 import AdminClient from "views/admin/client";
 import SuperadminUser from "views/superadmin/user";
+import SuperadminClient from "views/superadmin/client";
 
 var routes = [
   {
@@ -141,6 +142,13 @@ var routes = [
     name: "Superamin / Usuarios",
     icon: "fas fa-cog",
     component: SuperadminUser,
+    layout: "/dashboard"
+  },
+  {
+    path: "/superadmin-clients",
+    name: "Superamin / Clientes",
+    icon: "fas fa-cog",
+    component: SuperadminClient,
     layout: "/dashboard"
   },
   {
