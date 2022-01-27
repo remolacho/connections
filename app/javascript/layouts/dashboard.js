@@ -50,7 +50,7 @@ export default function Dashboard(props) {
         routes={routes.filter( route => route.layout == "/dashboard" || route.layout == "/auth")}
         logo={{
           innerLink: "/dashboard/home",
-          imgSrc: require("assets/img/brand/argon-react.png"),
+          imgSrc: require("assets/img/brand/connectus-487x144.png"),
           imgAlt: "ConnectUs"
         }}
       />
