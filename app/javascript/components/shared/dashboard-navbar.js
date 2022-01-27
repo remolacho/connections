@@ -6,41 +6,29 @@ import {
   UncontrolledDropdown,
   DropdownToggle,
   Form,
-  FormGroup,
-  InputGroupAddon,
-  InputGroupText,
-  Input,
-  InputGroup,
+  Button,
   Navbar,
   Nav,
   Container,
   Media,
 } from "reactstrap";
 
-export default function DashboardNavbar(props){
+export default function DashboardNavbar(){
   return (
     <div className="header">
       <Navbar className="navbar-top navbar-dark bg-info" expand="md" id="navbar-main">
         <Container fluid>
-          <Link
-            className="h4 mb-0 text-white text-uppercase d-none d-lg-inline-block"
-            to="/"
-          >
-            {props.brandText}
-          </Link>
           <Form className="navbar-search navbar-search-dark form-inline mr-3 d-none d-md-flex ml-lg-auto">
-            <FormGroup className="mb-0">
-              <InputGroup className="input-group-alternative">
-                <InputGroupAddon addonType="prepend">
-                  <InputGroupText>
-                    <i className="fas fa-search" />
-                  </InputGroupText>
-                </InputGroupAddon>
-                <Input placeholder="Search" type="text" />
-              </InputGroup>
-            </FormGroup>
+            <Button
+              color="warning"
+              onClick={(e) => e.preventDefault()}
+            >
+              Comprar créditos
+            </Button>
           </Form>
-          <Nav className="align-items-center d-none d-md-flex" navbar>
+          <Nav className="align-items-center d-none d-md-flex ml-2" navbar>
+            <i className="ni ni-bell-55 text-white mx-2"></i>
+            <i className="ni ni-ungroup text-white mx-2"></i>
             <UncontrolledDropdown nav>
               <DropdownToggle className="pr-0" nav>
                 <Media className="align-items-center">
