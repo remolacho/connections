@@ -27,6 +27,7 @@ import SignupCompany from "views/auth/signup-company";
 import SignupPerson from "views/auth/signup-person";
 import ShoppingHistory from "views/admin/shopping-history";
 import AdminAccount from "views/admin/account"
+import AdminReport from "views/admin/reports"
 import AdminUser from "views/admin/user";
 import AdminClient from "views/admin/client";
 import SuperadminUser from "views/superadmin/user";
@@ -115,6 +116,13 @@ var routes = [
     name: "Administración / Cuenta",
     icon: "fas fa-cog",
     component: AdminAccount,
+    layout: "/dashboard"
+  },
+  {
+    path: "/admin-reports",
+    name: "Administración / Reportes",
+    icon: "fas fa-cog",
+    component: AdminReport,
     layout: "/dashboard"
   },
   {
