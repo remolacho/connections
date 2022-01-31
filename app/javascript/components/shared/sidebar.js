@@ -33,38 +33,43 @@ import {
 
 var ps;
 
-const Sidebar = (props) => {
+export default function Sidebar(props) {
   const [collapseOpen, setCollapseOpen] = React.useState();
+  const [collapseOption, setCollapseOption] = React.useState({
+    sms: false,
+    email: false,
+    admin: false
+  })
   // verifies if routeName is the one active (in browser input)
-  const activeRoute = (routeName) => {
-    return props.location.pathname.indexOf(routeName) > -1 ? "active" : "";
-  };
+  // const activeRoute = (routeName) => {
+  //   return props.location.pathname.indexOf(routeName) > -1 ? "active" : "";
+  // };
   // toggles collapse between opened and closed (true/false)
   const toggleCollapse = () => {
     setCollapseOpen((data) => !data);
   };
   // closes the collapse
   const closeCollapse = () => {
-    setCollapseOpen(false);
+    setCollapseOpen((data) => !data);
   };
   // creates the links that appear in the left menu / Sidebar
-  const createLinks = (routes) => {
-    return routes.map((prop, key) => {
-      return (
-        <NavItem key={key}>
-          <NavLink
-            to={prop.layout + prop.path}
-            tag={NavLinkRRD}
-            onClick={closeCollapse}
-            activeClassName="active"
-          >
-            <i className={prop.icon} />
-            {prop.name}
-          </NavLink>
-        </NavItem>
-      );
-    });
-  };
+  // const createLinks = (routes) => {
+  //   return routes.map((prop, key) => {
+  //     return (
+  //       <NavItem key={key}>
+  //         <NavLink
+  //           to={prop.layout + prop.path}
+  //           tag={NavLinkRRD}
+  //           onClick={closeCollapse}
+  //           activeClassName="active"
+  //         >
+  //           <i className={prop.icon} />
+  //           {prop.name}
+  //         </NavLink>
+  //       </NavItem>
+  //     );
+  //   });
+  // };
 
   const { bgColor, routes, logo } = props;
   let navbarBrandProps;
@@ -210,7 +215,267 @@ const Sidebar = (props) => {
             </InputGroup>
           </Form>
           {/* Navigation */}
-          <Nav navbar>{createLinks(routes)}</Nav>
+          <Nav navbar>
+            {/* {createLinks(routes)} */}
+            <NavItem>
+              <NavLink
+                to="/dashboard/home"
+                tag={NavLinkRRD}
+                onClick={closeCollapse}
+                activeClassName="active"
+              >
+                <i className="ni ni-tv-2 text-primary" />
+                  Panel de control
+              </NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink
+                to="/dashboard/contact"
+                tag={NavLinkRRD}
+                onClick={closeCollapse}
+                activeClassName="active"
+              >
+                <i className="ni ni-single-02 text-blue" />
+                  Contactos
+              </NavLink>
+            </NavItem>
+            <li>
+              <a type="button" onClick={() => setCollapseOption({...collapseOption, sms: !collapseOption.sms})} className="d-flex justify-content-between nav-link">
+                <span className="d-block">
+                  <i class="ni ni-chat-round pr-4 text-info"></i>
+                  SMS
+                </span>
+                <span className="d-block">
+                  { collapseOption.sms ?
+                    <i class="ni ni-bold-down text-info"></i>
+                    :
+                    <i class="ni ni-bold-right"></i>
+                  }
+                </span>
+              </a>
+            </li>
+            <span className={`${collapseOption.sms ? '' : "d-none"}`}>
+              <NavItem>
+                <NavLink
+                  to="/dashboard/sms"
+                  tag={NavLinkRRD}
+                  onClick={closeCollapse}
+                  activeClassName="active"
+                >
+                  <span className="pl-4">
+                    Enviar
+                  </span>
+                </NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink
+                  to="/dashboard/shipped-and-scheduled"
+                  tag={NavLinkRRD}
+                  onClick={closeCollapse}
+                  activeClassName="active"
+                >
+                  <span className="pl-4">
+                    Enviados y programados
+                  </span>
+                </NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink
+                  to="/dashboard/auto-preset"
+                  tag={NavLinkRRD}
+                  onClick={closeCollapse}
+                  activeClassName="active"
+                >
+                  <span className="pl-4">
+                    Predefinidos y automáticos
+                  </span>
+                </NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink
+                  to="/dashboard/received"
+                  tag={NavLinkRRD}
+                  onClick={closeCollapse}
+                  activeClassName="active"
+                >
+                  <span className="pl-4">
+                    Recibidos
+                  </span>
+                </NavLink>
+              </NavItem>
+            </span>
+            <li>
+              <a type="button" onClick={() => setCollapseOption({...collapseOption, email: !collapseOption.email})} className="d-flex justify-content-between nav-link">
+                <span className="d-block">
+                  <i class="ni ni-email-83 pr-4 text-primary"></i>
+                  Email
+                </span>
+                <span className="d-block">
+                  { collapseOption.email ?
+                    <i class="ni ni-bold-down text-info"></i>
+                    :
+                    <i class="ni ni-bold-right"></i>
+                  }
+                </span>
+              </a>
+            </li>
+            <span className={`${collapseOption.email ? '' : "d-none"}`}>
+              <NavItem>
+                <NavLink
+                  to="/dashboard/email-shipped-and-scheduled"
+                  tag={NavLinkRRD}
+                  onClick={closeCollapse}
+                  activeClassName="active"
+                >
+                  <span className="pl-4">
+                    Enviados y programados
+                  </span>
+                </NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink
+                  to="/dashboard/email-auto-preset"
+                  tag={NavLinkRRD}
+                  onClick={closeCollapse}
+                  activeClassName="active"
+                >
+                  <span className="pl-4">
+                    Predefinidos y automáticos
+                  </span>
+                </NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink
+                  to="/dashboard/email-unsubscribed"
+                  tag={NavLinkRRD}
+                  onClick={closeCollapse}
+                  activeClassName="active"
+                >
+                  <span className="pl-4">
+                    Emails desuscritos
+                  </span>
+                </NavLink>
+              </NavItem>
+            </span>
+            <li>
+              <a type="button" onClick={() => setCollapseOption({...collapseOption, admin: !collapseOption.admin})} className="d-flex justify-content-between nav-link">
+                <span className="d-block">
+                  <i class="fas fa-cog pr-4"></i>
+                  Administración
+                </span>
+                <span className="d-block">
+                  { collapseOption.admin ?
+                    <i class="ni ni-bold-down text-info"></i>
+                    :
+                    <i class="ni ni-bold-right"></i>
+                  }
+                </span>
+              </a>
+            </li>
+            <span className={`${collapseOption.admin ? '' : "d-none"}`}>
+              <NavItem>
+                <NavLink
+                  to="/dashboard/admin-account"
+                  tag={NavLinkRRD}
+                  onClick={closeCollapse}
+                  activeClassName="active"
+                >
+                  <span className="pl-4">
+                    Cuenta
+                  </span>
+                </NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink
+                  to="/dashboard/admin-reports"
+                  tag={NavLinkRRD}
+                  onClick={closeCollapse}
+                  activeClassName="active"
+                >
+                  <span className="pl-4">
+                    Reportes
+                  </span>
+                </NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink
+                  to="/dashboard/admin-shopping-history"
+                  tag={NavLinkRRD}
+                  onClick={closeCollapse}
+                  activeClassName="active"
+                >
+                  <span className="pl-4">
+                    Compras
+                  </span>
+                </NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink
+                  to="/dashboard/admin-users"
+                  tag={NavLinkRRD}
+                  onClick={closeCollapse}
+                  activeClassName="active"
+                >
+                  <span className="pl-4">
+                    Usuarios
+                  </span>
+                </NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink
+                  to="/dashboard/admin-clients"
+                  tag={NavLinkRRD}
+                  onClick={closeCollapse}
+                  activeClassName="active"
+                >
+                  <span className="pl-4">
+                    Clientes
+                  </span>
+                </NavLink>
+              </NavItem>
+            </span>
+            <li>
+              <a type="button" onClick={() => setCollapseOption({...collapseOption, superadmin: !collapseOption.superadmin})} className="d-flex justify-content-between nav-link">
+                <span className="d-block">
+                  <i class="fas fa-cog pr-4"></i>
+                  Superadmin
+                </span>
+                <span className="d-block">
+                  { collapseOption.superadmin ?
+                    <i class="ni ni-bold-down text-info"></i>
+                    :
+                    <i class="ni ni-bold-right"></i>
+                  }
+                </span>
+              </a>
+            </li>
+            <span className={`${collapseOption.superadmin ? '' : "d-none"}`}>
+              <NavItem>
+                <NavLink
+                  to="/dashboard/superadmin-users"
+                  tag={NavLinkRRD}
+                  onClick={closeCollapse}
+                  activeClassName="active"
+                >
+                  <span className="pl-4">
+                    Usuarios
+                  </span>
+                </NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink
+                  to="/dashboard/superadmin-clients"
+                  tag={NavLinkRRD}
+                  onClick={closeCollapse}
+                  activeClassName="active"
+                >
+                  <span className="pl-4">
+                    Clientes
+                  </span>
+                </NavLink>
+              </NavItem>
+            </span>
+          </Nav>
           {/* Divider */}
           <hr className="my-3" />
           {/* Heading */}
@@ -242,25 +507,6 @@ const Sidebar = (props) => {
   );
 };
 
-Sidebar.defaultProps = {
-  routes: [{}],
-};
-
-Sidebar.propTypes = {
-  // links that will be displayed inside the component
-  routes: PropTypes.arrayOf(PropTypes.object),
-  logo: PropTypes.shape({
-    // innerLink is for links that will direct the user within the app
-    // it will be rendered as <Link to="...">...</Link> tag
-    innerLink: PropTypes.string,
-    // outterLink is for links that will direct the user outside the app
-    // it will be rendered as simple <a href="...">...</a> tag
-    outterLink: PropTypes.string,
-    // the image src of the logo
-    imgSrc: PropTypes.string.isRequired,
-    // the alt for the img
-    imgAlt: PropTypes.string.isRequired,
-  }),
-};
-
-export default Sidebar;
+// Sidebar.defaultProps = {
+//   routes: [{}],
+// };
