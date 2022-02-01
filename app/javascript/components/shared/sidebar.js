@@ -242,14 +242,14 @@ export default function Sidebar(props) {
             <li>
               <a type="button" onClick={() => setCollapseOption({...collapseOption, sms: !collapseOption.sms})} className="d-flex justify-content-between nav-link">
                 <span className="d-block">
-                  <i class="ni ni-chat-round pr-4 text-info"></i>
+                  <i className="ni ni-chat-round pr-4 text-info"></i>
                   SMS
                 </span>
                 <span className="d-block">
                   { collapseOption.sms ?
-                    <i class="ni ni-bold-down text-info"></i>
+                    <i className="ni ni-bold-down text-info"></i>
                     :
-                    <i class="ni ni-bold-right"></i>
+                    <i className="ni ni-bold-right"></i>
                   }
                 </span>
               </a>
@@ -307,14 +307,14 @@ export default function Sidebar(props) {
             <li>
               <a type="button" onClick={() => setCollapseOption({...collapseOption, email: !collapseOption.email})} className="d-flex justify-content-between nav-link">
                 <span className="d-block">
-                  <i class="ni ni-email-83 pr-4 text-primary"></i>
+                  <i className="ni ni-email-83 pr-4 text-primary"></i>
                   Email
                 </span>
                 <span className="d-block">
                   { collapseOption.email ?
-                    <i class="ni ni-bold-down text-info"></i>
+                    <i className="ni ni-bold-down text-info"></i>
                     :
-                    <i class="ni ni-bold-right"></i>
+                    <i className="ni ni-bold-right"></i>
                   }
                 </span>
               </a>
@@ -360,14 +360,14 @@ export default function Sidebar(props) {
             <li>
               <a type="button" onClick={() => setCollapseOption({...collapseOption, admin: !collapseOption.admin})} className="d-flex justify-content-between nav-link">
                 <span className="d-block">
-                  <i class="fas fa-cog pr-4"></i>
+                  <i className="fas fa-cog pr-4"></i>
                   Administración
                 </span>
                 <span className="d-block">
                   { collapseOption.admin ?
-                    <i class="ni ni-bold-down text-info"></i>
+                    <i className="ni ni-bold-down text-info"></i>
                     :
-                    <i class="ni ni-bold-right"></i>
+                    <i className="ni ni-bold-right"></i>
                   }
                 </span>
               </a>
@@ -437,14 +437,14 @@ export default function Sidebar(props) {
             <li>
               <a type="button" onClick={() => setCollapseOption({...collapseOption, superadmin: !collapseOption.superadmin})} className="d-flex justify-content-between nav-link">
                 <span className="d-block">
-                  <i class="fas fa-cog pr-4"></i>
+                  <i className="fas fa-cog pr-4"></i>
                   Superadmin
                 </span>
                 <span className="d-block">
                   { collapseOption.superadmin ?
-                    <i class="ni ni-bold-down text-info"></i>
+                    <i className="ni ni-bold-down text-info"></i>
                     :
-                    <i class="ni ni-bold-right"></i>
+                    <i className="ni ni-bold-right"></i>
                   }
                 </span>
               </a>
