@@ -1,18 +1,11 @@
 import React from "react";
 import { NavLink as NavLinkRRD, Link } from "react-router-dom";
-import { PropTypes } from "prop-types";
 import {
-  Button,
-  Card,
-  CardHeader,
-  CardBody,
-  CardTitle,
   Collapse,
   DropdownMenu,
   DropdownItem,
   UncontrolledDropdown,
   DropdownToggle,
-  FormGroup,
   Form,
   Input,
   InputGroupAddon,
@@ -24,26 +17,19 @@ import {
   NavItem,
   NavLink,
   Nav,
-  Progress,
-  Table,
   Container,
   Row,
   Col,
 } from "reactstrap";
 
-var ps;
-
-export default function Sidebar(props) {
+export default function Sidebar() {
   const [collapseOpen, setCollapseOpen] = React.useState();
   const [collapseOption, setCollapseOption] = React.useState({
     sms: false,
     email: false,
     admin: false
   })
-  // verifies if routeName is the one active (in browser input)
-  // const activeRoute = (routeName) => {
-  //   return props.location.pathname.indexOf(routeName) > -1 ? "active" : "";
-  // };
+  
   // toggles collapse between opened and closed (true/false)
   const toggleCollapse = () => {
     setCollapseOpen((data) => !data);
@@ -52,38 +38,6 @@ export default function Sidebar(props) {
   const closeCollapse = () => {
     setCollapseOpen((data) => !data);
   };
-  // creates the links that appear in the left menu / Sidebar
-  // const createLinks = (routes) => {
-  //   return routes.map((prop, key) => {
-  //     return (
-  //       <NavItem key={key}>
-  //         <NavLink
-  //           to={prop.layout + prop.path}
-  //           tag={NavLinkRRD}
-  //           onClick={closeCollapse}
-  //           activeClassName="active"
-  //         >
-  //           <i className={prop.icon} />
-  //           {prop.name}
-  //         </NavLink>
-  //       </NavItem>
-  //     );
-  //   });
-  // };
-
-  const { bgColor, routes, logo } = props;
-  let navbarBrandProps;
-  if (logo && logo.innerLink) {
-    navbarBrandProps = {
-      to: logo.innerLink,
-      tag: Link,
-    };
-  } else if (logo && logo.outterLink) {
-    navbarBrandProps = {
-      href: logo.outterLink,
-      target: "_blank",
-    };
-  }
 
   return (
     <Navbar
@@ -101,15 +55,13 @@ export default function Sidebar(props) {
           <span className="navbar-toggler-icon" />
         </button>
         {/* Brand */}
-        {logo ? (
-          <NavbarBrand className="pt-0" {...navbarBrandProps}>
-            <img
-              alt={logo.imgAlt}
-              className="navbar-brand-img"
-              src={logo.imgSrc}
-            />
-          </NavbarBrand>
-        ) : null}
+        <NavbarBrand className="pt-0" href="/dashboard/home" tag={Link}>
+          <img
+            alt="ConnectUs"
+            className="navbar-brand-img"
+            src={require("assets/img/brand/connectus-487x144.png")}
+          />
+        </NavbarBrand>
         {/* User */}
         <Nav className="align-items-center d-md-none">
           <UncontrolledDropdown nav>
@@ -173,19 +125,11 @@ export default function Sidebar(props) {
           {/* Collapse header */}
           <div className="navbar-collapse-header d-md-none">
             <Row>
-              {logo ? (
-                <Col className="collapse-brand" xs="6">
-                  {logo.innerLink ? (
-                    <Link to={logo.innerLink}>
-                      <img alt={logo.imgAlt} src={logo.imgSrc} />
-                    </Link>
-                  ) : (
-                    <a href={logo.outterLink}>
-                      <img alt={logo.imgAlt} src={logo.imgSrc} />
-                    </a>
-                  )}
-                </Col>
-              ) : null}
+              <Col className="collapse-brand" xs="6">
+                  <Link to="/dashboard/home">
+                    <img alt="ConnectUs" src={require("assets/img/brand/connectus-487x144.png")} />
+                  </Link>
+              </Col>
               <Col className="collapse-close" xs="6">
                 <button
                   className="navbar-toggler"
