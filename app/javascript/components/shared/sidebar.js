@@ -1,49 +1,34 @@
 import React from "react";
 import { NavLink as NavLinkRRD, Link } from "react-router-dom";
-import { PropTypes } from "prop-types";
 import {
-  Button,
-  Card,
-  CardHeader,
-  CardBody,
-  CardTitle,
   Collapse,
   DropdownMenu,
   DropdownItem,
   UncontrolledDropdown,
   DropdownToggle,
-  FormGroup,
   Form,
   Input,
   InputGroupAddon,
   InputGroupText,
   InputGroup,
   Media,
-  NavbarBrand,
   Navbar,
   NavItem,
   NavLink,
   Nav,
-  Progress,
-  Table,
   Container,
   Row,
   Col,
 } from "reactstrap";
 
-var ps;
-
-export default function Sidebar(props) {
+export default function Sidebar() {
   const [collapseOpen, setCollapseOpen] = React.useState();
   const [collapseOption, setCollapseOption] = React.useState({
     sms: false,
     email: false,
     admin: false
   })
-  // verifies if routeName is the one active (in browser input)
-  // const activeRoute = (routeName) => {
-  //   return props.location.pathname.indexOf(routeName) > -1 ? "active" : "";
-  // };
+  
   // toggles collapse between opened and closed (true/false)
   const toggleCollapse = () => {
     setCollapseOpen((data) => !data);
@@ -52,38 +37,6 @@ export default function Sidebar(props) {
   const closeCollapse = () => {
     setCollapseOpen((data) => !data);
   };
-  // creates the links that appear in the left menu / Sidebar
-  // const createLinks = (routes) => {
-  //   return routes.map((prop, key) => {
-  //     return (
-  //       <NavItem key={key}>
-  //         <NavLink
-  //           to={prop.layout + prop.path}
-  //           tag={NavLinkRRD}
-  //           onClick={closeCollapse}
-  //           activeClassName="active"
-  //         >
-  //           <i className={prop.icon} />
-  //           {prop.name}
-  //         </NavLink>
-  //       </NavItem>
-  //     );
-  //   });
-  // };
-
-  const { bgColor, routes, logo } = props;
-  let navbarBrandProps;
-  if (logo && logo.innerLink) {
-    navbarBrandProps = {
-      to: logo.innerLink,
-      tag: Link,
-    };
-  } else if (logo && logo.outterLink) {
-    navbarBrandProps = {
-      href: logo.outterLink,
-      target: "_blank",
-    };
-  }
 
   return (
     <Navbar
@@ -101,15 +54,13 @@ export default function Sidebar(props) {
           <span className="navbar-toggler-icon" />
         </button>
         {/* Brand */}
-        {logo ? (
-          <NavbarBrand className="pt-0" {...navbarBrandProps}>
-            <img
-              alt={logo.imgAlt}
-              className="navbar-brand-img"
-              src={logo.imgSrc}
-            />
-          </NavbarBrand>
-        ) : null}
+        <Link className="pt-0 navbar-brand" to="dashboard" >
+          <img
+            alt="ConnectUs"
+            className="navbar-brand-img"
+            src={require("assets/img/brand/connectus-487x144.png")}
+          />
+        </Link>
         {/* User */}
         <Nav className="align-items-center d-md-none">
           <UncontrolledDropdown nav>
@@ -144,7 +95,7 @@ export default function Sidebar(props) {
               <DropdownItem className="noti-title" header tag="div">
                 <h6 className="text-overflow m-0">Welcome!</h6>
               </DropdownItem>
-              <DropdownItem to="/example/admin/user-profile" tag={Link}>
+              {/* <DropdownItem to="/example/admin/user-profile" tag={Link}>
                 <i className="ni ni-single-02" />
                 <span>My profile</span>
               </DropdownItem>
@@ -159,7 +110,7 @@ export default function Sidebar(props) {
               <DropdownItem to="/example/admin/user-profile" tag={Link}>
                 <i className="ni ni-support-16" />
                 <span>Support</span>
-              </DropdownItem>
+              </DropdownItem> */}
               <DropdownItem divider />
               <DropdownItem href="#pablo" onClick={(e) => e.preventDefault()}>
                 <i className="ni ni-user-run" />
@@ -173,19 +124,11 @@ export default function Sidebar(props) {
           {/* Collapse header */}
           <div className="navbar-collapse-header d-md-none">
             <Row>
-              {logo ? (
-                <Col className="collapse-brand" xs="6">
-                  {logo.innerLink ? (
-                    <Link to={logo.innerLink}>
-                      <img alt={logo.imgAlt} src={logo.imgSrc} />
-                    </Link>
-                  ) : (
-                    <a href={logo.outterLink}>
-                      <img alt={logo.imgAlt} src={logo.imgSrc} />
-                    </a>
-                  )}
-                </Col>
-              ) : null}
+              <Col className="collapse-brand" xs="6">
+                <Link to="/dashboard">
+                  <img alt="ConnectUs" src={require("assets/img/brand/connectus-487x144.png")} />
+                </Link>
+              </Col>
               <Col className="collapse-close" xs="6">
                 <button
                   className="navbar-toggler"
@@ -216,13 +159,11 @@ export default function Sidebar(props) {
           </Form>
           {/* Navigation */}
           <Nav navbar>
-            {/* {createLinks(routes)} */}
             <NavItem>
               <NavLink
-                to="/dashboard/home"
+                to="/dashboard"
                 tag={NavLinkRRD}
                 onClick={closeCollapse}
-                activeClassName="active"
               >
                 <i className="ni ni-tv-2 text-primary" />
                   Panel de control
@@ -230,10 +171,9 @@ export default function Sidebar(props) {
             </NavItem>
             <NavItem>
               <NavLink
-                to="/dashboard/contact"
+                to="/contact"
                 tag={NavLinkRRD}
                 onClick={closeCollapse}
-                activeClassName="active"
               >
                 <i className="ni ni-single-02 text-blue" />
                   Contactos
@@ -242,14 +182,14 @@ export default function Sidebar(props) {
             <li>
               <a type="button" onClick={() => setCollapseOption({...collapseOption, sms: !collapseOption.sms})} className="d-flex justify-content-between nav-link">
                 <span className="d-block">
-                  <i class="ni ni-chat-round pr-4 text-info"></i>
+                  <i className="ni ni-chat-round pr-4 text-info"></i>
                   SMS
                 </span>
                 <span className="d-block">
                   { collapseOption.sms ?
-                    <i class="ni ni-bold-down text-info"></i>
+                    <i className="ni ni-bold-down text-info"></i>
                     :
-                    <i class="ni ni-bold-right"></i>
+                    <i className="ni ni-bold-right"></i>
                   }
                 </span>
               </a>
@@ -257,10 +197,9 @@ export default function Sidebar(props) {
             <span className={`${collapseOption.sms ? '' : "d-none"}`}>
               <NavItem>
                 <NavLink
-                  to="/dashboard/sms"
+                  to="/sms/send"
                   tag={NavLinkRRD}
                   onClick={closeCollapse}
-                  activeClassName="active"
                 >
                   <span className="pl-4">
                     Enviar
@@ -269,10 +208,9 @@ export default function Sidebar(props) {
               </NavItem>
               <NavItem>
                 <NavLink
-                  to="/dashboard/shipped-and-scheduled"
+                  to="/sms/shipped-and-scheduled"
                   tag={NavLinkRRD}
                   onClick={closeCollapse}
-                  activeClassName="active"
                 >
                   <span className="pl-4">
                     Enviados y programados
@@ -281,10 +219,9 @@ export default function Sidebar(props) {
               </NavItem>
               <NavItem>
                 <NavLink
-                  to="/dashboard/auto-preset"
+                  to="/sms/auto-preset"
                   tag={NavLinkRRD}
                   onClick={closeCollapse}
-                  activeClassName="active"
                 >
                   <span className="pl-4">
                     Predefinidos y automáticos
@@ -293,10 +230,9 @@ export default function Sidebar(props) {
               </NavItem>
               <NavItem>
                 <NavLink
-                  to="/dashboard/received"
+                  to="/sms/received"
                   tag={NavLinkRRD}
                   onClick={closeCollapse}
-                  activeClassName="active"
                 >
                   <span className="pl-4">
                     Recibidos
@@ -307,14 +243,14 @@ export default function Sidebar(props) {
             <li>
               <a type="button" onClick={() => setCollapseOption({...collapseOption, email: !collapseOption.email})} className="d-flex justify-content-between nav-link">
                 <span className="d-block">
-                  <i class="ni ni-email-83 pr-4 text-primary"></i>
+                  <i className="ni ni-email-83 pr-4 text-primary"></i>
                   Email
                 </span>
                 <span className="d-block">
                   { collapseOption.email ?
-                    <i class="ni ni-bold-down text-info"></i>
+                    <i className="ni ni-bold-down text-info"></i>
                     :
-                    <i class="ni ni-bold-right"></i>
+                    <i className="ni ni-bold-right"></i>
                   }
                 </span>
               </a>
@@ -322,10 +258,20 @@ export default function Sidebar(props) {
             <span className={`${collapseOption.email ? '' : "d-none"}`}>
               <NavItem>
                 <NavLink
-                  to="/dashboard/email-shipped-and-scheduled"
+                  to="/email/send"
                   tag={NavLinkRRD}
                   onClick={closeCollapse}
-                  activeClassName="active"
+                >
+                  <span className="pl-4">
+                    Enviar
+                  </span>
+                </NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink
+                  to="/email/shipped-and-scheduled"
+                  tag={NavLinkRRD}
+                  onClick={closeCollapse}
                 >
                   <span className="pl-4">
                     Enviados y programados
@@ -334,10 +280,9 @@ export default function Sidebar(props) {
               </NavItem>
               <NavItem>
                 <NavLink
-                  to="/dashboard/email-auto-preset"
+                  to="/email/auto-preset"
                   tag={NavLinkRRD}
                   onClick={closeCollapse}
-                  activeClassName="active"
                 >
                   <span className="pl-4">
                     Predefinidos y automáticos
@@ -346,10 +291,9 @@ export default function Sidebar(props) {
               </NavItem>
               <NavItem>
                 <NavLink
-                  to="/dashboard/email-unsubscribed"
+                  to="/email/unsubscribed"
                   tag={NavLinkRRD}
                   onClick={closeCollapse}
-                  activeClassName="active"
                 >
                   <span className="pl-4">
                     Emails desuscritos
@@ -360,14 +304,14 @@ export default function Sidebar(props) {
             <li>
               <a type="button" onClick={() => setCollapseOption({...collapseOption, admin: !collapseOption.admin})} className="d-flex justify-content-between nav-link">
                 <span className="d-block">
-                  <i class="fas fa-cog pr-4"></i>
+                  <i className="fas fa-cog pr-4"></i>
                   Administración
                 </span>
                 <span className="d-block">
                   { collapseOption.admin ?
-                    <i class="ni ni-bold-down text-info"></i>
+                    <i className="ni ni-bold-down text-info"></i>
                     :
-                    <i class="ni ni-bold-right"></i>
+                    <i className="ni ni-bold-right"></i>
                   }
                 </span>
               </a>
@@ -375,10 +319,9 @@ export default function Sidebar(props) {
             <span className={`${collapseOption.admin ? '' : "d-none"}`}>
               <NavItem>
                 <NavLink
-                  to="/dashboard/admin-account"
+                  to="/admin/account"
                   tag={NavLinkRRD}
                   onClick={closeCollapse}
-                  activeClassName="active"
                 >
                   <span className="pl-4">
                     Cuenta
@@ -387,10 +330,9 @@ export default function Sidebar(props) {
               </NavItem>
               <NavItem>
                 <NavLink
-                  to="/dashboard/admin-reports"
+                  to="/admin/reports"
                   tag={NavLinkRRD}
                   onClick={closeCollapse}
-                  activeClassName="active"
                 >
                   <span className="pl-4">
                     Reportes
@@ -399,10 +341,9 @@ export default function Sidebar(props) {
               </NavItem>
               <NavItem>
                 <NavLink
-                  to="/dashboard/admin-shopping-history"
+                  to="/admin/shopping-history"
                   tag={NavLinkRRD}
                   onClick={closeCollapse}
-                  activeClassName="active"
                 >
                   <span className="pl-4">
                     Compras
@@ -411,10 +352,9 @@ export default function Sidebar(props) {
               </NavItem>
               <NavItem>
                 <NavLink
-                  to="/dashboard/admin-users"
+                  to="/admin/users"
                   tag={NavLinkRRD}
                   onClick={closeCollapse}
-                  activeClassName="active"
                 >
                   <span className="pl-4">
                     Usuarios
@@ -423,10 +363,9 @@ export default function Sidebar(props) {
               </NavItem>
               <NavItem>
                 <NavLink
-                  to="/dashboard/admin-clients"
+                  to="/admin/clients"
                   tag={NavLinkRRD}
                   onClick={closeCollapse}
-                  activeClassName="active"
                 >
                   <span className="pl-4">
                     Clientes
@@ -437,14 +376,14 @@ export default function Sidebar(props) {
             <li>
               <a type="button" onClick={() => setCollapseOption({...collapseOption, superadmin: !collapseOption.superadmin})} className="d-flex justify-content-between nav-link">
                 <span className="d-block">
-                  <i class="fas fa-cog pr-4"></i>
+                  <i className="fas fa-cog pr-4"></i>
                   Superadmin
                 </span>
                 <span className="d-block">
                   { collapseOption.superadmin ?
-                    <i class="ni ni-bold-down text-info"></i>
+                    <i className="ni ni-bold-down text-info"></i>
                     :
-                    <i class="ni ni-bold-right"></i>
+                    <i className="ni ni-bold-right"></i>
                   }
                 </span>
               </a>
@@ -452,10 +391,9 @@ export default function Sidebar(props) {
             <span className={`${collapseOption.superadmin ? '' : "d-none"}`}>
               <NavItem>
                 <NavLink
-                  to="/dashboard/superadmin-users"
+                  to="/superadmin/users"
                   tag={NavLinkRRD}
                   onClick={closeCollapse}
-                  activeClassName="active"
                 >
                   <span className="pl-4">
                     Usuarios
@@ -464,10 +402,9 @@ export default function Sidebar(props) {
               </NavItem>
               <NavItem>
                 <NavLink
-                  to="/dashboard/superadmin-clients"
+                  to="/superadmin/clients"
                   tag={NavLinkRRD}
                   onClick={closeCollapse}
-                  activeClassName="active"
                 >
                   <span className="pl-4">
                     Clientes
