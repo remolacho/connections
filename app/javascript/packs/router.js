@@ -19,9 +19,12 @@ import DashboardSales from "views/dashboard/sales"
 import DashboardMessages from "views/dashboard/messages"
 import DashboardClientsSMPP from "views/dashboard/clients-smpp"
 import DashboardProvidersSMPP from "views/dashboard/providers-smpp"
+// 
+import DashboardSellerSales from 'views/dashboard-seller/sales'
+// 
 import Contact from "views/contact"
 import Email from "views/email"
-import SMS from "views/sms"
+import SMS from "views/sms/send"
 import SMSShippedScheduled from "views/sms/shipped-and-scheduled"
 import SMSAutoPreset from "views/sms/auto-preset"
 import SMSReceived from "views/sms/received"
@@ -53,6 +56,10 @@ export default function Router(){
             <Route path="messages" element={<DashboardMessages />} />
             <Route path="clients-smpp" element={<DashboardClientsSMPP />} />
             <Route path="providers-smpp" element={<DashboardProvidersSMPP />} />
+          </Route>
+          <Route path="dashboard-seller" element={<DashboardNavbar />}>
+            <Route index element={<Navigate to="/dashboard-seller/sales" />} />
+            <Route path="sales" element={<DashboardSellerSales />} />
           </Route>
           <Route path="contact" element={<Contact />} />
           <Route path="sms">
