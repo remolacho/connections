@@ -51,6 +51,14 @@ export default function DashboardNavbar(){
                 </NavItem>
                 <NavItem>
                   <NavLink 
+                    to="/dashboard/providers-smpp"
+                    tag={NavLinkRRD}
+                  >
+                    Proveedores SMPP
+                  </NavLink>
+                </NavItem>
+                <NavItem>
+                  <NavLink 
                     to="/dashboard/clients-smpp"
                     tag={NavLinkRRD}
                   >
