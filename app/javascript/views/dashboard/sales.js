@@ -1,5 +1,4 @@
 import React from "react"
-import classnames from "classnames";
 import Chart from "chart.js";
 import { Line, Bar } from "react-chartjs-2";
 import {
@@ -23,7 +22,7 @@ import {
   chartExample2,
 } from "variables/charts.js";
 
-export default function Home(){
+export default function Sales(){
   const [chartExample1Data, setChartExample1Data] = React.useState("data1");
 
   if (window.Chart) {
@@ -31,7 +30,7 @@ export default function Home(){
   }
 
   return (
-    <Container className="pt-7" fluid>
+    <>
       {/* Card stats */}
       <Row>
         <Col lg="6" xl="3">
@@ -773,6 +772,6 @@ export default function Home(){
           </Card>
         </Col>
       </Row>
-    </Container>
+    </>
   )
 }

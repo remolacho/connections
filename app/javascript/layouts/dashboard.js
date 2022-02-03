@@ -2,7 +2,7 @@ import React from 'react'
 import { Outlet } from "react-router-dom";
 import { Container } from "reactstrap";
 
-import DashboardNavbar from "components/shared/dashboard-navbar"
+import DashboardNavbar from "components/shared/admin-navbar"
 import Footer from "components/shared/footer"
 import Sidebar from "components/shared/sidebar"
 
