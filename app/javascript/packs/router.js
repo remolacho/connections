@@ -14,7 +14,7 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import DashboardLayout from "layouts/dashboard"
 // import AuthLayour from "layouts/auth"
 
-import Home from "views/home"
+import Home from "views/dashboard/home"
 import Contact from "views/contact"
 import Email from "views/email"
 import SMS from "views/sms"
@@ -42,7 +42,9 @@ export default function Router(){
     <div>
       <Routes>
         <Route path="/" element={<DashboardLayout />} >
-          <Route index element={<Home />} />
+          <Route path="dashboard">
+            <Route index element={<Home />} />
+          </Route>
           <Route path="contact" element={<Contact />} />
           <Route path="sms">
             <Route path="send" element={<SMS />} />
@@ -67,7 +69,7 @@ export default function Router(){
             <Route path="users" element={<SuperadminUser />} />
             <Route path="clients" element={<SuperadminClient />} />
           </Route>
-          <Route path="*" element={<Navigate to="/" />} />
+          <Route path="*" element={<Navigate to="/dashboard" />} />
           {/* <Navigate to="/dashboard" /> */}
         </Route>
       </Routes>

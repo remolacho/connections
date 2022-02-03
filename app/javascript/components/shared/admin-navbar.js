@@ -13,7 +13,7 @@ import {
   Media,
 } from "reactstrap";
 
-export default function DashboardNavbar(){
+export default function AdminNavbar(){
   return (
     <div className="header">
       <Navbar className="navbar-top navbar-dark bg-info" expand="md" id="navbar-main">
