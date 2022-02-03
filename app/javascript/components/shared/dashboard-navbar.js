@@ -57,6 +57,14 @@ function NavbarSeller(){
             Ventas
           </NavLink>
         </NavItem>
+        <NavItem className='align-items-center d-inline-flex'>
+          <NavLink 
+            to="/dashboard-seller/messages"
+            tag={NavLinkRRD}
+          >
+            Messages
+          </NavLink>
+        </NavItem>
         </Nav>
       </Collapse>
     </Navbar>
