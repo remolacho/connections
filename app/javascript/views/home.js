@@ -9,9 +9,6 @@ import {
   CardBody,
   CardTitle,
   Media,
-  NavItem,
-  NavLink,
-  Nav,
   Progress,
   Table,
   Container,
@@ -27,18 +24,11 @@ import {
 } from "variables/charts.js";
 
 export default function Home(){
-  // const [activeNav, setActiveNav] = React.useState(1);
   const [chartExample1Data, setChartExample1Data] = React.useState("data1");
 
   if (window.Chart) {
     parseOptions(Chart, chartOptions());
   }
-
-  // const toggleNavs = (e, index) => {
-  //   e.preventDefault();
-  //   setActiveNav(index);
-  //   setChartExample1Data("data" + index);
-  // };
 
   return (
     <Container className="pt-7" fluid>
@@ -198,6 +188,8 @@ export default function Home(){
           </Card>
         </Col>
       </Row>
+
+      {/* content */}
       <Row className="mt-5">
         <Col className="mb-5 mb-xl-0" md="6">
           <Card className="bg-white shadow">
