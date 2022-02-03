@@ -17,7 +17,7 @@ import {
 export default function Index() {
   const [shippingType, setShippingType] = React.useState('individual')
   const [shippingTime, setShippingTime] = React.useState('as_possible')
-  const [showModal, setShowModal] = React.useState(true)
+  const [showModal, setShowModal] = React.useState(false)
 
   return (
     <div className="pt-7">
