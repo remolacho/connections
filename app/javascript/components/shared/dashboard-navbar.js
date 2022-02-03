@@ -49,6 +49,14 @@ export default function DashboardNavbar(){
                     Mensajes
                   </NavLink>
                 </NavItem>
+                <NavItem>
+                  <NavLink 
+                    to="/dashboard/clients-smpp"
+                    tag={NavLinkRRD}
+                  >
+                    Clientes SMPP
+                  </NavLink>
+                </NavItem>
               </Nav>
             </Collapse>
           </Navbar>
