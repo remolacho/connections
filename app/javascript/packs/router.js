@@ -17,6 +17,7 @@ import DashboardLayout from "layouts/dashboard"
 import DashboardNavbar from 'components/shared/dashboard-navbar';
 import DashboardSales from "views/dashboard/sales"
 import DashboardMessages from "views/dashboard/messages"
+import DashboardClientsSMPP from "views/dashboard/clients-smpp"
 import Contact from "views/contact"
 import Email from "views/email"
 import SMS from "views/sms"
@@ -44,10 +45,12 @@ export default function Router(){
     <div>
       <Routes>
         <Route path="/" element={<DashboardLayout />} >
+          <Route index element={<Navigate to="/dashboard/sales" />} />
           <Route path="dashboard" element={<DashboardNavbar />}>
             <Route index element={<Navigate to="/dashboard/sales" />} />
             <Route path="sales" element={<DashboardSales />} />
             <Route path="messages" element={<DashboardMessages />} />
+            <Route path="clients-smpp" element={<DashboardClientsSMPP />} />
           </Route>
           <Route path="contact" element={<Contact />} />
           <Route path="sms">
