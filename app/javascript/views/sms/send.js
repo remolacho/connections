@@ -14,7 +14,7 @@ import {
   Alert
 } from "reactstrap";
 
-export default function Index() {
+export default function Send() {
   const [shippingType, setShippingType] = React.useState('individual')
   const [shippingTime, setShippingTime] = React.useState('as_possible')
   const [showModal, setShowModal] = React.useState(false)
