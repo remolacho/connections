@@ -1,9 +1,23 @@
 import React from "react";
-import { Card, CardBody, Form, FormGroup, Input, Container, Row, Col, CardHeader, Button } from "reactstrap";
+import { 
+  Card,
+  CardBody,
+  Form,
+  FormGroup,
+  Input,
+  Container,
+  Row,
+  Col,
+  CardHeader,
+  Button,
+  Modal,
+  Alert
+} from "reactstrap";
 
 export default function Index() {
   const [shippingType, setShippingType] = React.useState('individual')
   const [shippingTime, setShippingTime] = React.useState('as_possible')
+  const [showModal, setShowModal] = React.useState(true)
 
   return (
     <div className="pt-7">
@@ -111,7 +125,12 @@ export default function Index() {
                               </select>
                             </Col>
                             <Col md="3">
-                              <Button block className="btn-outline-danger">
+                              <Button 
+                                block 
+                                className="btn-outline-danger"
+                                type="button"
+                                onClick={() => setShowModal(!showModal)}
+                              >
                                 Agregar Lista
                               </Button>
                             </Col>
@@ -136,7 +155,11 @@ export default function Index() {
                               </select>
                             </Col>
                             <Col md="3">
-                              <Button block className="btn-outline-danger">
+                              <Button 
+                                block 
+                                className="btn-outline-danger"
+                                type="button"
+                              >
                                 Editar
                               </Button>
                             </Col>
@@ -360,6 +383,130 @@ export default function Index() {
             <h3 className="pb-3">Vista Previa</h3>
           </Col>
         </Row>
+        <Modal
+          className="modal-dialog-centered"
+          size="lg"
+          isOpen={showModal}
+          toggle={() => setShowModal(!showModal)}
+        >
+          <div className="modal-header">
+            <h6 className="modal-title text-lg" id="modal-title-default">
+              Agregar Lista de contactos
+            </h6>
+            <button
+              aria-label="Close"
+              className="close"
+              data-dismiss="modal"
+              type="button"
+              onClick={() => setShowModal(!showModal)}
+            >
+              <span aria-hidden={true}>×</span>
+            </button>
+          </div>
+          <div className="modal-body">
+            <p className="align-items-center font-weight-600 text-sm d-flex">
+              <span 
+                className="align-items-center bg-info text-sm text-white d-flex justify-content-center mr-2 rounded-circle" 
+                style={{height: '24px', width: '24px'}}>
+                1
+              </span>
+              Crear Lista
+            </p>
+            <div className="alert fade show" role="alert" style={{ backgroundColor: "#C1D5FC", borderColor: "#C1D5FC" }}>
+              <span className="d-inline-block">
+                El primer encabezado de la <strong>primera columna</strong> deber decir <strong>"telefono" o "email"</strong>
+              </span>
+              <button
+                aria-label="Close Alert"
+                className="close"
+                type="button"
+              >
+                <span className="text-white" aria-hidden={true}>×</span>
+              </button>
+            </div>
+            <div className="alert fade show" role="alert" style={{ backgroundColor: "#C1D5FC", borderColor: "#C1D5FC" }}>
+              <span className="d-inline-block">
+                <strong>CSV</strong> El archivo en formato
+              </span>
+              <button
+                aria-label="Close Alert"
+                className="close"
+                type="button"
+              >
+                <span className="text-white" aria-hidden={true}>×</span>
+              </button>
+            </div>
+            <div className="my-4 text-center">
+              <img
+                alt="Ejemplo CSV"
+                className=""
+                src={require("assets/img/spreadsheet.png")}
+              />
+              <p className="my-2">Ejemplo CSV</p>
+              <Button 
+                color="warning" 
+                type="button"
+                className="my-2"
+              >
+                Descargar CSV Ejemplo
+              </Button>
+            </div>
+            <p className="align-items-center font-weight-600 text-sm d-flex">
+              <span 
+                className="align-items-center bg-info text-sm text-white d-flex justify-content-center mr-2 rounded-circle" 
+                style={{height: '24px', width: '24px'}}>
+                2
+              </span>
+              Cargar Archivo
+            </p>
+            <form>
+              <div className="form-group mb-2">
+                <label for="name-list" className="font-weight-600 text-sm">Nombre de la lista</label>
+                <input type="email" className="form-control" id="name-list" placeholder="Nombre de la lista" />
+              </div>
+              <div className="form-group">
+                <label for="file-list" className="font-weight-600 text-sm">Lista</label>
+                <input type="file" className="form-control-file" id="file-list" />
+              </div>
+            </form>
+            <div className="text-center">
+              <i className="fas fa-exclamation-circle fa-9x text-warning my-4"></i>
+              <p className="text-xl mb-1 font-weight-600">La lista no se cargó</p>
+              <p>La lista ingresada tiene los siguientes errores...</p>
+            </div>
+            <div className="alert fade show" role="alert" style={{ backgroundColor: "#C1D5FC", borderColor: "#C1D5FC" }}>
+              <span className="d-inline-block">
+                La fila 43 presenta caracteres que <strong>no cumplen UTF-8</strong>
+              </span>
+              <button
+                aria-label="Close Alert"
+                className="close"
+                type="button"
+              >
+                <span className="text-white" aria-hidden={true}>×</span>
+              </button>
+            </div>
+            <div className="text-center">
+              <i class="far fa-check-circle fa-9x text-success my-4"></i>
+              <p className="text-xl mb-1 font-weight-600">La lista fue cargada</p>
+              <p>La lista ingresada fue cargada con éxito!</p>
+            </div>
+          </div>
+          <div className="modal-footer">
+            <Button color="info" type="button">
+              Aceptar
+            </Button>
+            <Button
+              className="ml-auto"
+              color="link"
+              data-dismiss="modal"
+              type="button"
+              onClick={() => setShowModal(!showModal)}
+            >
+              Cancelar
+            </Button>
+          </div>
+        </Modal>
       </Container>
     </div>
   );
