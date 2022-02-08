@@ -127,9 +127,27 @@ function NavbarSuperadmin(){
   )
 }
 
+function NavbarClient(){
+  return (
+    <Navbar
+      expand="md"
+      light
+    >
+      <NavbarBrand 
+        to="/dashboard-client"
+        tag={NavLinkRRD}
+      >
+        Dashboard
+      </NavbarBrand>
+      
+    </Navbar>
+  )
+}
+
 export default function DashboardNavbar(){
   let location = useLocation();
   const isSeller = location.pathname.split('/').filter(Boolean)[0] === 'dashboard-seller'
+  const isClient = location.pathname.split('/').filter(Boolean)[0] === 'dashboard-client'
   const isSuperadmin = location.pathname.split('/').filter(Boolean)[0] === 'dashboard'
 
   return (
@@ -138,6 +156,7 @@ export default function DashboardNavbar(){
         <Col>
           {isSuperadmin && <NavbarSuperadmin />}
           {isSeller && <NavbarSeller />}
+          {isClient && <NavbarClient />}
         </Col>
       </Row>
 
