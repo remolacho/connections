@@ -20,6 +20,17 @@ export default function Unsubscribed(){
           </Button>
         </div>
         <hr className="mt-3"/>
+      <Row className="mb-4">
+        <Col>
+          <div className="d-flex align-items-end">
+            <p className="h3 d-inline-block pr-3">Tu correo de origen es:</p>
+            <select className="form-control w-auto">
+              <option value="correo1@gmail.com" defaultValue>correo1@gmail.com</option>
+              <option value="correo2@gmail.com" >correo2@gmail.com</option>
+            </select>
+          </div>
+        </Col>
+      </Row>
       <Row>
         <div className="col">
           <Card className="shadow">
