@@ -191,6 +191,16 @@ export default function Sidebar() {
             </NavItem>
             <NavItem>
               <NavLink
+                to="/dashboard-client"
+                tag={NavLinkRRD}
+                onClick={closeCollapse}
+              >
+                <i className="ni ni-tv-2 text-primary" />
+                  Panel de control (Cliente)
+              </NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink
                 to="/contact"
                 tag={NavLinkRRD}
                 onClick={closeCollapse}

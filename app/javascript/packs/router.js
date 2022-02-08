@@ -24,6 +24,7 @@ import DashboardProvidersSMPP from "views/dashboard/providers-smpp"
 import DashboardSellerSales from 'views/dashboard-seller/sales'
 import DashboardSellerMessages from 'views/dashboard-seller/messages'
 import DashboardAdminClient from 'views/dashboard-admin-client'
+import DashboardClient from 'views/dashboard-client'
 // Temporary routes. END
 import Contact from "views/contact"
 import Email from "views/email"
@@ -67,6 +68,9 @@ export default function Router(){
           </Route>
           <Route path="dashboard-admin-client" element={<DashboardNavbar />}>
             <Route index element={<DashboardAdminClient />}/>
+          </Route>
+          <Route path="dashboard-client" element={<DashboardNavbar />}>
+            <Route index element={<DashboardClient />}/>
           </Route>
           <Route path="contact" element={<Contact />} />
           <Route path="sms">
