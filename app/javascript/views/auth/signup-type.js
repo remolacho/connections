@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import {
   Button,
   Card,
@@ -7,7 +8,8 @@ import {
   Col,
 } from "reactstrap";
 
-export default function SelectType(){
+export default function SignupType(){
+  const history = useNavigate()
   return (
     <>
       <Col lg="5" md="7">
@@ -45,7 +47,7 @@ export default function SelectType(){
               <Button className="my-4" color="info" type="button" block>
                 Crear cuenta
               </Button>
-              <Button className="my-4" color="info" outline type="button" block>
+              <Button onClick={() => history(-1)} className="my-4" color="info" outline type="button" block>
                 Regresar
               </Button>
             </div>

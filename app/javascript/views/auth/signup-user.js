@@ -12,7 +12,7 @@ import {
   Col,
 } from "reactstrap";
 
-export default function SignupPerson(){
+export default function SignupUser(){
   return (
     <>
       <Col lg="5" md="7">
