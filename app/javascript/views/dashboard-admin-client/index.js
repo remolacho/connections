@@ -324,6 +324,167 @@ export default function Index(){
               <Row className="align-items-center">
                 <div className="col">
                   <h6 className="text-uppercase text-light ls-1 mb-1">
+                    13 Transacciones
+                  </h6>
+                  <h3 className="mb-0">Últimas compras</h3>
+                </div>
+                <div className="col text-right">
+                  <Button
+                    color="secondary"
+                    href="#"
+                    onClick={(e) => e.preventDefault()}
+                    size="sm"
+                  >
+                    See all
+                  </Button>
+                </div>
+              </Row>
+            </CardHeader>
+            <Table borderless size="sm" className="align-items-center table-flush" responsive>
+              <tbody>
+                <tr>
+                  <th scope="row" className="py-0">
+                    <div className="col border-warning border-left cn-border-3">
+                      <p className="mb-0 text-sm font-weight-600">
+                        Brisaguas / 96.864.190-5
+                      </p>
+                      <p className="text-sm"> 
+                        1.000 SMS - Transferencia
+                      </p>
+                    </div>
+                  </th>
+                  <td>
+                    <p className="d-flex align-items-center justify-content-end font-weight-600">
+                      ${new Intl.NumberFormat('de-DE', {minimumFractionDigits: 0, maximumFractionDigits: 0}).format(23574)}
+                      <i className="ni ni-cloud-upload-96 text-yellow ml-4"></i>
+                      <i className="fas fa-ellipsis-v ml-3"></i>
+                    </p>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row" className="py-0">
+                    <div className="col border-success border-left cn-border-3">
+                      <p className="mb-0 text-sm font-weight-600">
+                        Claro / 87.864.190-5
+                      </p>
+                      <p className="text-sm"> 
+                        5.200 SMS - Paypal
+                      </p>
+                    </div>
+                  </th>
+                  <td>
+                    <p className="d-flex align-items-center justify-content-end font-weight-600">
+                      ${new Intl.NumberFormat('de-DE', {minimumFractionDigits: 0, maximumFractionDigits: 0}).format(23574)}
+                      <i className="fas fa-file-pdf ml-4"></i>
+                      <i className="fas fa-ellipsis-v ml-3"></i>
+                    </p>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row" className="py-0">
+                    <div className="col border-success border-left cn-border-3">
+                      <p className="mb-0 text-sm font-weight-600">
+                        Surlat / 96.864.190-5
+                      </p>
+                      <p className="text-sm"> 
+                        1.000 SMS - Khipu
+                      </p>
+                    </div>
+                  </th>
+                  <td>
+                    <p className="d-flex align-items-center justify-content-end font-weight-600">
+                      ${new Intl.NumberFormat('de-DE', {minimumFractionDigits: 0, maximumFractionDigits: 0}).format(23574)}
+                      <i className="fas fa-file-pdf ml-4"></i>
+                      <i className="fas fa-ellipsis-v ml-3"></i>
+                    </p>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row" className="py-0">
+                    <div className="col border-info border-left cn-border-3">
+                      <p className="mb-0 text-sm font-weight-600">
+                        Brisaguas / 96.864.190-5
+                      </p>
+                      <p className="text-sm"> 
+                        1.000 SMS - Transferencia
+                      </p>
+                    </div>
+                  </th>
+                  <td>
+                    <p className="d-flex align-items-center justify-content-end font-weight-600">
+                      ${new Intl.NumberFormat('de-DE', {minimumFractionDigits: 0, maximumFractionDigits: 0}).format(23574)}
+                      <i className="far fa-check-circle ml-4"></i>
+                      <i className="fas fa-ellipsis-v ml-3"></i>
+                    </p>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row" className="py-0">
+                    <div className="col border-info border-left cn-border-3">
+                      <p className="mb-0 text-sm font-weight-600">
+                        SHN Tecnology / 96.864.190-5
+                      </p>
+                      <p className="text-sm"> 
+                        15.500 SMS - Transferencia
+                      </p>
+                    </div>
+                  </th>
+                  <td>
+                    <p className="d-flex align-items-center justify-content-end font-weight-600">
+                      ${new Intl.NumberFormat('de-DE', {minimumFractionDigits: 0, maximumFractionDigits: 0}).format(23574)}
+                      <i className="far fa-check-circle ml-4"></i>
+                      <i className="fas fa-ellipsis-v ml-3"></i>
+                    </p>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row" className="py-0">
+                    <div className="col border-info border-left cn-border-3">
+                      <p className="mb-0 text-sm font-weight-600">
+                        RP Contadores / 96.864.190-5
+                      </p>
+                      <p className="text-sm"> 
+                        1.000 SMS - Transferencia
+                      </p>
+                    </div>
+                  </th>
+                  <td>
+                    <p className="d-flex align-items-center justify-content-end font-weight-600">
+                      ${new Intl.NumberFormat('de-DE', {minimumFractionDigits: 0, maximumFractionDigits: 0}).format(23574)}
+                      <i className="far fa-check-circle ml-4"></i>
+                      <i className="fas fa-ellipsis-v ml-3"></i>
+                    </p>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row" className="py-0">
+                    <div className="col border-info border-left cn-border-3">
+                      <p className="mb-0 text-sm font-weight-600">
+                        Brisaguas / 96.864.190-5
+                      </p>
+                      <p className="text-sm"> 
+                        3.000 SMS - Transferencia
+                      </p>
+                    </div>
+                  </th>
+                  <td>
+                    <p className="d-flex align-items-center justify-content-end font-weight-600">
+                      ${new Intl.NumberFormat('de-DE', {minimumFractionDigits: 0, maximumFractionDigits: 0}).format(23574)}
+                      <i className="far fa-check-circle ml-4"></i>
+                      <i className="fas fa-ellipsis-v ml-3"></i>
+                    </p>
+                  </td>
+                </tr>
+              </tbody>
+            </Table>
+          </Card>
+        </Col>
+        <Col className="mb-5 mb-xl-0" xl="6">
+          <Card className="shadow">
+            <CardHeader className="border-0">
+              <Row className="align-items-center">
+                <div className="col">
+                  <h6 className="text-uppercase text-light ls-1 mb-1">
                     134 Mensajes
                   </h6>
                   <h3 className="mb-0">Últimos Mensajes</h3>

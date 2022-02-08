@@ -23,6 +23,7 @@ import DashboardProvidersSMPP from "views/dashboard/providers-smpp"
 // Note: this can be handled in a single view by showing and hiding components by session.
 import DashboardSellerSales from 'views/dashboard-seller/sales'
 import DashboardSellerMessages from 'views/dashboard-seller/messages'
+import DashboardAdminClient from 'views/dashboard-admin-client'
 import DashboardClient from 'views/dashboard-client'
 // Temporary routes. END
 import Contact from "views/contact"
@@ -64,6 +65,9 @@ export default function Router(){
             <Route index element={<Navigate to="/dashboard-seller/sales" />} />
             <Route path="sales" element={<DashboardSellerSales />} />
             <Route path="messages" element={<DashboardSellerMessages />} />
+          </Route>
+          <Route path="dashboard-admin-client" element={<DashboardNavbar />}>
+            <Route index element={<DashboardAdminClient />}/>
           </Route>
           <Route path="dashboard-client" element={<DashboardNavbar />}>
             <Route index element={<DashboardClient />}/>
