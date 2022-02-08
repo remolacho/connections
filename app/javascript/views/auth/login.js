@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import {
   Button,
   Card,
@@ -15,6 +16,8 @@ import {
 } from "reactstrap";
 
 export default function Login(){
+  const navigate = useNavigate()
+
   return (
     <>
       <Col lg="5" md="7">
@@ -66,10 +69,10 @@ export default function Login(){
                 <Button className="my-4" color="info" type="button" block>
                   Ingresar
                 </Button>
-                <Button className="my-4" color="info" outline type="button" block>
+                <Button onClick={() => navigate("/auth/signup")} className="my-4" color="info" outline type="button" block>
                   Crear cuenta
                 </Button>
-                <Button className="my-4" color="info" outline type="button" block>
+                <Button onClick={() => navigate("/auth/recovery-password")} className="my-4" color="info" outline type="button" block>
                   Recuperar clave
                 </Button>
               </div>

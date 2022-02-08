@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom"
 import {
   Button,
   Card,
@@ -12,7 +13,9 @@ import {
   Col,
 } from "reactstrap";
 
-export default function SignupPerson(){
+export default function SignupUser(){
+  const navigate = useNavigate()
+
   return (
     <>
       <Col lg="5" md="7">
@@ -92,11 +95,11 @@ export default function SignupPerson(){
                 </select>
               </FormGroup>
               <FormGroup className="mb-3">
-                <div class="input-group has-validation">
-                  <div class="input-group-prepend border-right">
-                    <span class="input-group-text">+56</span>
+                <div className="input-group has-validation">
+                  <div className="input-group-prepend border-right">
+                    <span className="input-group-text">+56</span>
                   </div>
-                  <input type="text" class="form-control pl-2" placeholder="1 2345 6789" required />
+                  <input type="text" className="form-control pl-2" placeholder="1 2345 6789" required />
                 </div>
               </FormGroup>
               <FormGroup>
@@ -131,7 +134,7 @@ export default function SignupPerson(){
                 <Button className="my-4" color="info" type="button" block>
                   Crear cuenta
                 </Button>
-                <Button className="my-4" color="info" outline type="button" block>
+                <Button onClick={() => navigate("/auth/signup")} className="my-4" color="info" outline type="button" block>
                   Regresar
                 </Button>
               </div>

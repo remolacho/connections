@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import {
   Button,
   Card,
@@ -7,7 +8,10 @@ import {
   Col,
 } from "reactstrap";
 
-export default function SelectType(){
+export default function SignupType(){
+  const navigate = useNavigate()
+  const [type, setType] = React.useState("user")
+
   return (
     <>
       <Col lg="5" md="7">
@@ -18,6 +22,7 @@ export default function SelectType(){
           <CardBody className="px-lg-5">
             <div className="custom-control custom-control-alternative custom-radio mb-3">
               <input
+                onChange={() => setType('company')}
                 className="custom-control-input"
                 id="customRadio1"
                 name="custom-radio-1"
@@ -30,6 +35,7 @@ export default function SelectType(){
             </div>
             <div className="custom-control custom-control-alternative custom-radio mb-3">
               <input
+                onChange={() => setType('user')}
                 className="custom-control-input"
                 defaultChecked
                 id="customRadio2"
@@ -42,10 +48,10 @@ export default function SelectType(){
               </label>
             </div>
             <div className="text-center">
-              <Button className="my-4" color="info" type="button" block>
+              <Button onClick={() => navigate("/auth/signup/" + type)} className="my-4" color="info" type="button" block>
                 Crear cuenta
               </Button>
-              <Button className="my-4" color="info" outline type="button" block>
+              <Button onClick={() => navigate("/auth/login")} className="my-4" color="info" outline type="button" block>
                 Regresar
               </Button>
             </div>
