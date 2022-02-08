@@ -12,18 +12,19 @@ import { Routes, Route, Navigate } from "react-router-dom";
 // import Icons from "views/examples/Icons.js";
 
 import DashboardLayout from "layouts/dashboard"
-// import AuthLayour from "layouts/auth"
+import AuthLayout from "layouts/auth"
 
 import DashboardNavbar from 'components/shared/dashboard-navbar';
 import DashboardSales from "views/dashboard/sales"
 import DashboardMessages from "views/dashboard/messages"
 import DashboardClientsSMPP from "views/dashboard/clients-smpp"
 import DashboardProvidersSMPP from "views/dashboard/providers-smpp"
-// 
+// Temporary routes. START 
+// Note: this can be handled in a single view by showing and hiding components by session.
 import DashboardSellerSales from 'views/dashboard-seller/sales'
 import DashboardSellerMessages from 'views/dashboard-seller/messages'
 import DashboardClient from 'views/dashboard-client'
-// 
+// Temporary routes. END
 import Contact from "views/contact"
 import Email from "views/email"
 import SMS from "views/sms/send"
@@ -40,11 +41,11 @@ import AdminUser from "views/admin/user";
 import AdminClient from "views/admin/client";
 import SuperadminUser from "views/superadmin/user";
 import SuperadminClient from "views/superadmin/client";
-// import Login from "views/auth/login";
-// import RecoveryPassword from "views/auth/recovery-password";
-// import SelectType from "views/auth/select-type";
-// import SignupCompany from "views/auth/signup-company";
-// import SignupPerson from "views/auth/signup-person";
+import Login from "views/auth/login";
+import RecoveryPassword from "views/auth/recovery-password";
+import SignupType from "views/auth/signup-type";
+import SignupCompany from "views/auth/signup-company";
+import SignupUser from "views/auth/signup-user";
 
 export default function Router(){
   return (
@@ -92,7 +93,16 @@ export default function Router(){
             <Route path="clients" element={<SuperadminClient />} />
           </Route>
           <Route path="*" element={<Navigate to="/dashboard" />} />
-          {/* <Navigate to="/dashboard" /> */}
+        </Route>
+        <Route path="/auth" element={<AuthLayout />}>
+          <Route index element={<Navigate to="/auth/login" />} />
+          <Route path="login" element={<Login />} />
+          <Route path="recovery-password" element={<RecoveryPassword />} />
+          <Route path="signup">
+            <Route index element={<SignupType />} />
+            <Route path="company" element={<SignupCompany />} />
+            <Route path="user" element={<SignupUser />} />
+          </Route>
         </Route>
       </Routes>
     </div>
