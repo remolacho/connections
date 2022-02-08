@@ -9,7 +9,9 @@ import {
 } from "reactstrap";
 
 export default function SignupType(){
-  const history = useNavigate()
+  const navigate = useNavigate()
+  const [type, setType] = React.useState("user")
+
   return (
     <>
       <Col lg="5" md="7">
@@ -20,6 +22,7 @@ export default function SignupType(){
           <CardBody className="px-lg-5">
             <div className="custom-control custom-control-alternative custom-radio mb-3">
               <input
+                onChange={() => setType('company')}
                 className="custom-control-input"
                 id="customRadio1"
                 name="custom-radio-1"
@@ -32,6 +35,7 @@ export default function SignupType(){
             </div>
             <div className="custom-control custom-control-alternative custom-radio mb-3">
               <input
+                onChange={() => setType('user')}
                 className="custom-control-input"
                 defaultChecked
                 id="customRadio2"
@@ -44,10 +48,10 @@ export default function SignupType(){
               </label>
             </div>
             <div className="text-center">
-              <Button className="my-4" color="info" type="button" block>
+              <Button onClick={() => navigate("/auth/signup/" + type)} className="my-4" color="info" type="button" block>
                 Crear cuenta
               </Button>
-              <Button onClick={() => history(-1)} className="my-4" color="info" outline type="button" block>
+              <Button onClick={() => navigate("/auth/login")} className="my-4" color="info" outline type="button" block>
                 Regresar
               </Button>
             </div>
