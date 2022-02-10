@@ -26,7 +26,13 @@ export default function Received(){
             <CardHeader className="border-0">
               <Row>
                 <Col md="7">
-                  <h2 className="mb--1">Tu número exclusivo de salida de SMS es: <span className="text-info">+564423177</span></h2>
+                  <div className="d-flex align-items-end">
+                    <p className="h3 d-inline-block pr-3">Tu número exclusivo de salida de SMS es: </p>
+                    <select className="form-control w-auto">
+                      <option value="+564423177" defaultValue>+564423177</option>
+                      <option value="+564423155" >+564423155</option>
+                    </select>
+                  </div>
                   <p>Consulta con nosotros para obtener más número exclusivos </p>
                 </Col>
                 <Col md='5'>
