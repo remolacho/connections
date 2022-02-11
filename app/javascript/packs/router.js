@@ -42,6 +42,7 @@ import AdminUser from "views/admin/user";
 import AdminClient from "views/admin/client";
 import SuperadminUser from "views/superadmin/user";
 import SuperadminClient from "views/superadmin/client";
+import SuperadminClientId from "views/superadmin/client/[client_id]"
 import Login from "views/auth/login";
 import RecoveryPassword from "views/auth/recovery-password";
 import SignupType from "views/auth/signup-type";
@@ -94,7 +95,10 @@ export default function Router(){
           </Route>
           <Route path="superadmin">
             <Route path="users" element={<SuperadminUser />} />
-            <Route path="clients" element={<SuperadminClient />} />
+            <Route path="clients">
+              <Route index element={<SuperadminClient />} />
+              <Route path=":client_id" element={<SuperadminClientId />} />
+            </Route>
           </Route>
           <Route path="*" element={<Navigate to="/dashboard" />} />
         </Route>

@@ -1,4 +1,5 @@
 import React from "react"
+import { NavLink } from "react-router-dom";
 import {
   Card,
   CardHeader,
@@ -13,7 +14,8 @@ import {
   Input
 } from "reactstrap";
 
-export default function Clients(){
+export default function Index(){
+
   return (
     <Container className="pt-7" fluid>
         <div className="d-flex justify-content-between">
@@ -49,8 +51,16 @@ export default function Clients(){
               <tbody>
                 <tr>
                   <th  scope="row" className="text-center text-green">Activo</th>
-                  <td className="mb-0 text-sm text-info">CL 3024</td>
-                  <td className="text-center text-info">Comercial HER-NAN</td>
+                  <td className="mb-0 text-sm">
+                    <NavLink to={`/superadmin/clients/${3024}`} className="text-info">
+                      CL 3024
+                    </NavLink>
+                  </td>
+                  <td className="text-center">
+                    <NavLink to={`/superadmin/clients/${3024}`} className="text-info">
+                      Comercial HER-NAN
+                    </NavLink>
+                  </td>
                   <td className="text-center">conhernan@outlock.com</td>
                   <td className="text-center">56999444003</td>
                   <td className="text-center">
@@ -61,8 +71,16 @@ export default function Clients(){
                 </tr>
                 <tr>
                   <th  scope="row" className="text-center text-green">Activo</th>
-                  <td className="mb-0 text-sm text-info">CL 3023</td>
-                  <td className="text-center text-info">STM imprenta y servicios</td>
+                  <td className="mb-0 text-sm">
+                    <NavLink to={`/superadmin/clients/${3023}`} className="text-info">
+                      CL 3023
+                    </NavLink>
+                  </td>
+                  <td className="text-center">
+                    <NavLink to={`/superadmin/clients/${3023}`} className="text-info">
+                      STM imprenta y servicios
+                    </NavLink>
+                  </td>
                   <td className="text-center">stmimprenta@gmail.com</td>
                   <td className="text-center">56999333003</td>
                   <td className="text-center">
@@ -73,8 +91,16 @@ export default function Clients(){
                 </tr>
                 <tr>
                   <th  scope="row" className="text-center text-green">Activo</th>
-                  <td className="mb-0 text-sm text-info">CL 3022</td>
-                  <td className="text-center text-info">Infoservis</td>
+                  <td className="mb-0 text-sm">
+                    <NavLink to={`/superadmin/clients/${3022}`} className="text-info">
+                      CL 3022
+                    </NavLink>
+                  </td>
+                  <td className="text-center">
+                    <NavLink to={`/superadmin/clients/${3022}`} className="text-info">
+                      Infoservis
+                    </NavLink>
+                  </td>
                   <td className="text-center">infoservis@gmail.com</td>
                   <td className="text-center">56942316003</td>
                   <td className="text-center">
@@ -85,8 +111,16 @@ export default function Clients(){
                 </tr>
                 <tr>
                   <th  scope="row" className="text-center text-red">Bloqueado</th>
-                  <td className="mb-0 text-sm text-info">CL 3021</td>
-                  <td className="text-center text-info" style={{ whiteSpace: 'initial'}}>Sociedad profesional medica neurologica limitada</td>
+                  <td className="mb-0 text-sm">
+                    <NavLink to={`/superadmin/clients/${3021}`} className="text-info">
+                      CL 3021
+                    </NavLink>
+                  </td>
+                  <td className="text-center text-info" style={{ whiteSpace: 'initial'}}>
+                    <NavLink to={`/superadmin/clients/${3021}`} className="text-info">
+                      Sociedad profesional medica neurologica limitada
+                    </NavLink>
+                  </td>
                   <td className="text-center">sfaris@gmail.com</td>
                   <td className="text-center">55656787879</td>
                   <td className="text-center">
@@ -97,8 +131,16 @@ export default function Clients(){
                 </tr>
                 <tr>
                 <th  scope="row" className="text-center text-red">Bloqueado</th>
-                  <td className="mb-0 text-sm text-info">CL 3020</td>
-                  <td className="text-center text-info">Comercial bachilenos SPA</td>
+                  <td className="mb-0 text-sm">
+                    <NavLink to={`/superadmin/clients/${3020}`} className="text-info">
+                      CL 3020
+                    </NavLink>
+                  </td>
+                  <td className="text-center">
+                    <NavLink to={`/superadmin/clients/${3020}`} className="text-info">
+                      Comercial bachilenos SPA
+                    </NavLink>
+                  </td>
                   <td className="text-center">cbspa@gmail.com</td>
                   <td className="text-center">56070809040</td>
                   <td className="text-center">

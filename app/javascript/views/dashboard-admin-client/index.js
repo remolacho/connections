@@ -195,7 +195,7 @@ export default function Index(){
       </Row>
 
       {/* content */}
-      <div className="mt-5 row">
+      <Row className="mt-5">
         <div className="col-md-6 mb-5 mb-xl-0">
           <Card className="bg-white shadow">
             <CardHeader className="bg-transparent">
@@ -315,7 +315,7 @@ export default function Index(){
             </div>
           </div>
         </div>
-      </div>
+      </Row>
       
       <Row className="mt-5">
         <Col className="mb-5 mb-xl-0" xl="6">
