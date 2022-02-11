@@ -27,6 +27,8 @@ import {
 
 export default function Client(){
   const params = useParams()
+  console.log(params) // {client_id: #}
+
   const [chartExample1Data, setChartExample1Data] = React.useState("data1");
   const [dueDateBills, setDueDateBills] = React.useState('contado')
 
