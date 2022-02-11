@@ -34,6 +34,50 @@ export default function Index(){
     parseOptions(Chart, chartOptions());
   }
 
+  // Carousel Logic - START
+
+  // State for Active index
+  const [activeIndex, setActiveIndex] = React.useState(0);
+  // State for Animation
+  const [animating, setAnimating] = React.useState(false);
+  // // Sample items for Carousel
+
+  const items = [
+    {
+      image: 'Slide 1',
+      text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vehicula ex nisl, eu sodales mauris dictum nec.'
+    },
+    {
+      image: 'Slide 2',
+      text: 'consectetur adipiscing elit. Lorem ipsum dolor sit amet, Curabitur vehicula ex nisl, eu sodales mauris dictum nec.'
+    },
+    {
+      image: 'Slide 3',
+      text: 'Curabitur vehicula ex nisl, eu sodales mauris dictum nec. Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
+    }
+  ]
+
+  // Items array length
+  const itemLength = items.length - 1
+
+  // Previous button for Carousel
+  const previousButton = () => {
+    if (animating) return;
+    const nextIndex = activeIndex === 0 ? itemLength : activeIndex - 1;
+    
+    setActiveIndex(nextIndex);
+  }
+
+  // Next button for Carousel
+  const nextButton = () => {
+    if (animating) return;
+    const nextIndex = activeIndex === itemLength ? 0 : activeIndex + 1;
+    
+    setActiveIndex(nextIndex);
+  }
+
+  // Carousel Logic - END
+  
   return (
     <>
       {/* Card stats */}
@@ -253,7 +297,7 @@ export default function Index(){
                       <a className="mb-0">(+56) 9 9441 2372</a>
                     </Col>
                   </Row>
-                  <Row className="mb-4">
+                  <Row>
                     <Col>
                       <h6 className="text-uppercase text-light ls-1 mb-1">
                         Email
@@ -295,7 +339,7 @@ export default function Index(){
                       <a className="mb-0">Integre sus aplicaciones</a>
                     </Col>
                   </Row>
-                  <Row className="mb-4">
+                  <Row>
                     <Col>
                       <h6 className="text-uppercase text-light ls-1 mb-1">
                         Manula de plataforma
@@ -307,10 +351,58 @@ export default function Index(){
               </Card>
             </div>
           </div>
-          <div className="row mt-5">
+          <div className="row mt-3">
             <div className="col-md-12 mb-xl-0">
-              <Card className="shadow">
-                <h1>Carousel / Tips </h1>
+              <Card className="shadow bg-gradient-info p-4 border-0">
+                <Row>
+                  <Col>
+                    <h2 className="text-white">Recomendaciones</h2>
+                  </Col>
+                </Row>
+                <Carousel 
+                  previous={previousButton} 
+                  next={nextButton}
+                  activeIndex={activeIndex}
+                >
+                  <CarouselIndicators 
+                    items={items}
+                    activeIndex={activeIndex}
+                    onClickHandler={(newIndex) => {
+                      if (animating) return;
+                      setActiveIndex(newIndex);
+                    }} 
+                  />
+                    { items.map((item, key) => (
+                      <CarouselItem
+                        key={key}
+                        onExited={() => setAnimating(false)}
+                        onExiting={() => setAnimating(true)}
+                      >
+                        <Row className="pb-5">
+                          <Col className="mb-5 mb-xl-0" xl="5">
+                            <div className="d-flex justify-content-center">
+                              <i className="fas fa-exclamation-circle fa-4x text-warning my-4"></i>
+                            </div>
+                          </Col>
+                          <Col className="mb-5 mb-xl-0" xl="7">
+                            <p className="h3">
+                              {item.text}
+                            </p>
+                          </Col>
+                        </Row>
+                      </CarouselItem>
+                    ))}
+                  <CarouselControl 
+                    directionText="Prev"
+                    direction="prev" 
+                    onClickHandler={previousButton} 
+                  />
+                  <CarouselControl 
+                    directionText="Next"
+                    direction="next" 
+                    onClickHandler={nextButton} 
+                  />
+                </Carousel>
               </Card>
             </div>
           </div>
