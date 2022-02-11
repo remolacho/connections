@@ -13,7 +13,7 @@ import {
   Input
 } from "reactstrap";
 
-export default function Clients(){
+export default function Index(){
   return (
     <Container className="pt-7" fluid>
         <div className="d-flex justify-content-between">
