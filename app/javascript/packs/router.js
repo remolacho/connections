@@ -29,9 +29,10 @@ import DashboardClient from 'views/dashboard-client'
 import Contact from "views/contact"
 import Email from "views/email"
 import SMS from "views/sms/send"
-import SMSShippedScheduled from "views/sms/shipped-and-scheduled"
+import SMSShippedScheduled from "views/sms/shipped-scheduled"
 import SMSAutoPreset from "views/sms/auto-preset"
 import SMSReceived from "views/sms/received"
+import SMSShippedId from "views/sms/shipped-scheduled/[shipped_id]"
 import EmailShippedScheduled from "views/email/shipped-and-scheduled"
 import EmailAutoPreset from "views/email/auto-preset"
 import EmailUnsubscribed from "views/email/unsubscribed"
@@ -76,7 +77,10 @@ export default function Router(){
           <Route path="contact" element={<Contact />} />
           <Route path="sms">
             <Route path="send" element={<SMS />} />
-            <Route path="shipped-and-scheduled" element={<SMSShippedScheduled />} />
+            <Route path="shipped-and-scheduled">
+              <Route index element={<SMSShippedScheduled />} />
+              <Route path=":shipped_id" element={<SMSShippedId />} />
+            </Route>
             <Route path="auto-preset" element={<SMSAutoPreset />} />
             <Route path="received" element={<SMSReceived />} />
           </Route>

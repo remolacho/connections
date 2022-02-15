@@ -1,4 +1,5 @@
 import React from "react"
+import { NavLink } from "react-router-dom";
 import {
   Card,
   CardHeader,
@@ -49,9 +50,9 @@ export default function ShippedScheduled(){
               <tbody>
                 <tr>
                   <th scope="row">
-                    <span className="mb-0 text-sm text-center d-block">
+                    <NavLink to={`/sms/shipped-and-scheduled/${12312123}`} className="mb-0 text-sm text-center d-block">
                       Uso PLATAFORMA - SMS, Etiner Dev, mes de septiembre
-                    </span>
+                    </NavLink>
                   </th>
                   <td className="text-center">SMS individual plataforma</td>
                   <td className="text-center">
@@ -60,9 +61,9 @@ export default function ShippedScheduled(){
                 </tr>
                 <tr>
                   <th scope="row">
-                    <span className="mb-0 text-sm text-center d-block">
+                    <NavLink to={`/sms/shipped-and-scheduled/${12312123}`} className="mb-0 text-sm text-center d-block">
                       Uso PLATAFORMA - SMS, Etiner Dev, mes de septiembre
-                    </span>
+                    </NavLink>
                   </th>
                   <td className="text-center">SMS individual plataforma</td>
                   <td className="text-center">
@@ -71,9 +72,9 @@ export default function ShippedScheduled(){
                 </tr>
                 <tr>
                   <th scope="row">
-                    <span className="mb-0 text-sm text-center d-block">
+                    <NavLink to={`/sms/shipped-and-scheduled/${12312123}`} className="mb-0 text-sm text-center d-block">
                       Uso PLATAFORMA - SMS, Etiner Dev, mes de septiembre
-                    </span>
+                    </NavLink>
                   </th>
                   <td className="text-center">SMS individual plataforma</td>
                   <td className="text-center">
@@ -82,9 +83,9 @@ export default function ShippedScheduled(){
                 </tr>
                 <tr>
                   <th scope="row">
-                    <span className="mb-0 text-sm text-center d-block">
+                    <NavLink to={`/sms/shipped-and-scheduled/${12312123}`} className="mb-0 text-sm text-center d-block">
                       Uso PLATAFORMA - SMS, Etiner Dev, mes de septiembre
-                    </span>
+                    </NavLink>
                   </th>
                   <td className="text-center">SMS individual plataforma</td>
                   <td className="text-center">
@@ -93,9 +94,9 @@ export default function ShippedScheduled(){
                 </tr>
                 <tr>
                   <th scope="row">
-                    <span className="mb-0 text-sm text-center d-block">
+                    <NavLink to={`/sms/shipped-and-scheduled/${12312123}`} className="mb-0 text-sm text-center d-block">
                       Uso PLATAFORMA - SMS, Etiner Dev, mes de septiembre
-                    </span>
+                    </NavLink>
                   </th>
                   <td className="text-center">SMS individual plataforma</td>
                   <td className="text-center">
