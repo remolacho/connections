@@ -3,14 +3,21 @@ import { useParams } from "react-router-dom"
 import { Doughnut  } from "react-chartjs-2";
 import {
   Card,
+  CardTitle,
   CardHeader,
   CardBody,
+  CardText,
   Table,
   Container,
   Row,
   Col,
   Button,
-  Input
+  Input,
+  Nav,
+  NavItem,
+  NavLink,
+  TabContent,
+  TabPane
 } from "reactstrap";
 
 import {
@@ -23,6 +30,7 @@ import {
 export default function Shipped(){
   const params = useParams()
   console.log(params) // {shipped_id: #}
+  const [isNational, setIsNational] = React.useState(true)
 
   const [chartExample1Data, setChartExample1Data] = React.useState("data1");
 
@@ -41,6 +49,376 @@ export default function Shipped(){
       <hr className="mt-3"/>
       <Row>
         <Col md="8">
+          <Card className="shadow mb-4">
+            <CardHeader className="border-0 py-0">
+              <Row>
+                <Col md="3">
+                  <p className="h3 m-0 py-3">
+                    {isNational ? 'Detalle de envio' : 'Estado de envio'}
+                  </p>
+                </Col>
+                <Col md="7" className="d-flex">
+                  <a type="button" onClick={() => setIsNational(!isNational)} className={`m-0 px-3 py-3 ${isNational ? 'border-bottom border-info cn-border-3' : ''}`}>Nacional</a>
+                  <a type="button" onClick={() => setIsNational(!isNational)} className={`m-0 px-3 py-3 ${!isNational ? 'border-bottom border-info cn-border-3' : ''}`}>Internacional</a>
+                </Col>
+              </Row>
+            </CardHeader>
+            <Table className="align-items-center table-flush" responsive borderless>
+              { isNational ?
+                <>
+                  <thead className="thead-light">
+                    <tr>
+                      <th scope="col" className="text-left">Estado / Proveedor</th>
+                      <th scope="col" className="text-center align-items-center">
+                        <img
+                          className="avatar rounded-circle bg-green"
+                          alt="..."
+                          src={
+                            require("assets/img/theme/bootstrap.jpg")
+                          }
+                        />
+                      </th>
+                      <th scope="col" className="text-center">
+                        <img
+                          className="avatar rounded-circle bg-green"
+                          alt="..."
+                          src={
+                            require("assets/img/theme/bootstrap.jpg")
+                          }
+                        />
+                      </th>
+                      <th scope="col" className="text-center">
+                        <img
+                          className="avatar rounded-circle bg-green"
+                          alt="..."
+                          src={
+                            require("assets/img/theme/bootstrap.jpg")
+                          }
+                        />
+                      </th>
+                      <th scope="col" className="text-center">
+                        <img
+                          className="avatar rounded-circle bg-green"
+                          alt="..."
+                          src={
+                            require("assets/img/theme/bootstrap.jpg")
+                          }
+                        />
+                      </th>
+                      <th scope="col" className="text-center">
+                        <img
+                          className="avatar rounded-circle bg-green"
+                          alt="..."
+                          src={
+                            require("assets/img/theme/bootstrap.jpg")
+                          }
+                        />
+                      </th>
+                      <th scope="col" className="text-center">
+                        <img
+                          className="avatar rounded-circle bg-green"
+                          alt="..."
+                          src={
+                            require("assets/img/theme/bootstrap.jpg")
+                          }
+                        />
+                      </th>
+                      <th scope="col" className="text-center">
+                        <img
+                          className="avatar rounded-circle bg-green"
+                          alt="..."
+                          src={
+                            require("assets/img/theme/bootstrap.jpg")
+                          }
+                        />
+                      </th>
+                      <th scope="col" className="text-center">total</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope="row">
+                        <span className="d-inline-block rounded-circle mr-2 bg-blue" style={{ height: "7px", width: "7px" }}></span>
+                        Programado
+                      </th>
+                      <td className="text-center">0</td>
+                      <td className="text-center">0</td>
+                      <td className="text-center">0</td>
+                      <td className="text-center">0</td>
+                      <td className="text-center">0</td>
+                      <td className="text-center">0</td>
+                      <td className="text-center">0</td>
+                      <td className="text-center font-weight-600">0</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">
+                        <span className="d-inline-block rounded-circle mr-2 bg-blue" style={{ height: "7px", width: "7px" }}></span>
+                        En cola
+                      </th>
+                      <td className="text-center">0</td>
+                      <td className="text-center">0</td>
+                      <td className="text-center">0</td>
+                      <td className="text-center">0</td>
+                      <td className="text-center">0</td>
+                      <td className="text-center">0</td>
+                      <td className="text-center">0</td>
+                      <td className="text-center font-weight-600">0</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">
+                        <span className="d-inline-block rounded-circle mr-2 bg-orange" style={{ height: "7px", width: "7px" }}></span>
+                        Número Inválido
+                      </th>
+                      <td className="text-center">0</td>
+                      <td className="text-center">0</td>
+                      <td className="text-center">0</td>
+                      <td className="text-center">0</td>
+                      <td className="text-center">0</td>
+                      <td className="text-center">0</td>
+                      <td className="text-center">0</td>
+                      <td className="text-center font-weight-600">0</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">
+                        <span className="d-inline-block rounded-circle mr-2 bg-yellow" style={{ height: "7px", width: "7px" }}></span>
+                        Enviado al proveedor
+                      </th>
+                      <td className="text-center">0</td>
+                      <td className="text-center">0</td>
+                      <td className="text-center">0</td>
+                      <td className="text-center">0</td>
+                      <td className="text-center">0</td>
+                      <td className="text-center">0</td>
+                      <td className="text-center">0</td>
+                      <td className="text-center font-weight-600">0</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">
+                        <span className="d-inline-block rounded-circle mr-2 bg-yellow" style={{ height: "7px", width: "7px" }}></span>
+                        Esperando respuesta
+                      </th>
+                      <td className="text-center">0</td>
+                      <td className="text-center">0</td>
+                      <td className="text-center">0</td>
+                      <td className="text-center">0</td>
+                      <td className="text-center">0</td>
+                      <td className="text-center">0</td>
+                      <td className="text-center">0</td>
+                      <td className="text-center font-weight-600">0</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">
+                        <span className="d-inline-block rounded-circle mr-2 bg-orange" style={{ height: "7px", width: "7px" }}></span>
+                        No entregable
+                      </th>
+                      <td className="text-center">0</td>
+                      <td className="text-center">0</td>
+                      <td className="text-center">0</td>
+                      <td className="text-center">0</td>
+                      <td className="text-center">0</td>
+                      <td className="text-center">0</td>
+                      <td className="text-center">0</td>
+                      <td className="text-center font-weight-600">0</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">
+                        <span className="d-inline-block rounded-circle mr-2 bg-green" style={{ height: "7px", width: "7px" }}></span>
+                        Entregado
+                      </th>
+                      <td className="text-center">0</td>
+                      <td className="text-center">0</td>
+                      <td className="text-center">0</td>
+                      <td className="text-center">0</td>
+                      <td className="text-center">0</td>
+                      <td className="text-center">0</td>
+                      <td className="text-center">0</td>
+                      <td className="text-center font-weight-600">0</td>
+                    </tr>
+                    <tr>
+                      <th scope="row font-weight-600">Total</th>
+                      <td className="text-center">0</td>
+                      <td className="text-center">0</td>
+                      <td className="text-center">0</td>
+                      <td className="text-center">0</td>
+                      <td className="text-center">0</td>
+                      <td className="text-center">0</td>
+                      <td className="text-center">0</td>
+                      <td className="text-center font-weight-600">0</td>
+                    </tr>
+                  </tbody>
+                </>
+                :
+                <>
+                  <thead className="thead-light">
+                    <tr>
+                      <th scope="col" className="text-left">Estado / Proveedor</th>
+                      <th scope="col" className="text-center align-items-center">
+                        <img
+                          className="avatar rounded-circle bg-green"
+                          alt="..."
+                          src=""
+                        />
+                      </th>
+                      <th scope="col" className="text-center">
+                        <img
+                          className="avatar rounded-circle bg-green"
+                          alt="..."
+                          src=""
+                        />
+                      </th>
+                      <th scope="col" className="text-center">
+                        <img
+                          className="avatar rounded-circle bg-green"
+                          alt="..."
+                          src=""
+                        />
+                      </th>
+                      <th scope="col" className="text-center">
+                        <img
+                          className="avatar rounded-circle bg-green"
+                          alt="..."
+                          src=""
+                        />
+                      </th>
+                      <th scope="col" className="text-center">
+                        <img
+                          className="avatar rounded-circle bg-green"
+                          alt="..."
+                          src=""
+                        />
+                      </th>
+                      <th scope="col" className="text-center">
+                        <img
+                          className="avatar rounded-circle bg-green"
+                          alt="..."
+                          src=""
+                        />
+                      </th>
+                      <th scope="col" className="text-center">
+                        <img
+                          className="avatar rounded-circle bg-green"
+                          alt="..."
+                          src=""
+                        />
+                      </th>
+                      <th scope="col" className="text-center">total</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope="row">
+                        <span className="d-inline-block rounded-circle mr-2 bg-blue" style={{ height: "7px", width: "7px" }}></span>
+                        Programado
+                      </th>
+                      <td className="text-center">0</td>
+                      <td className="text-center">0</td>
+                      <td className="text-center">0</td>
+                      <td className="text-center">0</td>
+                      <td className="text-center">0</td>
+                      <td className="text-center">0</td>
+                      <td className="text-center">0</td>
+                      <td className="text-center font-weight-600">0</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">
+                        <span className="d-inline-block rounded-circle mr-2 bg-blue" style={{ height: "7px", width: "7px" }}></span>
+                        En cola
+                      </th>
+                      <td className="text-center">0</td>
+                      <td className="text-center">0</td>
+                      <td className="text-center">0</td>
+                      <td className="text-center">0</td>
+                      <td className="text-center">0</td>
+                      <td className="text-center">0</td>
+                      <td className="text-center">0</td>
+                      <td className="text-center font-weight-600">0</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">
+                        <span className="d-inline-block rounded-circle mr-2 bg-orange" style={{ height: "7px", width: "7px" }}></span>
+                        Número Inválido
+                      </th>
+                      <td className="text-center">0</td>
+                      <td className="text-center">0</td>
+                      <td className="text-center">0</td>
+                      <td className="text-center">0</td>
+                      <td className="text-center">0</td>
+                      <td className="text-center">0</td>
+                      <td className="text-center">0</td>
+                      <td className="text-center font-weight-600">0</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">
+                        <span className="d-inline-block rounded-circle mr-2 bg-yellow" style={{ height: "7px", width: "7px" }}></span>
+                        Enviado al proveedor
+                      </th>
+                      <td className="text-center">0</td>
+                      <td className="text-center">0</td>
+                      <td className="text-center">0</td>
+                      <td className="text-center">0</td>
+                      <td className="text-center">0</td>
+                      <td className="text-center">0</td>
+                      <td className="text-center">0</td>
+                      <td className="text-center font-weight-600">0</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">
+                        <span className="d-inline-block rounded-circle mr-2 bg-yellow" style={{ height: "7px", width: "7px" }}></span>
+                        Esperando respuesta
+                      </th>
+                      <td className="text-center">0</td>
+                      <td className="text-center">0</td>
+                      <td className="text-center">0</td>
+                      <td className="text-center">0</td>
+                      <td className="text-center">0</td>
+                      <td className="text-center">0</td>
+                      <td className="text-center">0</td>
+                      <td className="text-center font-weight-600">0</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">
+                        <span className="d-inline-block rounded-circle mr-2 bg-orange" style={{ height: "7px", width: "7px" }}></span>
+                        No entregable
+                      </th>
+                      <td className="text-center">0</td>
+                      <td className="text-center">0</td>
+                      <td className="text-center">0</td>
+                      <td className="text-center">0</td>
+                      <td className="text-center">0</td>
+                      <td className="text-center">0</td>
+                      <td className="text-center">0</td>
+                      <td className="text-center font-weight-600">0</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">
+                        <span className="d-inline-block rounded-circle mr-2 bg-green" style={{ height: "7px", width: "7px" }}></span>
+                        Entregado
+                      </th>
+                      <td className="text-center">0</td>
+                      <td className="text-center">0</td>
+                      <td className="text-center">0</td>
+                      <td className="text-center">0</td>
+                      <td className="text-center">0</td>
+                      <td className="text-center">0</td>
+                      <td className="text-center">0</td>
+                      <td className="text-center font-weight-600">0</td>
+                    </tr>
+                    <tr>
+                      <th scope="row font-weight-600">Total</th>
+                      <td className="text-center">0</td>
+                      <td className="text-center">0</td>
+                      <td className="text-center">0</td>
+                      <td className="text-center">0</td>
+                      <td className="text-center">0</td>
+                      <td className="text-center">0</td>
+                      <td className="text-center">0</td>
+                      <td className="text-center font-weight-600">0</td>
+                    </tr>
+                  </tbody>
+                </>
+              }
+            </Table>
+          </Card>
           <Card className="shadow mb-4">
             <CardHeader className="border-0">
               <Row>
@@ -79,7 +457,7 @@ export default function Shipped(){
                   <td className="text-center"> Entel</td>
                   <td className="text-center">
                     22/09/21 18:15
-                    <i class="fas fa-ellipsis-v ml-3"></i>
+                    <i className="fas fa-ellipsis-v ml-3"></i>
                   </td>
                 </tr>
                 <tr>
@@ -93,7 +471,7 @@ export default function Shipped(){
                   <td className="text-center">Movistar</td>
                   <td className="text-center">
                     22/09/21 18:15
-                    <i class="fas fa-ellipsis-v ml-3"></i>
+                    <i className="fas fa-ellipsis-v ml-3"></i>
                   </td>
                 </tr>
                 <tr>
@@ -107,7 +485,7 @@ export default function Shipped(){
                   <td className="text-center">Claro</td>
                   <td className="text-center">
                     22/09/21 18:15
-                    <i class="fas fa-ellipsis-v ml-3"></i>
+                    <i className="fas fa-ellipsis-v ml-3"></i>
                   </td>
                 </tr>
                 <tr>
@@ -121,7 +499,7 @@ export default function Shipped(){
                   <td className="text-center">Entel</td>
                   <td className="text-center">
                     22/09/21 18:15
-                    <i class="fas fa-ellipsis-v ml-3"></i>
+                    <i className="fas fa-ellipsis-v ml-3"></i>
                   </td>
                 </tr>
                 <tr>
@@ -135,195 +513,8 @@ export default function Shipped(){
                   <td className="text-center">Entel</td>
                   <td className="text-center">
                     22/09/21 18:15
-                    <i class="fas fa-ellipsis-v ml-3"></i>
+                    <i className="fas fa-ellipsis-v ml-3"></i>
                   </td>
-                </tr>
-              </tbody>
-            </Table>
-          </Card>
-          <Card className="shadow mb-4">
-            <CardHeader className="border-0">
-              <p className="h3 pt-2 pr-3">Mensajes</p>
-            </CardHeader>
-            <Table className="align-items-center table-flush" responsive borderless>
-              <thead className="thead-light">
-                <tr>
-                  <th scope="col" className="text-left">Estado / Proveedor</th>
-                  <th scope="col" className="text-center align-items-center">
-                    <img
-                      className="avatar rounded-circle bg-green"
-                      alt="..."
-                      src={
-                        require("assets/img/theme/bootstrap.jpg")
-                      }
-                    />
-                  </th>
-                  <th scope="col" className="text-center">
-                    <img
-                      className="avatar rounded-circle bg-green"
-                      alt="..."
-                      src={
-                        require("assets/img/theme/bootstrap.jpg")
-                      }
-                    />
-                  </th>
-                  <th scope="col" className="text-center">
-                    <img
-                      className="avatar rounded-circle bg-green"
-                      alt="..."
-                      src={
-                        require("assets/img/theme/bootstrap.jpg")
-                      }
-                    />
-                  </th>
-                  <th scope="col" className="text-center">
-                    <img
-                      className="avatar rounded-circle bg-green"
-                      alt="..."
-                      src={
-                        require("assets/img/theme/bootstrap.jpg")
-                      }
-                    />
-                  </th>
-                  <th scope="col" className="text-center">
-                    <img
-                      className="avatar rounded-circle bg-green"
-                      alt="..."
-                      src={
-                        require("assets/img/theme/bootstrap.jpg")
-                      }
-                    />
-                  </th>
-                  <th scope="col" className="text-center">
-                    <img
-                      className="avatar rounded-circle bg-green"
-                      alt="..."
-                      src={
-                        require("assets/img/theme/bootstrap.jpg")
-                      }
-                    />
-                  </th>
-                  <th scope="col" className="text-center">
-                    <img
-                      className="avatar rounded-circle bg-green"
-                      alt="..."
-                      src={
-                        require("assets/img/theme/bootstrap.jpg")
-                      }
-                    />
-                  </th>
-                  <th scope="col" className="text-center">total</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <th scope="row">
-                    <span className="d-inline-block rounded-circle mr-2 bg-blue" style={{ height: "7px", width: "7px" }}></span>
-                    Programado
-                  </th>
-                  <td className="text-center">0</td>
-                  <td className="text-center">0</td>
-                  <td className="text-center">0</td>
-                  <td className="text-center">0</td>
-                  <td className="text-center">0</td>
-                  <td className="text-center">0</td>
-                  <td className="text-center">0</td>
-                  <td className="text-center font-weight-600">0</td>
-                </tr>
-                <tr>
-                  <th scope="row">
-                    <span className="d-inline-block rounded-circle mr-2 bg-blue" style={{ height: "7px", width: "7px" }}></span>
-                    En cola
-                  </th>
-                  <td className="text-center">0</td>
-                  <td className="text-center">0</td>
-                  <td className="text-center">0</td>
-                  <td className="text-center">0</td>
-                  <td className="text-center">0</td>
-                  <td className="text-center">0</td>
-                  <td className="text-center">0</td>
-                  <td className="text-center font-weight-600">0</td>
-                </tr>
-                <tr>
-                  <th scope="row">
-                    <span className="d-inline-block rounded-circle mr-2 bg-orange" style={{ height: "7px", width: "7px" }}></span>
-                    Número Inválido
-                  </th>
-                  <td className="text-center">0</td>
-                  <td className="text-center">0</td>
-                  <td className="text-center">0</td>
-                  <td className="text-center">0</td>
-                  <td className="text-center">0</td>
-                  <td className="text-center">0</td>
-                  <td className="text-center">0</td>
-                  <td className="text-center font-weight-600">0</td>
-                </tr>
-                <tr>
-                  <th scope="row">
-                    <span className="d-inline-block rounded-circle mr-2 bg-yellow" style={{ height: "7px", width: "7px" }}></span>
-                    Enviado al proveedor
-                  </th>
-                  <td className="text-center">0</td>
-                  <td className="text-center">0</td>
-                  <td className="text-center">0</td>
-                  <td className="text-center">0</td>
-                  <td className="text-center">0</td>
-                  <td className="text-center">0</td>
-                  <td className="text-center">0</td>
-                  <td className="text-center font-weight-600">0</td>
-                </tr>
-                <tr>
-                  <th scope="row">
-                    <span className="d-inline-block rounded-circle mr-2 bg-yellow" style={{ height: "7px", width: "7px" }}></span>
-                    Esperando respuesta
-                  </th>
-                  <td className="text-center">0</td>
-                  <td className="text-center">0</td>
-                  <td className="text-center">0</td>
-                  <td className="text-center">0</td>
-                  <td className="text-center">0</td>
-                  <td className="text-center">0</td>
-                  <td className="text-center">0</td>
-                  <td className="text-center font-weight-600">0</td>
-                </tr>
-                <tr>
-                  <th scope="row">
-                    <span className="d-inline-block rounded-circle mr-2 bg-orange" style={{ height: "7px", width: "7px" }}></span>
-                    No entregable
-                  </th>
-                  <td className="text-center">0</td>
-                  <td className="text-center">0</td>
-                  <td className="text-center">0</td>
-                  <td className="text-center">0</td>
-                  <td className="text-center">0</td>
-                  <td className="text-center">0</td>
-                  <td className="text-center">0</td>
-                  <td className="text-center font-weight-600">0</td>
-                </tr>
-                <tr>
-                  <th scope="row">
-                    <span className="d-inline-block rounded-circle mr-2 bg-green" style={{ height: "7px", width: "7px" }}></span>
-                    Entregado
-                  </th>
-                  <td className="text-center">0</td>
-                  <td className="text-center">0</td>
-                  <td className="text-center">0</td>
-                  <td className="text-center">0</td>
-                  <td className="text-center">0</td>
-                  <td className="text-center">0</td>
-                  <td className="text-center">0</td>
-                  <td className="text-center font-weight-600">0</td>
-                </tr>
-                <tr>
-                  <th scope="row font-weight-600">Total</th>
-                  <td className="text-center">0</td>
-                  <td className="text-center">0</td>
-                  <td className="text-center">0</td>
-                  <td className="text-center">0</td>
-                  <td className="text-center">0</td>
-                  <td className="text-center">0</td>
-                  <td className="text-center">0</td>
-                  <td className="text-center font-weight-600">0</td>
                 </tr>
               </tbody>
             </Table>
