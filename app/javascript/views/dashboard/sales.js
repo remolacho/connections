@@ -1,6 +1,7 @@
 import React from "react"
 import Chart from "chart.js";
 import { Line, Bar } from "react-chartjs-2";
+import { useNavigate } from "react-router-dom";
 import {
   Button,
   Card,
@@ -24,6 +25,7 @@ import {
 
 export default function Sales(){
   const [chartExample1Data, setChartExample1Data] = React.useState("data1");
+  const navigate = useNavigate()
 
   if (window.Chart) {
     parseOptions(Chart, chartOptions());
@@ -644,7 +646,7 @@ export default function Sales(){
                     </Media>
                   </th>
                   <td className="text-center">
-                    <a href="#" type="button" className="mx-2">Ver</a>
+                    <a onClick={() => navigate("/superadmin/clients/3024")} type="button" className="mx-2">Ver</a>
                   </td>
                 </tr>
                 <tr>
@@ -668,7 +670,7 @@ export default function Sales(){
                     </Media>
                   </th>
                   <td className="text-center">
-                    <a href="#" type="button" className="mx-2">Ver</a>
+                    <a onClick={() => navigate("/superadmin/clients/3024")} type="button" className="mx-2">Ver</a>
                   </td>
                 </tr>
                 <tr>
@@ -692,7 +694,7 @@ export default function Sales(){
                     </Media>
                   </th>
                   <td className="text-center">
-                    <a href="#" type="button" className="mx-2">Ver</a>
+                    <a onClick={() => navigate("/superadmin/clients/3024")} type="button" className="mx-2">Ver</a>
                   </td>
                 </tr>
                 <tr>
@@ -716,7 +718,7 @@ export default function Sales(){
                     </Media>
                   </th>
                   <td className="text-center">
-                    <a href="#" type="button" className="mx-2">Ver</a>
+                    <a onClick={() => navigate("/superadmin/clients/3024")} type="button" className="mx-2">Ver</a>
                   </td>
                 </tr>
                 <tr>
@@ -740,7 +742,7 @@ export default function Sales(){
                     </Media>
                   </th>
                   <td className="text-center">
-                    <a href="#" type="button" className="mx-2">Ver</a>
+                    <a onClick={() => navigate("/superadmin/clients/3024")} type="button" className="mx-2">Ver</a>
                   </td>
                 </tr>
                 <tr>
@@ -764,7 +766,7 @@ export default function Sales(){
                     </Media>
                   </th>
                   <td className="text-center">
-                    <a href="#" type="button" className="mx-2">Ver</a>
+                    <a onClick={() => navigate("/superadmin/clients/3024")} type="button" className="mx-2">Ver</a>
                   </td>
                 </tr>
               </tbody>
