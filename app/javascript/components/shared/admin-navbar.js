@@ -1,5 +1,5 @@
 import React from "react"
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import {
   DropdownMenu,
   DropdownItem,
@@ -14,6 +14,8 @@ import {
 } from "reactstrap";
 
 export default function AdminNavbar(){
+  const navigate = useNavigate()
+
   return (
     <div className="header">
       <Navbar className="navbar-top navbar-dark bg-info" expand="md" id="navbar-main">
@@ -21,7 +23,7 @@ export default function AdminNavbar(){
           <Form className="navbar-search navbar-search-dark form-inline mr-3 d-none d-md-flex ml-lg-auto">
             <Button
               color="warning"
-              onClick={(e) => e.preventDefault()}
+              onClick={() => navigate("/checkout")}
             >
               Comprar créditos
             </Button>
