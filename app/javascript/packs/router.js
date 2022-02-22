@@ -49,6 +49,7 @@ import RecoveryPassword from "views/auth/recovery-password";
 import SignupType from "views/auth/signup-type";
 import SignupCompany from "views/auth/signup-company";
 import SignupUser from "views/auth/signup-user";
+import Checkout from 'views/checkout';
 
 export default function Router(){
   return (
@@ -104,6 +105,7 @@ export default function Router(){
               <Route path=":client_id" element={<SuperadminClientId />} />
             </Route>
           </Route>
+          <Route path="checkout" element={<Checkout />} />
           <Route path="*" element={<Navigate to="/dashboard" />} />
         </Route>
         <Route path="/auth" element={<AuthLayout />}>
