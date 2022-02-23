@@ -470,7 +470,9 @@ export default function Send() {
               </div>
             </form>
             <div className="text-center">
-              <i className="fas fa-exclamation-circle fa-9x text-warning my-4"></i>
+              <svg className="mx-2 mb-1 fill-current">
+                <use xlinkHref="#error" />
+              </svg>
               <p className="text-xl mb-1 font-weight-600">La lista no se cargó</p>
               <p>La lista ingresada tiene los siguientes errores...</p>
             </div>
@@ -487,7 +489,9 @@ export default function Send() {
               </button>
             </div>
             <div className="text-center">
-              <i class="far fa-check-circle fa-9x text-success my-4"></i>
+              <svg className="mx-2 mb-1 fill-current">
+                <use xlinkHref="#confirmation" />
+              </svg>
               <p className="text-xl mb-1 font-weight-600">La lista fue cargada</p>
               <p>La lista ingresada fue cargada con éxito!</p>
             </div>
