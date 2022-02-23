@@ -381,7 +381,9 @@ export default function Index(){
                         <Row className="pb-5">
                           <Col className="mb-5 mb-xl-0" xl="5">
                             <div className="d-flex justify-content-center">
-                              <i className="fas fa-exclamation-circle fa-4x text-warning my-4"></i>
+                              <svg className="mx-2 mb-1 fill-current">
+                                <use xlinkHref="#confirmation" />
+                              </svg>
                             </div>
                           </Col>
                           <Col className="mb-5 mb-xl-0" xl="7">
