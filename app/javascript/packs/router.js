@@ -27,7 +27,7 @@ import DashboardAdminClient from 'views/dashboard-admin-client'
 import DashboardClient from 'views/dashboard-client'
 // Temporary routes. END
 import Contact from "views/contact"
-import Email from "views/email"
+import Email from "views/email/send"
 import SMS from "views/sms/send"
 import SMSShippedScheduled from "views/sms/shipped-scheduled"
 import SMSAutoPreset from "views/sms/auto-preset"
