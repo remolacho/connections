@@ -33,7 +33,8 @@ import SMSShippedScheduled from "views/sms/shipped-scheduled"
 import SMSAutoPreset from "views/sms/auto-preset"
 import SMSReceived from "views/sms/received"
 import SMSShippedId from "views/sms/shipped-scheduled/[shipped_id]"
-import EmailShippedScheduled from "views/email/shipped-and-scheduled"
+import EmailShippedScheduled from "views/email/shipped-scheduled"
+import EmailShippedId from "views/email/shipped-scheduled/[shipped_id]"
 import EmailAutoPreset from "views/email/auto-preset"
 import EmailUnsubscribed from "views/email/unsubscribed"
 import AdminAccount from "views/admin/account"
@@ -87,7 +88,10 @@ export default function Router(){
           </Route>
           <Route path="email">
             <Route path="send" element={<Email />} />
-            <Route path="shipped-and-scheduled" element={<EmailShippedScheduled />} />
+            <Route path="shipped-and-scheduled">
+              <Route index element={<EmailShippedScheduled />} />
+              <Route path=":shipped_id" element={<EmailShippedId />} />
+            </Route>
             <Route path="auto-preset" element={<EmailAutoPreset />} />
             <Route path="unsubscribed" element={<EmailUnsubscribed />} />
           </Route>
