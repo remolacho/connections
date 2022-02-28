@@ -1,4 +1,5 @@
 import React from "react"
+import { NavLink } from "react-router-dom";
 import {
   Card,
   CardHeader,
@@ -56,9 +57,9 @@ export default function ShippedScheduled(){
               <tbody>
                 <tr>
                   <th scope="row">
-                    <span className="mb-0 text-sm text-center d-block" style={{ whiteSpace: 'initial'}}>
+                    <NavLink to={`/email/shipped-and-scheduled/${12312123}`} className="mb-0 text-sm d-block" style={{ whiteSpace: 'initial'}}>
                       Uso PLATAFORMA - EMAIL, Etiner Dev, mes de septiembre
-                    </span>
+                    </NavLink>
                   </th>
                   <td className="text-center">EMAIL individual plataforma</td>
                   <td className="text-center">
@@ -71,14 +72,16 @@ export default function ShippedScheduled(){
                     100%
                   </td>
                   <td className="text-center">
-                    <i class="far fa-eye text-info"></i>
+                    <NavLink to={`/email/shipped-and-scheduled/${12312123}`}>
+                      <i className="far fa-eye text-info"></i>
+                    </NavLink>
                   </td>
                 </tr>
                 <tr>
                   <th scope="row">
-                    <span className="mb-0 text-sm text-center d-block" style={{ whiteSpace: 'initial'}}>
+                    <NavLink to={`/email/shipped-and-scheduled/${12312123}`} className="mb-0 text-sm d-block" style={{ whiteSpace: 'initial'}}>
                       Uso PLATAFORMA - EMAIL, Etiner Dev, mes de septiembre
-                    </span>
+                    </NavLink>
                   </th>
                   <td className="text-center">EMAIL individual plataforma</td>
                   <td className="text-center">
@@ -91,14 +94,16 @@ export default function ShippedScheduled(){
                     80%
                   </td>
                   <td className="text-center">
-                    <i class="far fa-eye text-info"></i>
+                    <NavLink to={`/email/shipped-and-scheduled/${12312123}`}>
+                      <i className="far fa-eye text-info"></i>
+                    </NavLink>
                   </td>
                 </tr>
                 <tr>
                   <th scope="row">
-                    <span className="mb-0 text-sm text-center d-block" style={{ whiteSpace: 'initial'}}>
+                    <NavLink to={`/email/shipped-and-scheduled/${12312123}`} className="mb-0 text-sm d-block" style={{ whiteSpace: 'initial'}}>
                       Uso PLATAFORMA - EMAIL, Etiner Dev, mes de septiembre
-                    </span>
+                    </NavLink>
                   </th>
                   <td className="text-center">EMAIL individual plataforma</td>
                   <td className="text-center">
@@ -111,14 +116,16 @@ export default function ShippedScheduled(){
                     100%
                   </td>
                   <td className="text-center">
-                    <i class="far fa-eye text-info"></i>
+                    <NavLink to={`/email/shipped-and-scheduled/${12312123}`}>
+                      <i className="far fa-eye text-info"></i>
+                    </NavLink>
                   </td>
                 </tr>
                 <tr>
                   <th scope="row">
-                    <span className="mb-0 text-sm text-center d-block" style={{ whiteSpace: 'initial'}}>
+                    <NavLink to={`/email/shipped-and-scheduled/${12312123}`} className="mb-0 text-sm d-block" style={{ whiteSpace: 'initial'}}>
                       Uso PLATAFORMA - EMAIL, Etiner Dev, mes de septiembre
-                    </span>
+                    </NavLink>
                   </th>
                   <td className="text-center">EMAIL individual plataforma</td>
                   <td className="text-center">
@@ -131,14 +138,16 @@ export default function ShippedScheduled(){
                     75%
                   </td>
                   <td className="text-center">
-                    <i class="far fa-eye text-info"></i>
+                    <NavLink to={`/email/shipped-and-scheduled/${12312123}`}>
+                      <i className="far fa-eye text-info"></i>
+                    </NavLink>
                   </td>
                 </tr>
                 <tr>
                   <th scope="row">
-                    <span className="mb-0 text-sm text-center d-block" style={{ whiteSpace: 'initial'}}>
+                    <NavLink to={`/email/shipped-and-scheduled/${12312123}`} className="mb-0 text-sm d-block" style={{ whiteSpace: 'initial'}}>
                       Uso PLATAFORMA - EMAIL, Etiner Dev, mes de septiembre
-                    </span>
+                    </NavLink>
                   </th>
                   <td className="text-center">EMAIL individual plataforma</td>
                   <td className="text-center">
@@ -151,7 +160,9 @@ export default function ShippedScheduled(){
                     100%
                   </td>
                   <td className="text-center">
-                    <i class="far fa-eye text-info"></i>
+                    <NavLink to={`/email/shipped-and-scheduled/${12312123}`}>
+                      <i className="far fa-eye text-info"></i>
+                    </NavLink>
                   </td>
                 </tr>
               </tbody>
