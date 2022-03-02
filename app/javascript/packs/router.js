@@ -45,6 +45,7 @@ import AdminClient from "views/admin/client";
 import SuperadminUser from "views/superadmin/user";
 import SuperadminClient from "views/superadmin/client";
 import SuperadminClientId from "views/superadmin/client/[client_id]"
+import SuperadminBuy from "views/superadmin/buy";
 import Login from "views/auth/login";
 import RecoveryPassword from "views/auth/recovery-password";
 import SignupType from "views/auth/signup-type";
@@ -108,6 +109,7 @@ export default function Router(){
               <Route index element={<SuperadminClient />} />
               <Route path=":client_id" element={<SuperadminClientId />} />
             </Route>
+            <Route path="buy" element={<SuperadminBuy />} />
           </Route>
           <Route path="checkout" element={<Checkout />} />
           <Route path="*" element={<Navigate to="/dashboard" />} />
