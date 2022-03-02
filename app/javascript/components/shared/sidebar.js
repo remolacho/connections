@@ -441,6 +441,17 @@ export default function Sidebar() {
                   </span>
                 </NavLink>
               </NavItem>
+              <NavItem>
+                <NavLink
+                  to="/superadmin/buy"
+                  tag={NavLinkRRD}
+                  onClick={closeCollapse}
+                >
+                  <span className="pl-4">
+                    Comprar
+                  </span>
+                </NavLink>
+              </NavItem>
             </span>
           </Nav>
           {/* Divider */}
