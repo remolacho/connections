@@ -269,6 +269,17 @@ export default function Sidebar() {
                   </span>
                 </NavLink>
               </NavItem>
+              <NavItem>
+                <NavLink
+                  to="/sms/unsubscribed"
+                  tag={NavLinkRRD}
+                  onClick={closeCollapse}
+                >
+                  <span className="pl-4">
+                    Número desuscritos
+                  </span>
+                </NavLink>
+              </NavItem>
             </span>
             <li>
               <a type="button" onClick={() => setCollapseOption({...collapseOption, email: !collapseOption.email})} className="d-flex justify-content-between nav-link">
