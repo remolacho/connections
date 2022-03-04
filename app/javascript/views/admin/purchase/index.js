@@ -14,7 +14,7 @@ import {
   Input
 } from "reactstrap";
 
-export default function ShippedScheduled(){
+export default function Purchase(){
   return (
     <Container className="pt-7" fluid>
         <div className="d-flex justify-content-between">

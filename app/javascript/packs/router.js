@@ -40,7 +40,7 @@ import EmailAutoPreset from "views/email/auto-preset"
 import EmailUnsubscribed from "views/email/unsubscribed"
 import AdminAccount from "views/admin/account"
 import AdminReport from "views/admin/reports"
-import ShoppingHistory from "views/admin/shopping-history";
+import AdminPurchase from "views/admin/purchase";
 import AdminUser from "views/admin/user";
 import AdminClient from "views/admin/client";
 import AdminEnterprise from "views/admin/enterprise"
@@ -103,7 +103,9 @@ export default function Router(){
           <Route path="admin">
             <Route path="account" element={<AdminAccount />} />
             <Route path="reports" element={<AdminReport />} />
-            <Route path="shopping-history" element={<ShoppingHistory />} />
+            <Route path="purchase">
+              <Route index element={<AdminPurchase />} />
+            </Route>
             <Route path="users" element={<AdminUser />} />
             <Route path="clients" element={<AdminClient />} />
             <Route path="enterprise" element={<AdminEnterprise />}/>
