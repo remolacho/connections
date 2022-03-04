@@ -40,7 +40,8 @@ import EmailAutoPreset from "views/email/auto-preset"
 import EmailUnsubscribed from "views/email/unsubscribed"
 import AdminAccount from "views/admin/account"
 import AdminReport from "views/admin/reports"
-import ShoppingHistory from "views/admin/shopping-history";
+import AdminPurchase from "views/admin/purchase";
+import AdminPurchaseDetailId from "views/admin/purchase/detail/[detail_id]"
 import AdminUser from "views/admin/user";
 import AdminClient from "views/admin/client";
 import AdminEnterprise from "views/admin/enterprise"
@@ -103,7 +104,12 @@ export default function Router(){
           <Route path="admin">
             <Route path="account" element={<AdminAccount />} />
             <Route path="reports" element={<AdminReport />} />
-            <Route path="shopping-history" element={<ShoppingHistory />} />
+            <Route path="purchase">
+              <Route index element={<AdminPurchase />} />
+              <Route path="detail">
+                <Route path=":detail_id" element={<AdminPurchaseDetailId />} />
+              </Route>
+            </Route>
             <Route path="users" element={<AdminUser />} />
             <Route path="clients" element={<AdminClient />} />
             <Route path="enterprise" element={<AdminEnterprise />}/>
@@ -120,7 +126,7 @@ export default function Router(){
           <Route path="checkout" element={<Checkout />} />
           <Route path="*" element={<Navigate to="/dashboard" />} />
         </Route>
-        <Route path="/auth" element={<AuthLayout />}>
+        <Route path="auth" element={<AuthLayout />}>
           <Route index element={<Navigate to="/auth/login" />} />
           <Route path="login" element={<Login />} />
           <Route path="recovery-password" element={<RecoveryPassword />} />

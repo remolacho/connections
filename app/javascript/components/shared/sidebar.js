@@ -393,7 +393,7 @@ export default function Sidebar() {
               </NavItem>
               <NavItem>
                 <NavLink
-                  to="/admin/shopping-history"
+                  to="/admin/purchase"
                   tag={NavLinkRRD}
                   onClick={closeCollapse}
                 >
