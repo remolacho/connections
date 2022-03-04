@@ -1,4 +1,5 @@
 import React from "react"
+import { NavLink } from "react-router-dom";
 import {
   Card,
   CardHeader,
@@ -49,9 +50,9 @@ export default function Purchase(){
               <tbody>
                 <tr>
                   <th scope="row">
-                    <span className="mb-0 text-sm text-center text-info d-block" style={{ whiteSpace: 'initial'}}>
+                    <NavLink to={`/admin/purchase/detail/${'hjb24ryqfu934nf39nf93nf934n90f'}`} className="mb-0 text-sm text-center text-info d-block" style={{ whiteSpace: 'initial'}}>
                       hjb24ryqfu934nf39nf93nf934n90f
-                    </span>
+                    </NavLink>
                   </th>
                   <td className="text-center">22/09/21 18:15</td>
                   <td className="text-center">
@@ -66,9 +67,9 @@ export default function Purchase(){
                 </tr>
                 <tr>
                   <th scope="row">
-                    <span className="mb-0 text-sm text-center text-info d-block" style={{ whiteSpace: 'initial'}}>
+                    <NavLink to={`/admin/purchase/detail/${'hjb24ryqfu934nf39nf93nf934n90f'}`} className="mb-0 text-sm text-center text-info d-block" style={{ whiteSpace: 'initial'}}>
                       hjb24ryqfu934nf39nf93nf934n90f
-                    </span>
+                    </NavLink>
                   </th>
                   <td className="text-center">22/09/21 18:15</td>
                   <td className="text-center">Paypal</td>
@@ -79,9 +80,9 @@ export default function Purchase(){
                 </tr>
                 <tr>
                   <th scope="row">
-                    <span className="mb-0 text-sm text-center text-info d-block" style={{ whiteSpace: 'initial'}}>
-                      3df34fw345fw34fw3f4fw34fwfertgewt
-                    </span>
+                    <NavLink to={`/admin/purchase/detail/${'hjb24ryqfu934nf39nf93nf934n90f'}`} className="mb-0 text-sm text-center text-info d-block" style={{ whiteSpace: 'initial'}}>
+                      hjb24ryqfu934nf39nf93nf934n90f
+                    </NavLink>
                   </th>
                   <td className="text-center">22/09/21 18:15</td>
                   <td className="text-center">Transferencia Bancaria</td>
@@ -92,9 +93,9 @@ export default function Purchase(){
                 </tr>
                 <tr>
                   <th scope="row">
-                    <span className="mb-0 text-sm text-center text-info d-block" style={{ whiteSpace: 'initial'}}>
-                      9dfg90dfg090h9dfg0h09dfg90h90dfg90h
-                    </span>
+                    <NavLink to={`/admin/purchase/detail/${'hjb24ryqfu934nf39nf93nf934n90f'}`} className="mb-0 text-sm text-center text-info d-block" style={{ whiteSpace: 'initial'}}>
+                      hjb24ryqfu934nf39nf93nf934n90f
+                    </NavLink>
                   </th>
                   <td className="text-center">22/09/21 18:15</td>
                   <td className="text-center">Khipu</td>
@@ -105,9 +106,9 @@ export default function Purchase(){
                 </tr>
                 <tr>
                   <th scope="row">
-                    <span className="mb-0 text-sm text-center text-info d-block" style={{ whiteSpace: 'initial'}}>
-                      78sdf78fsdgsdf78g87sdf78g78sdfg78sdff
-                    </span>
+                    <NavLink to={`/admin/purchase/detail/${'hjb24ryqfu934nf39nf93nf934n90f'}`} className="mb-0 text-sm text-center text-info d-block" style={{ whiteSpace: 'initial'}}>
+                      hjb24ryqfu934nf39nf93nf934n90f
+                    </NavLink>
                   </th>
                   <td className="text-center">22/09/21 18:15</td>
                   <td className="text-center">Paylap</td>
