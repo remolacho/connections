@@ -360,6 +360,17 @@ export default function Sidebar() {
             <span className={`${collapseOption.admin ? '' : "d-none"}`}>
               <NavItem>
                 <NavLink
+                  to="/admin/enterprise"
+                  tag={NavLinkRRD}
+                  onClick={closeCollapse}
+                >
+                  <span className="pl-4">
+                    Empresa
+                  </span>
+                </NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink
                   to="/admin/account"
                   tag={NavLinkRRD}
                   onClick={closeCollapse}
