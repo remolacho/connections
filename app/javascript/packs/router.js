@@ -43,6 +43,7 @@ import AdminReport from "views/admin/reports"
 import ShoppingHistory from "views/admin/shopping-history";
 import AdminUser from "views/admin/user";
 import AdminClient from "views/admin/client";
+import AdminEnterprise from "views/admin/enterprise"
 import SuperadminUser from "views/superadmin/user";
 import SuperadminClient from "views/superadmin/client";
 import SuperadminClientId from "views/superadmin/client/[client_id]"
@@ -104,6 +105,7 @@ export default function Router(){
             <Route path="shopping-history" element={<ShoppingHistory />} />
             <Route path="users" element={<AdminUser />} />
             <Route path="clients" element={<AdminClient />} />
+            <Route path="enterprise" element={<AdminEnterprise />}/>
           </Route>
           <Route path="superadmin">
             <Route path="users" element={<SuperadminUser />} />
