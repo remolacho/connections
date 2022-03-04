@@ -47,6 +47,7 @@ import AdminEnterprise from "views/admin/enterprise"
 import SuperadminUser from "views/superadmin/user";
 import SuperadminClient from "views/superadmin/client";
 import SuperadminClientId from "views/superadmin/client/[client_id]"
+import SuperadminPostpago from "views/superadmin/postpago"
 import SuperadminBuy from "views/superadmin/buy";
 import Login from "views/auth/login";
 import RecoveryPassword from "views/auth/recovery-password";
@@ -114,6 +115,7 @@ export default function Router(){
               <Route path=":client_id" element={<SuperadminClientId />} />
             </Route>
             <Route path="buy" element={<SuperadminBuy />} />
+            <Route path="postpago" element={<SuperadminPostpago />} />
           </Route>
           <Route path="checkout" element={<Checkout />} />
           <Route path="*" element={<Navigate to="/dashboard" />} />
