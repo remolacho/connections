@@ -424,6 +424,17 @@ export default function Sidebar() {
                   </span>
                 </NavLink>
               </NavItem>
+              <NavItem>
+                <NavLink
+                  to="/admin/transform-balance"
+                  tag={NavLinkRRD}
+                  onClick={closeCollapse}
+                >
+                  <span className="pl-4">
+                    Transformar saldo
+                  </span>
+                </NavLink>
+              </NavItem>
             </span>
             <li>
               <a type="button" onClick={() => setCollapseOption({...collapseOption, superadmin: !collapseOption.superadmin})} className="d-flex justify-content-between nav-link">
