@@ -12,10 +12,13 @@ import {
   Row,
   Col,
   Button,
-  Input
+  Input,
+  Modal,
 } from "reactstrap";
 
 export default function Postpago(){
+  const [showModalShippingRate, setShowModalShippingRate] = React.useState(true)
+
   return (
     <Container className="pt-7" fluid>
       <div className="d-flex justify-content-between">
@@ -95,7 +98,13 @@ export default function Postpago(){
                     ${new Intl.NumberFormat('de-DE', {minimumFractionDigits: 0, maximumFractionDigits: 0}).format(23574)}
                   </td>
                   <td className="text-center">
-                    <a href="#">183.484</a>
+                    <a 
+                      type="button" 
+                      className="text-blue"
+                      onClick={() => setShowModalShippingRate(!showModalShippingRate)}
+                    >
+                      183.484
+                    </a>
                   </td>
                   <td className="text-center text-info">Abierto</td>
                   <td className="text-center">
@@ -132,7 +141,13 @@ export default function Postpago(){
                     ${new Intl.NumberFormat('de-DE', {minimumFractionDigits: 0, maximumFractionDigits: 0}).format(23574)}
                   </td>
                   <td className="text-center">
-                    <a href="#">183.484</a>
+                    <a 
+                      type="button" 
+                      className="text-blue"
+                      onClick={() => setShowModalShippingRate(!showModalShippingRate)}
+                    >
+                      183.484
+                    </a>
                   </td>
                   <td className="text-center text-info">Abierto</td>
                   <td className="text-center">
@@ -169,7 +184,13 @@ export default function Postpago(){
                     ${new Intl.NumberFormat('de-DE', {minimumFractionDigits: 0, maximumFractionDigits: 0}).format(23574)}
                   </td>
                   <td className="text-center">
-                    <a href="#">183.484</a>
+                    <a 
+                      type="button" 
+                      className="text-blue"
+                      onClick={() => setShowModalShippingRate(!showModalShippingRate)}
+                    >
+                      183.484
+                    </a>
                   </td>
                   <td className="text-center text-info">Abierto</td>
                   <td className="text-center">
@@ -206,7 +227,13 @@ export default function Postpago(){
                     ${new Intl.NumberFormat('de-DE', {minimumFractionDigits: 0, maximumFractionDigits: 0}).format(23574)}
                   </td>
                   <td className="text-center">
-                    <a href="#">183.484</a>
+                    <a 
+                      type="button" 
+                      className="text-blue"
+                      onClick={() => setShowModalShippingRate(!showModalShippingRate)}
+                    >
+                      183.484
+                    </a>
                   </td>
                   <td className="text-center text-success">Cerrado</td>
                   <td className="text-center">
@@ -246,7 +273,13 @@ export default function Postpago(){
                     ${new Intl.NumberFormat('de-DE', {minimumFractionDigits: 0, maximumFractionDigits: 0}).format(23574)}
                   </td>
                   <td className="text-center">
-                    <a href="#">183.484</a>
+                    <a 
+                      type="button" 
+                      className="text-blue"
+                      onClick={() => setShowModalShippingRate(!showModalShippingRate)}
+                    >
+                      183.484
+                    </a>
                   </td>
                   <td className="text-center text-success">Cerrado</td>
                   <td className="text-center">
@@ -311,6 +344,321 @@ export default function Postpago(){
           </Card>
         </div>
       </Row>
+
+      <Modal
+          className="modal-dialog-centered"
+          size="xl"
+          isOpen={showModalShippingRate}
+          toggle={() => setShowModalShippingRate(!showModalShippingRate)}
+        >
+          <div className="modal-header">
+            <h6 className="modal-title text-xl" id="modal-title-default">
+              Beetrack
+            </h6>
+            <button
+              aria-label="Close"
+              className="close"
+              data-dismiss="modal"
+              type="button"
+              onClick={() => setShowModalShippingRate(!showModalShippingRate)}
+            >
+              <span aria-hidden={true}>×</span>
+            </button>
+          </div>
+          <div className="modal-body">
+            <Table className="align-items-center table-flush" responsive borderless>
+              <thead className="thead-light">
+                <tr>
+                  <th scope="col" className="text-left">Pais / Servicio</th>
+                  <th scope="col" className="text-center">
+                    <svg className="mx-2 mb-1 fill-current" style={{width: "15px", height: "15px"}}>
+                      <use xlinkHref="#sms" />
+                    </svg>
+                    SMS
+                  </th>
+                  <th scope="col" className="text-center">
+                    <svg className="mx-2 mb-1 fill-current" style={{width: "15px", height: "15px"}}>
+                      <use xlinkHref="#email" />
+                    </svg>
+                    Email
+                  </th>
+                  <th scope="col" className="text-center">
+                    <svg className="mx-2 mb-1 fill-current" style={{width: "15px", height: "15px"}}>
+                      <use xlinkHref="#whatsapp" />
+                    </svg>
+                    Whatsapp
+                  </th>
+                  <th scope="col" className="text-center">
+                    <svg className="mx-2 mb-1 fill-current" style={{width: "15px", height: "15px"}}>
+                      <use xlinkHref="#message-voice" />
+                    </svg>
+                    Voz
+                  </th>
+                  <th scope="col" className="text-center">Total</th>
+                </tr>
+              </thead>
+              <tbody id="modal-rate" className="list">
+                <tr className="border-bottom">
+                  <th scope="row">
+                    <span className="d-inline-block rounded-circle mr-2 bg-red" style={{ height: "7px", width: "7px" }}></span>
+                    Chile
+                  </th>
+                  <td>
+                    <div className="align-items-center d-flex justify-content-around">
+                      <input type="text" className="form-control" style={{ height: "23px", width: "70px"}} />
+                      <div>
+                        <b>7.484</b>
+                        <span className="d-block">${new Intl.NumberFormat('de-DE', {minimumFractionDigits: 0, maximumFractionDigits: 0}).format(12484)}</span>
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <div className="align-items-center d-flex justify-content-around">
+                      <input type="text" className="form-control" style={{ height: "23px", width: "70px"}} />
+                      <div>
+                        <b>7.484</b>
+                        <span className="d-block">${new Intl.NumberFormat('de-DE', {minimumFractionDigits: 0, maximumFractionDigits: 0}).format(12484)}</span>
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <div className="align-items-center d-flex justify-content-around">
+                      <input type="text" className="form-control" style={{ height: "23px", width: "70px"}} />
+                      <div>
+                        <b>7.484</b>
+                        <span className="d-block">${new Intl.NumberFormat('de-DE', {minimumFractionDigits: 0, maximumFractionDigits: 0}).format(12484)}</span>
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <div className="align-items-center d-flex justify-content-around">
+                      <input type="text" className="form-control" style={{ height: "23px", width: "70px"}} />
+                      <div>
+                        <b>7.484</b>
+                        <span className="d-block">${new Intl.NumberFormat('de-DE', {minimumFractionDigits: 0, maximumFractionDigits: 0}).format(12484)}</span>
+                      </div>
+                    </div>
+                  </td>
+                  <td className="text-center">
+                    <b>${new Intl.NumberFormat('de-DE', {minimumFractionDigits: 0, maximumFractionDigits: 0}).format(12484)}</b>
+                  </td>
+                </tr>
+                <tr className="border-bottom">
+                  <th scope="row">
+                    <span className="d-inline-block rounded-circle mr-2 bg-blue" style={{ height: "7px", width: "7px" }}></span>
+                    Colombia
+                  </th>
+                  <td>
+                    <div className="align-items-center d-flex justify-content-around">
+                      <input type="text" className="form-control" style={{ height: "23px", width: "70px"}} />
+                      <div>
+                        <b>96.72</b>
+                        <span className="d-block">${new Intl.NumberFormat('de-DE', {minimumFractionDigits: 0, maximumFractionDigits: 0}).format(12484)}</span>
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <div className="align-items-center d-flex justify-content-around">
+                      <input type="text" className="form-control" style={{ height: "23px", width: "70px"}} />
+                      <div>
+                        <b>7.484</b>
+                        <span className="d-block">${new Intl.NumberFormat('de-DE', {minimumFractionDigits: 0, maximumFractionDigits: 0}).format(12484)}</span>
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <div className="align-items-center d-flex justify-content-around">
+                      <input type="text" className="form-control" style={{ height: "23px", width: "70px"}} />
+                      <div>
+                        <b>7.484</b>
+                        <span className="d-block">${new Intl.NumberFormat('de-DE', {minimumFractionDigits: 0, maximumFractionDigits: 0}).format(12484)}</span>
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <div className="align-items-center d-flex justify-content-around">
+                      <input type="text" className="form-control" style={{ height: "23px", width: "70px"}} />
+                      <div>
+                        <b>7.484</b>
+                        <span className="d-block">${new Intl.NumberFormat('de-DE', {minimumFractionDigits: 0, maximumFractionDigits: 0}).format(12484)}</span>
+                      </div>
+                    </div>
+                  </td>
+                  <td className="text-center">
+                    <b>${new Intl.NumberFormat('de-DE', {minimumFractionDigits: 0, maximumFractionDigits: 0}).format(12484)}</b>
+                  </td>
+                </tr>
+                <tr className="border-bottom">
+                  <th scope="row">
+                    <span className="d-inline-block rounded-circle mr-2 bg-yellow" style={{ height: "7px", width: "7px" }}></span>
+                    Estados Unidos
+                  </th>
+                  <td>
+                    <div className="align-items-center d-flex justify-content-around">
+                      <input type="text" className="form-control" style={{ height: "23px", width: "70px"}} />
+                      <div>
+                        <b>96.72</b>
+                        <span className="d-block">${new Intl.NumberFormat('de-DE', {minimumFractionDigits: 0, maximumFractionDigits: 0}).format(12484)}</span>
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <div className="align-items-center d-flex justify-content-around">
+                      <input type="text" className="form-control" style={{ height: "23px", width: "70px"}} />
+                      <div>
+                        <b>7.484</b>
+                        <span className="d-block">${new Intl.NumberFormat('de-DE', {minimumFractionDigits: 0, maximumFractionDigits: 0}).format(12484)}</span>
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <div className="align-items-center d-flex justify-content-around">
+                      <input type="text" className="form-control" style={{ height: "23px", width: "70px"}} />
+                      <div>
+                        <b>7.484</b>
+                        <span className="d-block">${new Intl.NumberFormat('de-DE', {minimumFractionDigits: 0, maximumFractionDigits: 0}).format(12484)}</span>
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <div className="align-items-center d-flex justify-content-around">
+                      <input type="text" className="form-control" style={{ height: "23px", width: "70px"}} />
+                      <div>
+                        <b>7.484</b>
+                        <span className="d-block">${new Intl.NumberFormat('de-DE', {minimumFractionDigits: 0, maximumFractionDigits: 0}).format(12484)}</span>
+                      </div>
+                    </div>
+                  </td>
+                  <td className="text-center">
+                    <b>${new Intl.NumberFormat('de-DE', {minimumFractionDigits: 0, maximumFractionDigits: 0}).format(12484)}</b>
+                  </td>
+                </tr>
+                <tr className="border-bottom">
+                  <th scope="row">
+                    <span className="d-inline-block rounded-circle mr-2 bg-red" style={{ height: "7px", width: "7px" }}></span>
+                    Mexico
+                  </th>
+                  <td>
+                    <div className="align-items-center d-flex justify-content-around">
+                      <input type="text" className="form-control" style={{ height: "23px", width: "70px"}} />
+                      <div>
+                        <b>96.72</b>
+                        <span className="d-block">${new Intl.NumberFormat('de-DE', {minimumFractionDigits: 0, maximumFractionDigits: 0}).format(12484)}</span>
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <div className="align-items-center d-flex justify-content-around">
+                      <input type="text" className="form-control" style={{ height: "23px", width: "70px"}} />
+                      <div>
+                        <b>7.484</b>
+                        <span className="d-block">${new Intl.NumberFormat('de-DE', {minimumFractionDigits: 0, maximumFractionDigits: 0}).format(12484)}</span>
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <div className="align-items-center d-flex justify-content-around">
+                      <input type="text" className="form-control" style={{ height: "23px", width: "70px"}} />
+                      <div>
+                        <b>7.484</b>
+                        <span className="d-block">${new Intl.NumberFormat('de-DE', {minimumFractionDigits: 0, maximumFractionDigits: 0}).format(12484)}</span>
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <div className="align-items-center d-flex justify-content-around">
+                      <input type="text" className="form-control" style={{ height: "23px", width: "70px"}} />
+                      <div>
+                        <b>7.484</b>
+                        <span className="d-block">${new Intl.NumberFormat('de-DE', {minimumFractionDigits: 0, maximumFractionDigits: 0}).format(12484)}</span>
+                      </div>
+                    </div>
+                  </td>
+                  <td className="text-center">
+                    <b>${new Intl.NumberFormat('de-DE', {minimumFractionDigits: 0, maximumFractionDigits: 0}).format(12484)}</b>
+                  </td>
+                </tr>
+                <tr className="border-bottom">
+                  <th scope="row">
+                    <span className="d-inline-block rounded-circle mr-2 bg-green" style={{ height: "7px", width: "7px" }}></span>
+                    Peru
+                  </th>
+                  <td>
+                    <div className="align-items-center d-flex justify-content-around">
+                      <input type="text" className="form-control" style={{ height: "23px", width: "70px"}} />
+                      <div>
+                        <b>96.72</b>
+                        <span className="d-block">${new Intl.NumberFormat('de-DE', {minimumFractionDigits: 0, maximumFractionDigits: 0}).format(12484)}</span>
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <div className="align-items-center d-flex justify-content-around">
+                      <input type="text" className="form-control" style={{ height: "23px", width: "70px"}} />
+                      <div>
+                        <b>7.484</b>
+                        <span className="d-block">${new Intl.NumberFormat('de-DE', {minimumFractionDigits: 0, maximumFractionDigits: 0}).format(12484)}</span>
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <div className="align-items-center d-flex justify-content-around">
+                      <input type="text" className="form-control" style={{ height: "23px", width: "70px"}} />
+                      <div>
+                        <b>7.484</b>
+                        <span className="d-block">${new Intl.NumberFormat('de-DE', {minimumFractionDigits: 0, maximumFractionDigits: 0}).format(12484)}</span>
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <div className="align-items-center d-flex justify-content-around">
+                      <input type="text" className="form-control" style={{ height: "23px", width: "70px"}} />
+                      <div>
+                        <b>7.484</b>
+                        <span className="d-block">${new Intl.NumberFormat('de-DE', {minimumFractionDigits: 0, maximumFractionDigits: 0}).format(12484)}</span>
+                      </div>
+                    </div>
+                  </td>
+                  <td className="text-center">
+                    <b>${new Intl.NumberFormat('de-DE', {minimumFractionDigits: 0, maximumFractionDigits: 0}).format(12484)}</b>
+                  </td>
+                </tr>
+                <tr className="border-bottom">
+                  <th scope="row font-weight-600">Total</th>
+                  <td className="text-right">
+                    <b>${new Intl.NumberFormat('de-DE', {minimumFractionDigits: 0, maximumFractionDigits: 0}).format(12484)}</b>
+                  </td>
+                  <td className="text-right">
+                    <b>${new Intl.NumberFormat('de-DE', {minimumFractionDigits: 0, maximumFractionDigits: 0}).format(12484)}</b>
+                  </td>
+                  <td className="text-right">
+                    <b>${new Intl.NumberFormat('de-DE', {minimumFractionDigits: 0, maximumFractionDigits: 0}).format(12484)}</b>
+                  </td>
+                  <td className="text-right">
+                    <b>${new Intl.NumberFormat('de-DE', {minimumFractionDigits: 0, maximumFractionDigits: 0}).format(12484)}</b>
+                  </td>
+                  <td className="text-center">
+                    <b>${new Intl.NumberFormat('de-DE', {minimumFractionDigits: 0, maximumFractionDigits: 0}).format(12484)}</b>
+                  </td>
+                </tr>
+              </tbody>
+            </Table>
+          </div>
+          <div className="modal-footer">
+            <Button color="info" type="button">
+              Aceptar
+            </Button>
+            <Button
+              className="ml-auto"
+              color="link"
+              data-dismiss="modal"
+              type="button"
+              onClick={() => setShowModalShippingRate(!showModalShippingRate)}
+            >
+              Cancelar
+            </Button>
+          </div>
+        </Modal>
     </Container>
   )
 }
