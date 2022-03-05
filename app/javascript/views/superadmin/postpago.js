@@ -17,7 +17,7 @@ import {
 } from "reactstrap";
 
 export default function Postpago(){
-  const [showModalShippingRate, setShowModalShippingRate] = React.useState(true)
+  const [showModalShippingRate, setShowModalShippingRate] = React.useState(false)
 
   return (
     <Container className="pt-7" fluid>
