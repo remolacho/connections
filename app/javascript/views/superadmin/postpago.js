@@ -55,8 +55,10 @@ export default function Postpago(){
             <Table className="align-items-center table-flush" responsive borderless>
               <thead className="thead-light">
                 <tr>
-                  <th scope="col"></th>
-                  <th scope="col" className="text-center">Cliente</th>
+                  <th scope="col">
+                    <input type="checkbox" id="all_cbox" value="first_checkbox" />
+                  </th>
+                  <th scope="col">Cliente</th>
                   <th scope="col" className="text-center">Consumo ultimo mes</th>
                   <th scope="col" className="text-center">Tipo de envio</th>
                   <th scope="col" className="text-center">Estado</th>
@@ -65,7 +67,9 @@ export default function Postpago(){
               </thead>
               <tbody>
                 <tr>
-                  <th scope="row"></th>
+                  <th scope="row">
+                    <input type="checkbox" id="cbox1" value="cbx-1" />
+                  </th>
                   <td>
                     <Media className="align-items-center">
                       <a
@@ -100,7 +104,9 @@ export default function Postpago(){
                   </td>
                 </tr>
                 <tr>
-                  <th scope="row"></th>
+                  <th scope="row">
+                    <input type="checkbox" id="cbox2" value="cbx-2" />
+                  </th>
                   <td>
                     <Media className="align-items-center">
                       <a
@@ -135,7 +141,9 @@ export default function Postpago(){
                   </td>
                 </tr>
                 <tr>
-                  <th scope="row"></th>
+                  <th scope="row">
+                    <input type="checkbox" id="cbox3" value="cbx-3" />
+                  </th>
                   <td>
                     <Media className="align-items-center">
                       <a
@@ -170,7 +178,9 @@ export default function Postpago(){
                   </td>
                 </tr>
                 <tr>
-                  <th scope="row"></th>
+                  <th scope="row">
+                    <input type="checkbox" id="cbox4" value="cbx-4" />
+                  </th>
                   <td>
                     <Media className="align-items-center">
                       <a
@@ -208,7 +218,9 @@ export default function Postpago(){
                   </td>
                 </tr>
                 <tr>
-                  <th scope="row"></th>
+                  <th scope="row">
+                    <input type="checkbox" id="cbox5" value="cbx-5" />
+                  </th>
                   <td>
                     <Media className="align-items-center">
                       <a
