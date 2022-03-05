@@ -45,6 +45,7 @@ import AdminPurchaseDetailId from "views/admin/purchase/detail/[detail_id]"
 import AdminUser from "views/admin/user";
 import AdminClient from "views/admin/client";
 import AdminEnterprise from "views/admin/enterprise"
+import AdminTransformBalance from "views/admin/transform-balance"
 import SuperadminUser from "views/superadmin/user";
 import SuperadminClient from "views/superadmin/client";
 import SuperadminClientId from "views/superadmin/client/[client_id]"
@@ -102,6 +103,7 @@ export default function Router(){
             <Route path="unsubscribed" element={<EmailUnsubscribed />} />
           </Route>
           <Route path="admin">
+            <Route path="enterprise" element={<AdminEnterprise />}/>
             <Route path="account" element={<AdminAccount />} />
             <Route path="reports" element={<AdminReport />} />
             <Route path="purchase">
@@ -112,7 +114,7 @@ export default function Router(){
             </Route>
             <Route path="users" element={<AdminUser />} />
             <Route path="clients" element={<AdminClient />} />
-            <Route path="enterprise" element={<AdminEnterprise />}/>
+            <Route path="transform-balance" element={<AdminTransformBalance />} />
           </Route>
           <Route path="superadmin">
             <Route path="users" element={<SuperadminUser />} />
