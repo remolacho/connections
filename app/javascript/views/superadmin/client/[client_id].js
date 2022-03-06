@@ -202,14 +202,6 @@ export default function Client(){
                   </Col>
                   <Col className="text-right">
                     <Button
-                      color="warning"
-                      href="#"
-                      onClick={(e) => e.preventDefault()}
-                      size="sm"
-                    >
-                      Cargar creditos
-                    </Button>
-                    <Button
                       color="info"
                       href="#"
                       onClick={(e) => e.preventDefault()}
@@ -222,7 +214,7 @@ export default function Client(){
               </CardHeader>
               <CardBody>
                 <FormGroup>
-                  <Row className="my-3">
+                  <Row className="my-4">
                     <Col md="3">
                       <label
                         className="form-control-label pt-2"
@@ -242,7 +234,7 @@ export default function Client(){
                   </Row>
                 </FormGroup>
                 <FormGroup>
-                  <Row className="my-3">
+                  <Row className="my-4">
                     <Col md="3">
                       <label
                         className="form-control-label pt-2"
@@ -262,7 +254,7 @@ export default function Client(){
                   </Row>
                 </FormGroup>
                 <FormGroup>
-                  <Row className="my-3">
+                  <Row className="my-4">
                     <Col md="3">
                       <label
                         className="form-control-label pt-2"
@@ -282,7 +274,7 @@ export default function Client(){
                   </Row>
                 </FormGroup>
                 <FormGroup>
-                  <Row className="my-3">
+                  <Row className="my-4">
                     <Col md="3">
                       <label
                         className="form-control-label pt-2"
@@ -302,7 +294,7 @@ export default function Client(){
                   </Row>
                 </FormGroup>
                 <FormGroup>
-                  <Row className="my-3">
+                  <Row className="my-4">
                     <Col md="3">
                       <label
                         className="form-control-label pt-2"
@@ -322,7 +314,7 @@ export default function Client(){
                   </Row>
                 </FormGroup>
                 <FormGroup>
-                  <Row className="my-3">
+                  <Row className="my-4">
                     <Col md="3">
                       <label
                         className="form-control-label pt-2"
@@ -342,7 +334,7 @@ export default function Client(){
                   </Row>
                 </FormGroup>
                 <FormGroup>
-                  <Row className="my-3">
+                  <Row className="my-4">
                     <Col md="3">
                       <label
                         className="form-control-label pt-2"
@@ -362,7 +354,7 @@ export default function Client(){
                   </Row>
                 </FormGroup>
                 <FormGroup>
-                  <Row className="my-3">
+                  <Row className="my-4">
                     <Col md="3">
                       <label
                         className="form-control-label pt-2"
@@ -403,6 +395,171 @@ export default function Client(){
           </Form>
         </Col>
         <Col className="mb-5 mb-xl-0" xl="6">
+          <Card className="shadow mb-4">
+            <CardHeader>
+              <Row className="align-items-center">
+                <Col>
+                  <h2 className="pt-2 pr-3">Saldo SMS</h2>
+                </Col>
+                <Col className="text-right">
+                  <Button
+                    color="warning"
+                    href="#"
+                    onClick={(e) => e.preventDefault()}
+                    size="sm"
+                  >
+                    Abonar SMS
+                  </Button>
+                </Col>
+              </Row>
+            </CardHeader>
+            <CardBody className="pt-0">
+              <Row>
+                <Col>
+                  <p className="font-weight-600">Total Abonos</p>
+                </Col>
+                <Col>
+                  <p className="text-green">105</p>
+                </Col>
+              </Row>
+              <Row>
+                <Col>
+                  <p className="font-weight-600">Total descuentos</p>
+                </Col>
+                <Col>
+                  <p className="text-red">2</p>
+                </Col>
+              </Row>
+              <Row>
+                <Col>
+                  <p className="font-weight-600">Saldo Total</p>
+                </Col>
+                <Col>
+                  <p className="text-muted text-green">103</p>
+                </Col>
+              </Row>
+            </CardBody>
+          </Card>
+          <Card className="shadow mb-4">
+            <CardHeader>
+              <Row className="align-items-center">
+                <Col>
+                  <h2 className="pt-2 pr-3">Saldo Email</h2>
+                </Col>
+                <Col className="text-right">
+                  <Button
+                    color="warning"
+                    href="#"
+                    onClick={(e) => e.preventDefault()}
+                    size="sm"
+                  >
+                    Abonar Email
+                  </Button>
+                </Col>
+              </Row>
+            </CardHeader>
+            <CardBody className="pt-0">
+              <Row>
+                <Col>
+                  <p className="font-weight-600">Total Abonos</p>
+                </Col>
+                <Col>
+                  <p className="text-green">105</p>
+                </Col>
+              </Row>
+              <Row>
+                <Col>
+                  <p className="font-weight-600">Total descuentos</p>
+                </Col>
+                <Col>
+                  <p className="text-red">2</p>
+                </Col>
+              </Row>
+              <Row>
+                <Col>
+                  <p className="font-weight-600">Saldo Total</p>
+                </Col>
+                <Col>
+                  <p className="text-muted text-green">103</p>
+                </Col>
+              </Row>
+            </CardBody>
+          </Card>
+          <Card className="shadow mb-4">
+            <CardHeader>
+              <Row className="align-items-center">
+                <Col>
+                  <h2 className="pt-2 pr-3">Reglas de ruteo</h2>
+                </Col>
+                <Col className="text-right">
+                  <Button
+                    color="default"
+                    href="#"
+                    onClick={(e) => e.preventDefault()}
+                    size="sm"
+                  >
+                    Agregar Regla
+                  </Button>
+                </Col>
+              </Row>
+            </CardHeader>
+            <CardBody className="pt-0">
+              <Row>
+                <Col>
+                  <p className="font-weight-600">Proovedor</p>
+                </Col>
+                <Col>
+                  <p className="font-weight-600">Conexion SMPP</p>
+                </Col>
+                <Col>
+                  <p className="font-weight-600">Portado</p>
+                </Col>
+              </Row>
+              <Row>
+                <Col>
+                  <p className="font-weight-600">Total descuentos</p>
+                </Col>
+                <Col>
+                  <p className="text-red">2</p>
+                </Col>
+              </Row>
+              <Row>
+                <Col>
+                  <p className="font-weight-600">Saldo Total</p>
+                </Col>
+                <Col>
+                  <p className="text-muted text-green">103</p>
+                </Col>
+              </Row>
+            </CardBody>
+          </Card>
+        </Col>
+      </Row>
+
+      <Row>
+        <Col className="mb-5 mb-xl-0" xl="6">
+          <Card className="bg-white shadow mb-4">
+            <CardHeader className="bg-transparent">
+              <Row className="align-items-center">
+                <div className="col">
+                  <h6 className="text-uppercase text-light ls-1 mb-1">
+                    Overview
+                  </h6>
+                  <h2 className="mb-0">Envio de mensajes</h2>
+                </div>
+              </Row>
+            </CardHeader>
+            <CardBody>
+              {/* Chart */}
+              <div className="chart">
+                <Line
+                  data={chartExample1[chartExample1Data]}
+                  options={chartExample1.options}
+                  getDatasetAtEvent={(e) => console.log(e)}
+                />
+              </div>
+            </CardBody>
+          </Card>
           <Card className="shadow">
             <CardHeader className="border-0">
               <Row className="align-items-center">
@@ -533,33 +690,6 @@ export default function Client(){
                 </tr>
               </tbody>
             </Table>
-          </Card>
-        </Col>
-      </Row>
-
-      <Row className="mt-5">
-        <Col className="mb-5 mb-xl-0" xl="6">
-          <Card className="bg-white shadow">
-            <CardHeader className="bg-transparent">
-              <Row className="align-items-center">
-                <div className="col">
-                  <h6 className="text-uppercase text-light ls-1 mb-1">
-                    Overview
-                  </h6>
-                  <h2 className="mb-0">Envio de mensajes</h2>
-                </div>
-              </Row>
-            </CardHeader>
-            <CardBody>
-              {/* Chart */}
-              <div className="chart">
-                <Line
-                  data={chartExample1[chartExample1Data]}
-                  options={chartExample1.options}
-                  getDatasetAtEvent={(e) => console.log(e)}
-                />
-              </div>
-            </CardBody>
           </Card>
         </Col>
         <Col className="mb-5 mb-xl-0" xl="6">

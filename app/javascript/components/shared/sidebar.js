@@ -269,6 +269,17 @@ export default function Sidebar() {
                   </span>
                 </NavLink>
               </NavItem>
+              <NavItem>
+                <NavLink
+                  to="/sms/unsubscribed"
+                  tag={NavLinkRRD}
+                  onClick={closeCollapse}
+                >
+                  <span className="pl-4">
+                    Número desuscritos
+                  </span>
+                </NavLink>
+              </NavItem>
             </span>
             <li>
               <a type="button" onClick={() => setCollapseOption({...collapseOption, email: !collapseOption.email})} className="d-flex justify-content-between nav-link">
@@ -349,6 +360,17 @@ export default function Sidebar() {
             <span className={`${collapseOption.admin ? '' : "d-none"}`}>
               <NavItem>
                 <NavLink
+                  to="/admin/enterprise"
+                  tag={NavLinkRRD}
+                  onClick={closeCollapse}
+                >
+                  <span className="pl-4">
+                    Empresa
+                  </span>
+                </NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink
                   to="/admin/account"
                   tag={NavLinkRRD}
                   onClick={closeCollapse}
@@ -371,7 +393,7 @@ export default function Sidebar() {
               </NavItem>
               <NavItem>
                 <NavLink
-                  to="/admin/shopping-history"
+                  to="/admin/purchase"
                   tag={NavLinkRRD}
                   onClick={closeCollapse}
                 >
@@ -399,6 +421,17 @@ export default function Sidebar() {
                 >
                   <span className="pl-4">
                     Clientes
+                  </span>
+                </NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink
+                  to="/admin/transform-balance"
+                  tag={NavLinkRRD}
+                  onClick={closeCollapse}
+                >
+                  <span className="pl-4">
+                    Transformar saldo
                   </span>
                 </NavLink>
               </NavItem>
@@ -438,6 +471,28 @@ export default function Sidebar() {
                 >
                   <span className="pl-4">
                     Clientes
+                  </span>
+                </NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink
+                  to="/superadmin/buy"
+                  tag={NavLinkRRD}
+                  onClick={closeCollapse}
+                >
+                  <span className="pl-4">
+                    Comprar
+                  </span>
+                </NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink
+                  to="/superadmin/postpago"
+                  tag={NavLinkRRD}
+                  onClick={closeCollapse}
+                >
+                  <span className="pl-4">
+                    Postpago
                   </span>
                 </NavLink>
               </NavItem>

@@ -27,23 +27,30 @@ import DashboardAdminClient from 'views/dashboard-admin-client'
 import DashboardClient from 'views/dashboard-client'
 // Temporary routes. END
 import Contact from "views/contact"
-import Email from "views/email"
+import Email from "views/email/send"
 import SMS from "views/sms/send"
 import SMSShippedScheduled from "views/sms/shipped-scheduled"
 import SMSAutoPreset from "views/sms/auto-preset"
 import SMSReceived from "views/sms/received"
 import SMSShippedId from "views/sms/shipped-scheduled/[shipped_id]"
-import EmailShippedScheduled from "views/email/shipped-and-scheduled"
+import SMSUnsubscribed from "views/sms/unsubscribed"
+import EmailShippedScheduled from "views/email/shipped-scheduled"
+import EmailShippedId from "views/email/shipped-scheduled/[shipped_id]"
 import EmailAutoPreset from "views/email/auto-preset"
 import EmailUnsubscribed from "views/email/unsubscribed"
 import AdminAccount from "views/admin/account"
 import AdminReport from "views/admin/reports"
-import ShoppingHistory from "views/admin/shopping-history";
+import AdminPurchase from "views/admin/purchase";
+import AdminPurchaseDetailId from "views/admin/purchase/detail/[detail_id]"
 import AdminUser from "views/admin/user";
 import AdminClient from "views/admin/client";
+import AdminEnterprise from "views/admin/enterprise"
+import AdminTransformBalance from "views/admin/transform-balance"
 import SuperadminUser from "views/superadmin/user";
 import SuperadminClient from "views/superadmin/client";
 import SuperadminClientId from "views/superadmin/client/[client_id]"
+import SuperadminPostpago from "views/superadmin/postpago"
+import SuperadminBuy from "views/superadmin/buy";
 import Login from "views/auth/login";
 import RecoveryPassword from "views/auth/recovery-password";
 import SignupType from "views/auth/signup-type";
@@ -84,19 +91,30 @@ export default function Router(){
             </Route>
             <Route path="auto-preset" element={<SMSAutoPreset />} />
             <Route path="received" element={<SMSReceived />} />
+            <Route path="unsubscribed" element={<SMSUnsubscribed />} />
           </Route>
           <Route path="email">
             <Route path="send" element={<Email />} />
-            <Route path="shipped-and-scheduled" element={<EmailShippedScheduled />} />
+            <Route path="shipped-and-scheduled">
+              <Route index element={<EmailShippedScheduled />} />
+              <Route path=":shipped_id" element={<EmailShippedId />} />
+            </Route>
             <Route path="auto-preset" element={<EmailAutoPreset />} />
             <Route path="unsubscribed" element={<EmailUnsubscribed />} />
           </Route>
           <Route path="admin">
+            <Route path="enterprise" element={<AdminEnterprise />}/>
             <Route path="account" element={<AdminAccount />} />
             <Route path="reports" element={<AdminReport />} />
-            <Route path="shopping-history" element={<ShoppingHistory />} />
+            <Route path="purchase">
+              <Route index element={<AdminPurchase />} />
+              <Route path="detail">
+                <Route path=":detail_id" element={<AdminPurchaseDetailId />} />
+              </Route>
+            </Route>
             <Route path="users" element={<AdminUser />} />
             <Route path="clients" element={<AdminClient />} />
+            <Route path="transform-balance" element={<AdminTransformBalance />} />
           </Route>
           <Route path="superadmin">
             <Route path="users" element={<SuperadminUser />} />
@@ -104,11 +122,13 @@ export default function Router(){
               <Route index element={<SuperadminClient />} />
               <Route path=":client_id" element={<SuperadminClientId />} />
             </Route>
+            <Route path="buy" element={<SuperadminBuy />} />
+            <Route path="postpago" element={<SuperadminPostpago />} />
           </Route>
           <Route path="checkout" element={<Checkout />} />
           <Route path="*" element={<Navigate to="/dashboard" />} />
         </Route>
-        <Route path="/auth" element={<AuthLayout />}>
+        <Route path="auth" element={<AuthLayout />}>
           <Route index element={<Navigate to="/auth/login" />} />
           <Route path="login" element={<Login />} />
           <Route path="recovery-password" element={<RecoveryPassword />} />
