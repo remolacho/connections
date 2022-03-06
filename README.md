@@ -21,3 +21,7 @@ Or run this in one terminal to start backend
 And run this in another terminal to start frontend
 
     bin/webpack-dev-server
+
+Load database dump
+    mysql -u root -p connectus_development < dbconnectus_2021-12-24.sql
+    
