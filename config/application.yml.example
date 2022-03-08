@@ -1,0 +1,12 @@
+development:
+  DB_HOSTNAME: localhost
+  DB_NAME: connectus_development
+  DB_NAME_TEST: connectus_test
+  DB_USERNAME:
+  DB_PASSWORD:
+test:
+  DB_HOSTNAME: localhost
+  DB_NAME: connectus_test
+  DB_NAME_TEST: connectus_test
+  DB_USERNAME:
+  DB_PASSWORD:
