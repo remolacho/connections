@@ -1,0 +1,50 @@
+---
+openapi: 3.0.1
+info:
+  title: Connectus API V1
+  version: v1
+paths:
+  "/v1/test":
+    get:
+      summary: Retorna un json dummy para la prueba del setting API DOC
+      tags:
+      - Proveedores v1 categories
+      description: Retorna un json dummy para la prueba del setting API DOC
+      parameters:
+      - name: is_error
+        in: query
+        required: false
+      responses:
+        '200':
+          description: success!!!
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                      name:
+                        type: string
+        '404':
+          description: error!!!
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    default: false
+                  message:
+                    type: string
+servers:
+- url: https://{defaultHost}
+  variables:
+    defaultHost:
+      default: localhost:3000
