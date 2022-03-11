@@ -22,8 +22,22 @@ And run this in another terminal to start just the frontend
 
     bin/webpack-dev-server
 
-Load database dump
-    mysql -u root -p connectus_development < dbconnectus_2021-12-24.sql
 
-Environment Variables 
-application.yml.example copy & paste, change values and change name to application.yml
+### Setting
+* Load database dump
+    - mysql -u root -p connectus_development < dbconnectus_2021-12-24.sql
+
+
+* Environment Variables 
+    - application.yml.example copy & paste, change values and change name to application.yml
+
+
+* Crear DB test
+    - rake db:create RAILS_ENV=test
+    - rake db:schema:load RAILS_ENV=test
+
+
+* How to run the test suite
+    - rails rswag:specs:swaggerize (runner the test and create documentation)
+    - rails g rspec:swagger namespace::controller_name
+    - rspec
