@@ -4,7 +4,7 @@ RSpec.describe Api::V1::TestController, type: :request do
   describe 'Retorna un json dummy para la prueba del setting API DOC' do
     path "/v1/test" do
       get 'Retorna un json dummy para la prueba del setting API DOC' do
-        tags 'Proveedores v1 categories'
+        tags 'Connectus v1 dummy EP'
         description "Retorna un json dummy para la prueba del setting API DOC"
         produces 'application/json'
         parameter name: :is_error, in: :query, required: false

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 2022_03_13_020941) do
 
   create_table "account", id: :integer, charset: "utf8mb3", force: :cascade do |t|
     t.string "name", limit: 512, null: false
@@ -139,6 +139,9 @@ ActiveRecord::Schema.define(version: 0) do
     t.string "avatar", limit: 512
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string "password_digest"
+    t.datetime "reset_password_key_expires_at"
+    t.boolean "is_migrated", default: true
     t.index ["id_account"], name: "id_account__idx"
   end
 

@@ -16,6 +16,13 @@ Rails.application.routes.draw do
   namespace :api, path: '' do
     namespace :v1 do
       resources :test, only: [:index]
+
+      namespace :users do
+        resources :sign_in, path: 'signIn', only: [:create]
+        resources :recover_password, path: 'recover-password', only: [:create]
+        resources :change_password, path: 'change-password', only: [:create]
+      end
+
     end
   end
 

@@ -57,4 +57,18 @@ Rails.application.configure do
 
   # Annotate rendered view with file names.
   # config.action_view.annotate_rendered_view_with_filenames = true
+  #
+  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+  config.action_mailer.delivery_method = :smtp
+  # config.active_job.queue_adapter = :inline
+
+  config.action_mailer.smtp_settings = {
+    address: ENV['EMAIL_PROVIDER'],
+    domain: ENV['EMAIL_DOMAIN'],
+    port: ENV['EMAIL_PORT'],
+    user_name: ENV['EMAIL_FROM'],
+    password: ENV['EMAIL_PASSWORD'],
+    authentication: 'plain',
+    enable_starttls_auto: true
+  }
 end
