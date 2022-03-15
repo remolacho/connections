@@ -1,5 +1,5 @@
 import React from "react"
-import { useParams } from "react-router-dom"
+import { useParams, NavLink } from "react-router-dom"
 import { Doughnut  } from "react-chartjs-2";
 import {
   Card,
@@ -15,7 +15,6 @@ import {
   Input,
   Nav,
   NavItem,
-  NavLink,
   TabContent,
   TabPane
 } from "reactstrap";
@@ -448,9 +447,9 @@ export default function Shipped(){
               <tbody>
                 <tr>
                   <th scope="row">
-                    <span className="mb-0 text-sm text-center d-block text-info">
+                    <NavLink to={`/sms/${'9fgb9dfgh9dfg9h'}`} className="mb-0 text-sm text-center d-block text-info">
                       12349u5hn234i5nio23un523593425n92
-                    </span>
+                    </NavLink>
                   </th>
                   <td className="text-center">+56981213314</td>
                   <td className="text-center">Chile</td>
@@ -462,9 +461,9 @@ export default function Shipped(){
                 </tr>
                 <tr>
                   <th scope="row">
-                    <span className="mb-0 text-sm text-center d-block text-info">
+                    <NavLink to={`/sms/${'9fgb9dfgh9dfg9h'}`} className="mb-0 text-sm text-center d-block text-info">
                       89ug98dfug897dgyuh784508390jb89j06
-                    </span>
+                    </NavLink>
                   </th>
                   <td className="text-center">+5698122342</td>
                   <td className="text-center">Chile</td>
@@ -476,9 +475,9 @@ export default function Shipped(){
                 </tr>
                 <tr>
                   <th scope="row">
-                    <span className="mb-0 text-sm text-center d-block text-info">
+                    <NavLink to={`/sms/${'9fgb9dfgh9dfg9h'}`} className="mb-0 text-sm text-center d-block text-info">
                       23452345dhdg9fh89dfg80hd8tfh0ert053
-                    </span>
+                    </NavLink>
                   </th>
                   <td className="text-center">+56981213314</td>
                   <td className="text-center">Chile</td>
@@ -490,9 +489,9 @@ export default function Shipped(){
                 </tr>
                 <tr>
                   <th scope="row">
-                    <span className="mb-0 text-sm text-center d-block text-info">
+                    <NavLink to={`/sms/${'9fgb9dfgh9dfg9h'}`} className="mb-0 text-sm text-center d-block text-info">
                       02359i603458ju6890jyetngh0e9nh97n08
-                    </span>
+                    </NavLink>
                   </th>
                   <td className="text-center">+56981213377</td>
                   <td className="text-center">Chile</td>
@@ -504,9 +503,9 @@ export default function Shipped(){
                 </tr>
                 <tr>
                   <th scope="row">
-                    <span className="mb-0 text-sm text-center d-block text-info">
+                    <NavLink to={`/sms/${'9fgb9dfgh9dfg9h'}`} className="mb-0 text-sm text-center d-block text-info">
                       85j9584jt9h3458978ng8the8g7t637bg76
-                    </span>
+                    </NavLink>
                   </th>
                   <td className="text-center">+569812232323</td>
                   <td className="text-center">Chile</td>
