@@ -48,6 +48,7 @@ import AdminUser from "views/admin/user";
 import AdminClient from "views/admin/client";
 import AdminEnterprise from "views/admin/enterprise"
 import AdminTransformBalance from "views/admin/transform-balance"
+import AdminUserProfile from "views/admin/user-profile"
 import SuperadminUser from "views/superadmin/user";
 import SuperadminClient from "views/superadmin/client";
 import SuperadminClientId from "views/superadmin/client/[client_id]"
@@ -119,6 +120,7 @@ export default function Router(){
             <Route path="users" element={<AdminUser />} />
             <Route path="clients" element={<AdminClient />} />
             <Route path="transform-balance" element={<AdminTransformBalance />} />
+            <Route path="user-profile" element={<AdminUserProfile />} />
           </Route>
           <Route path="superadmin">
             <Route path="users" element={<SuperadminUser />} />
