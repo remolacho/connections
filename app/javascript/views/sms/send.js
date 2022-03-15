@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 import { 
   Card,
   CardBody,
@@ -18,6 +19,13 @@ export default function Send() {
   const [shippingType, setShippingType] = React.useState('individual')
   const [shippingTime, setShippingTime] = React.useState('as_possible')
   const [showModal, setShowModal] = React.useState(false)
+  const [showModalPermissions, setShowModalPermissions] = React.useState(false)
+
+  function handleType(event){
+    console.log('hi!')
+    setShippingType(event.target.id)
+    if(event.target.id === 'massive') setShowModalPermissions(true)
+  }
 
   return (
     <div className="pt-7">
@@ -52,10 +60,10 @@ export default function Send() {
                         <Col md="9">
                           <div className="btn-group btn-group-toggle" data-toggle="buttons">
                             <label className={`btn btn-secondary ${shippingType === 'individual' ? 'active' : ''}`}>
-                              <input onClick={event => setShippingType(event.target.id)} type="radio" name="options" id="individual" defaultChecked /> Individual
+                              <input onClick={event => handleType(event)} type="radio" name="options" id="individual" defaultChecked /> Individual
                             </label>
                             <label className={`btn btn-secondary ${shippingType === 'massive' ? 'active' : ''}`}>
-                              <input onClick={event => setShippingType(event.target.id)} type="radio" name="options" id="massive" /> Masivo
+                              <input onClick={event => handleType(event)} type="radio" name="options" id="massive" /> Masivo
                             </label>
                           </div>
                         </Col>
@@ -383,6 +391,7 @@ export default function Send() {
             <h3 className="pb-3">Vista Previa</h3>
           </Col>
         </Row>
+        
         <Modal
           className="modal-dialog-centered"
           size="lg"
@@ -506,6 +515,55 @@ export default function Send() {
               data-dismiss="modal"
               type="button"
               onClick={() => setShowModal(!showModal)}
+            >
+              Cancelar
+            </Button>
+          </div>
+        </Modal>
+
+        <Modal
+          className="modal-dialog-centered"
+          size="md"
+          isOpen={showModalPermissions}
+          toggle={() => setShowModalPermissions(!showModalPermissions)}
+        >
+          <div className="modal-header">
+            <h6 className="modal-title text-lg" id="modal-title-default">
+              Habilitar envío de SMS masivo
+            </h6>
+            <button
+              aria-label="Close"
+              className="close"
+              data-dismiss="modal"
+              type="button"
+              onClick={() => setShowModalPermissions(!showModalPermissions)}
+            >
+              <span aria-hidden={true}>×</span>
+            </button>
+          </div>
+          <div className="modal-body">
+            <p>
+              Para poder realizar envíos de SMS masivo, primero necesitamos verificar información referente a su empresa. 
+              Por favor complete la información adicional para pasar al proceso de verificación 
+              y posterior activación del servicio de SMS masivo.
+            </p>
+          </div>
+          <div className="modal-footer">
+            <Button 
+              to="/admin/user-profile"
+              tag={NavLink}
+              color="info"
+              type="button"
+
+            >
+              Ir al perfil de usuario
+            </Button>
+            <Button
+              className="ml-auto"
+              color="link"
+              data-dismiss="modal"
+              type="button"
+              onClick={() => setShowModalPermissions(!showModalPermissions)}
             >
               Cancelar
             </Button>
