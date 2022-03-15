@@ -1,5 +1,5 @@
 import React from "react"
-import { useParams } from "react-router-dom"
+import { useParams, NavLink } from "react-router-dom"
 import { Doughnut  } from "react-chartjs-2";
 import {
   Card,
@@ -15,7 +15,6 @@ import {
   Input,
   Nav,
   NavItem,
-  NavLink,
   TabContent,
   TabPane
 } from "reactstrap";
@@ -247,9 +246,9 @@ export default function Shipped(){
               <tbody>
                 <tr>
                   <th scope="row">
-                    <span className="mb-0 text-sm text-center d-block text-info border-left border-success cn-border-3">
+                    <NavLink to={`/email/${'efvdfdg9dfg9df23i4n234n23423n423'}`} className="mb-0 text-sm text-center d-block text-info border-left border-success cn-border-3">
                       12349u5hn234i5nio23un523593425n92
-                    </span>
+                    </NavLink>
                   </th>
                   <td className="text-center">marketing@etiner.com</td>
                   <td className="text-center">camilo@etiner.com</td>
@@ -260,9 +259,9 @@ export default function Shipped(){
                 </tr>
                 <tr>
                   <th scope="row">
-                    <span className="mb-0 text-sm text-center d-block text-info border-left border-warning cn-border-3 pl-2">
+                    <NavLink to={`/email/${'efvdfdg9dfg9df23i4n234n23423n423'}`} className="mb-0 text-sm text-center d-block text-info border-left border-warning cn-border-3 pl-2">
                       89ug98dfug897dgyuh784508390jb89j06
-                    </span>
+                    </NavLink>
                   </th>
                   <td className="text-center">marketing@etiner.com</td>
                   <td className="text-center">camilo@etiner.com</td>
@@ -273,9 +272,9 @@ export default function Shipped(){
                 </tr>
                 <tr>
                   <th scope="row">
-                    <span className="mb-0 text-sm text-center d-block text-info border-left border-danger cn-border-3 pl-2">
+                    <NavLink to={`/email/${'efvdfdg9dfg9df23i4n234n23423n423'}`} className="mb-0 text-sm text-center d-block text-info border-left border-danger cn-border-3 pl-2">
                       23452345dhdg9fh89dfg80hd8tfh0ert053
-                    </span>
+                    </NavLink>
                   </th>
                   <td className="text-center">marketing@etiner.com</td>
                   <td className="text-center">camilo@etiner.com</td>
@@ -286,9 +285,9 @@ export default function Shipped(){
                 </tr>
                 <tr>
                   <th scope="row">
-                    <span className="mb-0 text-sm text-center d-block text-info border-left border-success cn-border-3 pl-2">
+                    <NavLink to={`/email/${'efvdfdg9dfg9df23i4n234n23423n423'}`} className="mb-0 text-sm text-center d-block text-info border-left border-success cn-border-3 pl-2">
                       02359i603458ju6890jyetngh0e9nh97n08
-                    </span>
+                    </NavLink>
                   </th>
                   <td className="text-center">marketing@etiner.com</td>
                   <td className="text-center">camilo@etiner.com</td>
@@ -299,9 +298,9 @@ export default function Shipped(){
                 </tr>
                 <tr>
                   <th scope="row">
-                    <span className="mb-0 text-sm text-center d-block text-info border-left border-warning cn-border-3 pl-2">
+                    <NavLink to={`/email/${'efvdfdg9dfg9df23i4n234n23423n423'}`} className="mb-0 text-sm text-center d-block text-info border-left border-warning cn-border-3 pl-2">
                       85j9584jt9h3458978ng8the8g7t637bg76
-                    </span>
+                    </NavLink>
                   </th>
                   <td className="text-center">marketing@etiner.com</td>
                   <td className="text-center">camilo@etiner.com</td>
