@@ -48,12 +48,12 @@ import AdminUser from "views/admin/user";
 import AdminClient from "views/admin/client";
 import AdminEnterprise from "views/admin/enterprise"
 import AdminTransformBalance from "views/admin/transform-balance"
-import AdminUserProfile from "views/admin/user-profile"
 import SuperadminUser from "views/superadmin/user";
 import SuperadminClient from "views/superadmin/client";
 import SuperadminClientId from "views/superadmin/client/[client_id]"
 import SuperadminPostpago from "views/superadmin/postpago"
 import SuperadminBuy from "views/superadmin/buy";
+import UserProfile from "views/user/profile";
 import Login from "views/auth/login";
 import RecoveryPassword from "views/auth/recovery-password";
 import SignupType from "views/auth/signup-type";
@@ -120,7 +120,6 @@ export default function Router(){
             <Route path="users" element={<AdminUser />} />
             <Route path="clients" element={<AdminClient />} />
             <Route path="transform-balance" element={<AdminTransformBalance />} />
-            <Route path="user-profile" element={<AdminUserProfile />} />
           </Route>
           <Route path="superadmin">
             <Route path="users" element={<SuperadminUser />} />
@@ -130,6 +129,9 @@ export default function Router(){
             </Route>
             <Route path="buy" element={<SuperadminBuy />} />
             <Route path="postpago" element={<SuperadminPostpago />} />
+          </Route>
+          <Route path="user">
+            <Route path="profile" element={<UserProfile />} />
           </Route>
           <Route path="checkout" element={<Checkout />} />
           <Route path="*" element={<Navigate to="/dashboard" />} />

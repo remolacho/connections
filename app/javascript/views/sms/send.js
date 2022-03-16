@@ -550,7 +550,7 @@ export default function Send() {
           </div>
           <div className="modal-footer">
             <Button 
-              to="/admin/user-profile"
+              to="/user/profile"
               tag={NavLink}
               color="info"
               type="button"
