@@ -22,6 +22,7 @@ export default function Send() {
   const [shippingTime, setShippingTime] = React.useState('as_possible')
   const [showModalListContact, setShowModalListContact] = React.useState(false)
   const [showModalAddEmail, setShowModalAddEmail] = React.useState(false)
+  const [showModalPermissions, setShowModalPermissions] = React.useState(false)
 
   return (
     <div className="pt-7">
@@ -621,6 +622,57 @@ export default function Send() {
           </div>
         </Modal>
         {/*  Modal Add Email - END  */}
+
+        {/* Modal Permissions - START */}
+        <Modal
+          className="modal-dialog-centered"
+          size="md"
+          isOpen={showModalPermissions}
+          toggle={() => setShowModalPermissions(!showModalPermissions)}
+        >
+          <div className="modal-header">
+            <h6 className="modal-title text-lg" id="modal-title-default">
+              Habilitar envío de SMS masivo
+            </h6>
+            <button
+              aria-label="Close"
+              className="close"
+              data-dismiss="modal"
+              type="button"
+              onClick={() => setShowModalPermissions(!showModalPermissions)}
+            >
+              <span aria-hidden={true}>×</span>
+            </button>
+          </div>
+          <div className="modal-body">
+            <p>
+              Para poder realizar envíos de SMS masivo, primero necesitamos verificar información referente a su empresa. 
+              Por favor complete la información adicional para pasar al proceso de verificación 
+              y posterior activación del servicio de SMS masivo.
+            </p>
+          </div>
+          <div className="modal-footer">
+            <Button 
+              to="/user/profile"
+              tag={NavLink}
+              color="info"
+              type="button"
+
+            >
+              Ir al perfil de usuario
+            </Button>
+            <Button
+              className="ml-auto"
+              color="link"
+              data-dismiss="modal"
+              type="button"
+              onClick={() => setShowModalPermissions(!showModalPermissions)}
+            >
+              Cancelar
+            </Button>
+          </div>
+        </Modal>
+        {/* Modal Permissions - END */}
 
       </Container>
     </div>
