@@ -5,16 +5,15 @@ import {
   CardHeader,
   CardBody,
   CardTitle,
-  Media,
-  Progress,
   Table,
-  Container,
   Row,
   Col,
+  Modal
 } from "reactstrap";
 
 
 export default function ClientsSMPP(){
+  const [showModalPreviewSMPP, setShowModalPreviewSMPP] = React.useState(false)
 
   return (
     <>
@@ -170,7 +169,7 @@ export default function ClientsSMPP(){
                     18.871 / (4.981.129)
                   </td>
                   <td className="text-center">
-                    <i class="far fa-eye text-info"></i>
+                    <i onClick={() => setShowModalPreviewSMPP(!showModalPreviewSMPP)} class="far fa-eye text-info"></i>
                   </td>
                 </tr>
                 <tr>
@@ -191,7 +190,7 @@ export default function ClientsSMPP(){
                     18.871 / (4.981.129)
                   </td>
                   <td className="text-center">
-                    <i class="far fa-eye text-info"></i>
+                    <i onClick={() => setShowModalPreviewSMPP(!showModalPreviewSMPP)} class="far fa-eye text-info"></i>
                   </td>
                 </tr>
                 <tr>
@@ -212,7 +211,7 @@ export default function ClientsSMPP(){
                     18.871 / (4.981.129)
                   </td>
                   <td className="text-center">
-                    <i class="far fa-eye text-info"></i>
+                    <i onClick={() => setShowModalPreviewSMPP(!showModalPreviewSMPP)} class="far fa-eye text-info"></i>
                   </td>
                 </tr>
                 <tr>
@@ -233,7 +232,7 @@ export default function ClientsSMPP(){
                     18.871 / (4.981.129)
                   </td>
                   <td className="text-center">
-                    <i class="far fa-eye text-info"></i>
+                    <i onClick={() => setShowModalPreviewSMPP(!showModalPreviewSMPP)} class="far fa-eye text-info"></i>
                   </td>
                 </tr>
                 <tr>
@@ -254,7 +253,7 @@ export default function ClientsSMPP(){
                     18.871 / (4.981.129)
                   </td>
                   <td className="text-center">
-                    <i class="far fa-eye text-info"></i>
+                    <i onClick={() => setShowModalPreviewSMPP(!showModalPreviewSMPP)} class="far fa-eye text-info"></i>
                   </td>
                 </tr>
                 <tr>
@@ -275,7 +274,7 @@ export default function ClientsSMPP(){
                     18.871 / (4.981.129)
                   </td>
                   <td className="text-center">
-                    <i class="far fa-eye text-info"></i>
+                    <i onClick={() => setShowModalPreviewSMPP(!showModalPreviewSMPP)} class="far fa-eye text-info"></i>
                   </td>
                 </tr>
                 <tr>
@@ -296,7 +295,7 @@ export default function ClientsSMPP(){
                     18.871 / (4.981.129)
                   </td>
                   <td className="text-center">
-                    <i class="far fa-eye text-info"></i>
+                    <i onClick={() => setShowModalPreviewSMPP(!showModalPreviewSMPP)} class="far fa-eye text-info"></i>
                   </td>
                 </tr>
                 <tr>
@@ -317,7 +316,7 @@ export default function ClientsSMPP(){
                     18.871 / (4.981.129)
                   </td>
                   <td className="text-center">
-                    <i class="far fa-eye text-info"></i>
+                    <i onClick={() => setShowModalPreviewSMPP(!showModalPreviewSMPP)} class="far fa-eye text-info"></i>
                   </td>
                 </tr>
                 <tr>
@@ -338,7 +337,7 @@ export default function ClientsSMPP(){
                     18.871 / (4.981.129)
                   </td>
                   <td className="text-center">
-                    <i class="far fa-eye text-info"></i>
+                    <i onClick={() => setShowModalPreviewSMPP(!showModalPreviewSMPP)} class="far fa-eye text-info"></i>
                   </td>
                 </tr>
               </tbody>
@@ -347,6 +346,121 @@ export default function ClientsSMPP(){
         </Col>
       </Row>
       
+      {/* Modal */}
+      <Modal
+          className="modal-dialog-centered"
+          size="md"
+          isOpen={showModalPreviewSMPP}
+          toggle={() => setShowModalPreviewSMPP(!showModalPreviewSMPP)}
+        >
+          <div className="modal-header">
+            <h6 className="modal-title text-lg" id="modal-title-default">
+              amdtelcomOPT1
+            </h6>
+            <button
+              aria-label="Close"
+              className="close"
+              data-dismiss="modal"
+              type="button"
+              onClick={() => setShowModalPreviewSMPP(!showModalPreviewSMPP)}
+            >
+              <span aria-hidden={true}>×</span>
+            </button>
+          </div>
+          <div className="modal-body">
+            <Row className="mb-2">
+              <Col md="5" className="font-weight-600">
+                10 de Agosto
+              </Col>
+              <Col md="7">
+                <span className="font-weight-600">18.871</span> / (4.981.129)
+              </Col>
+            </Row>
+            <Row className="mb-2">
+              <Col md="5" className="font-weight-600">
+                10 de Julio
+              </Col>
+              <Col md="7">
+                <span className="font-weight-600">18.871</span> / (4.981.129)
+              </Col>
+            </Row>
+            <Row className="mb-2">
+              <Col md="5" className="font-weight-600">
+                9 de Junio
+              </Col>
+              <Col md="7">
+                <span className="font-weight-600">18.871</span> / (4.981.129)
+              </Col>
+            </Row>
+            <Row className="mb-2">
+              <Col md="5" className="font-weight-600">
+                15 de Enero
+              </Col>
+              <Col md="7">
+                <span className="font-weight-600">18.871</span> / (4.981.129)
+              </Col>
+            </Row>
+            <Row className="mb-2">
+              <Col md="5" className="font-weight-600">
+                19 de Septiembre
+              </Col>
+              <Col md="7">
+                <span className="font-weight-600">18.871</span> / (4.981.129)
+              </Col>
+            </Row>
+            <Row className="mb-2">
+              <Col md="5" className="font-weight-600">
+                22 de Diciembre
+              </Col>
+              <Col md="7">
+                <span className="font-weight-600">18.871</span> / (4.981.129)
+              </Col>
+            </Row>
+            <Row className="mb-2">
+              <Col md="5" className="font-weight-600">
+                24 de Enero
+              </Col>
+              <Col md="7">
+                <span className="font-weight-600">18.871</span> / (4.981.129)
+              </Col>
+            </Row>
+            <Row className="mb-2">
+              <Col md="5" className="font-weight-600">
+                2 de Febrero
+              </Col>
+              <Col md="7">
+                <span className="font-weight-600">18.871</span> / (4.981.129)
+              </Col>
+            </Row>
+            <Row className="mb-2">
+              <Col md="5" className="font-weight-600">
+                8 de Mayo
+              </Col>
+              <Col md="7">
+                <span className="font-weight-600">18.871</span> / (4.981.129)
+              </Col>
+            </Row>
+            <Row className="mb-2">
+              <Col md="5" className="font-weight-600">
+                11 de Abril
+              </Col>
+              <Col md="7">
+                <span className="font-weight-600">18.871</span> / (4.981.129)
+              </Col>
+            </Row>
+          </div>
+          <div className="modal-footer">
+            <Button
+              className="ml-auto"
+              color="link"
+              data-dismiss="modal"
+              type="button"
+              onClick={() => setShowModalPreviewSMPP(!showModalPreviewSMPP)}
+            >
+              Cancelar
+            </Button>
+          </div>
+        </Modal>
     </>
   )
 }
