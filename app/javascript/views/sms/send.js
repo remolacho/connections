@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { 
   Card,
   CardBody,
@@ -22,7 +22,6 @@ export default function Send() {
   const [showModalPermissions, setShowModalPermissions] = React.useState(false)
 
   function handleType(event){
-    console.log('hi!')
     setShippingType(event.target.id)
     if(event.target.id === 'massive') setShowModalPermissions(true)
   }
@@ -400,7 +399,7 @@ export default function Send() {
         >
           <div className="modal-header">
             <h6 className="modal-title text-lg" id="modal-title-default">
-              Agregar Lista de contactos
+              Lista de contactos
             </h6>
             <button
               aria-label="Close"
@@ -470,11 +469,11 @@ export default function Send() {
             </p>
             <form>
               <div className="form-group mb-2">
-                <label for="name-list" className="font-weight-600 text-sm">Nombre de la lista</label>
-                <input type="email" className="form-control" id="name-list" placeholder="Nombre de la lista" />
+                <label htmlFor="name-list" className="font-weight-600 text-sm">Mi lista de contactos</label>
+                <input type="email" className="form-control" id="name-list" placeholder="Mi lista de contactos" />
               </div>
               <div className="form-group">
-                <label for="file-list" className="font-weight-600 text-sm">Lista</label>
+                <label htmlFor="file-list" className="font-weight-600 text-sm">Lista</label>
                 <input type="file" className="form-control-file" id="file-list" />
               </div>
             </form>
@@ -551,7 +550,7 @@ export default function Send() {
           <div className="modal-footer">
             <Button 
               to="/user/profile"
-              tag={NavLink}
+              tag={Link}
               color="info"
               type="button"
 

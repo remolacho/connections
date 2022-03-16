@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { 
   Card,
   CardBody,
@@ -23,6 +24,11 @@ export default function Send() {
   const [showModalListContact, setShowModalListContact] = React.useState(false)
   const [showModalAddEmail, setShowModalAddEmail] = React.useState(false)
   const [showModalPermissions, setShowModalPermissions] = React.useState(false)
+
+  function handleType(event){
+    setShippingType(event.target.id)
+    if(event.target.id === 'massive') setShowModalPermissions(true)
+  }
 
   return (
     <div className="pt-7">
@@ -57,10 +63,10 @@ export default function Send() {
                         <Col md="9">
                           <div className="btn-group btn-group-toggle" data-toggle="buttons">
                             <label className={`btn btn-secondary ${shippingType === 'individual' ? 'active' : ''}`}>
-                              <input onClick={event => setShippingType(event.target.id)} type="radio" name="options" id="individual" defaultChecked /> Individual
+                              <input onClick={event => handleType(event)} type="radio" name="options" id="individual" defaultChecked /> Individual
                             </label>
                             <label className={`btn btn-secondary ${shippingType === 'massive' ? 'active' : ''}`}>
-                              <input onClick={event => setShippingType(event.target.id)} type="radio" name="options" id="massive" /> Masivo
+                              <input onClick={event => handleType(event)} type="radio" name="options" id="massive" /> Masivo
                             </label>
                           </div>
                         </Col>
@@ -454,7 +460,7 @@ export default function Send() {
         >
           <div className="modal-header">
             <h6 className="modal-title text-lg" id="modal-title-default">
-              Agregar Lista de contactos
+              Lista de contactos
             </h6>
             <button
               aria-label="Close"
@@ -524,11 +530,11 @@ export default function Send() {
             </p>
             <form>
               <div className="form-group mb-2">
-                <label for="name-list" className="font-weight-600 text-sm">Nombre de la lista</label>
-                <input type="email" className="form-control" id="name-list" placeholder="Nombre de la lista" />
+                <label htmlFor="name-list" className="font-weight-600 text-sm">Mi lista de contactos</label>
+                <input type="email" className="form-control" id="name-list" placeholder="Mi lista de contactos" />
               </div>
               <div className="form-group">
-                <label for="file-list" className="font-weight-600 text-sm">Lista</label>
+                <label htmlFor="file-list" className="font-weight-600 text-sm">Lista</label>
                 <input type="file" className="form-control-file" id="file-list" />
               </div>
             </form>
@@ -584,7 +590,7 @@ export default function Send() {
         >
           <div className="modal-header">
             <h6 className="modal-title text-lg" id="modal-title-default">
-              Agregar Lista de contactos
+              Lista de contactos
             </h6>
             <button
               aria-label="Close"
@@ -599,7 +605,7 @@ export default function Send() {
           <div className="modal-body">
             <form>
               <div className="form-group mb-2">
-                <label for="name-list" className="font-weight-600 text-sm">Correo</label>
+                <label htmlFor="name-list" className="font-weight-600 text-sm">Correo</label>
                 <input type="email" className="form-control" id="name-list" placeholder="Ingrese el correo a agregar a la cuenta" />
               </div>
               <p className="font-weight-600 mb-0">Para agregar el correo a su cuenta, este deberá ser validado.</p>
@@ -654,7 +660,7 @@ export default function Send() {
           <div className="modal-footer">
             <Button 
               to="/user/profile"
-              tag={NavLink}
+              tag={Link}
               color="info"
               type="button"
 
