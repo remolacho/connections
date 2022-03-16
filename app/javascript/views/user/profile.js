@@ -14,7 +14,7 @@ import {
   Media
 } from "reactstrap";
 
-export default function UserProfile(){
+export default function Profile(){
   return (
     <Container className='pt-7' fluid>
       <div className="d-flex justify-content-between">
