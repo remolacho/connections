@@ -20,6 +20,11 @@ export default function Send() {
   const [shippingTime, setShippingTime] = React.useState('as_possible')
   const [showModal, setShowModal] = React.useState(false)
   const [showModalPermissions, setShowModalPermissions] = React.useState(false)
+  const [message, setMessage] = React.useState({
+    phone_number: "+5644231777",
+    send_date: "Miercoles 4 de Agosto - 14:30",
+    content: "aadfasdfasdf"
+  })
 
   function handleType(event){
     setShippingType(event.target.id)
@@ -102,10 +107,13 @@ export default function Send() {
                             </Col>
                             <Col md="9">
                               <Input
+                                onChange={e => setMessage({...message, phone_number: e.target.value })}
                                 className="form-control-alternative"
                                 id="input-phone"
                                 placeholder="Número de teléfono"
-                                type="text"
+                                pattern="0-9"
+                                type="tel"
+                                value={message.phone_number}
                               />
                             </Col>
                           </Row>
@@ -227,10 +235,11 @@ export default function Send() {
                     <FormGroup>
                       <label className="form-control-label pt-2">Contenido</label>
                       <Input
+                        onChange={e => setMessage({...message, content: e.target.value})}
                         className="form-control-alternative"
                         placeholder="A few words about you ..."
                         rows="4"
-                        defaultValue="Hola! esto es una Prueba!!"
+                        defaultValue={message.content}
                         type="textarea"
                       />
                       { shippingType === 'massive' &&
@@ -373,7 +382,7 @@ export default function Send() {
                   </Card>
               }
               <Row className="mt-4">
-                <Col className="text-left" xs="4">
+                <Col className="text-left" xs="12" md="4">
                   <Button
                     color="info"
                     href="#pablo"
@@ -388,6 +397,22 @@ export default function Send() {
           </Col>
           <Col md="4">
             <h3 className="pb-3">Vista Previa</h3>
+            <div className="preview">
+              <img
+                class="preview__image"
+                alt="phone preview"
+                src={
+                  require("assets/img/mobile.png")
+                }
+              />
+              <div className="preview__content">
+                <h3 className="preview__content__title h1">{message.phone_number}</h3>
+                <span className="preview__content__date text-xs">{message.send_date}</span>
+                <p className="preview__content__message p-3 rounded-right rounded-top text-white">
+                  {message.content}
+                </p>
+              </div>
+            </div>
           </Col>
         </Row>
         
