@@ -1,0 +1,55 @@
+nav {
+  transition: max-width .1s linear;
+}
+
+.main-content {
+  transition: margin .1s linear;
+}
+
+.menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.menu__toggler svg {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}
+
+#toggle-checked {
+  display: none;
+}
+
+#toggle-checked:checked ~ * img[alt="ConnectUs"],
+#toggle-checked:checked ~ * .expandable-option {
+  display: none !important;
+}
+
+#toggle-checked:checked ~ * .menu {
+  justify-content: center;
+}
+
+#toggle-checked:not(:checked) ~ * .navbar__group{
+  color: rgba(0, 0, 0, 0.5);
+}
+
+#toggle-checked:not(:checked) ~ * .navbar__group::before{
+  border-left: none;
+}
+
+#toggle-checked:checked ~ nav {
+  max-width: 60px;
+}
+
+#toggle-checked:checked ~ .main-content {
+  margin-left: 60px;
+}
+
+
+@media only screen and (max-width: 400px) {
+  .menu__toggler {
+    display: none;
+  }
+}
