@@ -1,7 +1,8 @@
 .preview {
   display: flex;
   justify-content: center;
-  position: absolute;
+  position: sticky;
+  top: 1.5rem;
 }
 
 .preview__image {
@@ -18,6 +19,16 @@
   top: 7%;
 }
 
+.preview__content--email {
+  display: block;
+  max-height: 225px;
+  overflow: scroll;
+}
+
+.preview__content--email img {
+  max-width: 100%;
+}
+
 .preview__content__date {
   color: #8898AA;
   font-size: .5rem;
@@ -27,11 +38,21 @@
 }
 
 .preview__content__date,
-.preview__content__message {
+.preview__content__message--sms {
   align-self: baseline;
 }
 
-.preview__content__message {
+.preview__content__message--sms {
   max-width: 70%;
   background-color: $cn-green;
 }
+
+// Configuration of WYSIWYG options - START 
+.ql-container {
+  height: 250px !important;
+}
+
+.quill {
+  background-color: white;
+}
+// Configuration of WYSIWYG options - END 

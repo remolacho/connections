@@ -408,7 +408,7 @@ export default function Send() {
               <div className="preview__content">
                 <h3 className="preview__content__title h1">{message.phone_number}</h3>
                 <span className="preview__content__date text-xs">{message.send_date}</span>
-                <p className="preview__content__message p-3 rounded-right rounded-top text-white">
+                <p className="preview__content__message--sms p-3 rounded-right rounded-top text-white">
                   {message.content}
                 </p>
               </div>

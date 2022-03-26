@@ -23,7 +23,7 @@ And run this in another terminal to start just the frontend
     bin/webpack-dev-server
 
 
-### Setting
+## Setting
 * Load database dump
     - mysql -u root -p connectus_development < dbconnectus_2021-12-24.sql
 
@@ -41,3 +41,21 @@ And run this in another terminal to start just the frontend
     - rails rswag:specs:swaggerize (runner the test and create documentation)
     - rails g rspec:swagger namespace::controller_name
     - rspec
+
+## Docs
+
+### API
+
+To run the api documentation generator use the following command
+
+    rails rswag
+
+And now you can visit `{defaultHost}/api-docs/index.html`
+
+### Frontend
+- [react-router-dom](https://github.com/remix-run/react-router/blob/f59ee5488bc343cf3c957b7e0cc395ef5eb572d2/docs/installation/getting-started.md) - For the routes in the front
+- [react-quill](https://github.com/zenoamaro/react-quill) - A WYSIWYG component for React.
+### Backend
+- [rspec](https://github.com/rspec/rspec-rails) - Unit test in rails
+- [rack-cors](https://github.com/cyu/rack-cors) - Rack Middleware for handling Cross-Origin Resource Sharing (CORS)
+- [database_cleaner](https://github.com/DatabaseCleaner/database_cleaner) - Strategies for cleaning databases in Ruby. Can be used to ensure a clean state for testing.
