@@ -1,4 +1,5 @@
 import React from "react";
+import ReactQuill from 'react-quill';
 import { Link } from "react-router-dom";
 import { 
   Card,
@@ -14,9 +15,29 @@ import {
   Col,
   CardHeader,
   Button,
-  Modal,
-  Alert
+  Modal
 } from "reactstrap";
+
+// Configuration of WYSIWYG options - START 
+const modules = {
+  toolbar: [
+    [{ 'header': [1, 2, false] }],
+    ['bold', 'italic', 'underline'],
+    [{ 'align': [false, 'center', 'right', 'justify']}],
+    [{'list': 'ordered'}, {'list': 'bullet'}],
+    ['link', 'image'],
+    ['clean']
+  ],
+}
+
+const formats = [
+  'header',
+  'bold', 'italic', 'underline',
+  'align',
+  'list', 'bullet',
+  'link', 'image'
+]
+// Configuration of WYSIWYG options - END
 
 export default function Send() {
   const [shippingType, setShippingType] = React.useState('individual')
@@ -24,6 +45,7 @@ export default function Send() {
   const [showModalListContact, setShowModalListContact] = React.useState(false)
   const [showModalAddEmail, setShowModalAddEmail] = React.useState(false)
   const [showModalPermissions, setShowModalPermissions] = React.useState(false)
+  const [email, setEmail] = React.useState('')
 
   function handleType(event){
     setShippingType(event.target.id)
@@ -279,13 +301,7 @@ export default function Send() {
                           <span className="ml-1 font-weight-300">Guardar como predefinido</span>
                         </button>
                       </Row>
-                      <Input
-                        className="form-control-alternative"
-                        placeholder="A few words about you ..."
-                        rows="4"
-                        defaultValue="This is a WYSIWYG !!"
-                        type="textarea"
-                      />
+                      <ReactQuill theme="snow" value={email} onChange={setEmail} modules={modules} formats={formats} />
                       <Row className="my-3">
                         <Col md="8">
                           <Row className='border border-gray rounded-lg p-3 my-3'>
@@ -448,6 +464,18 @@ export default function Send() {
           </Col>
           <Col md="4">
             <h3 className="pb-3">Vista Previa</h3>
+            <div className="preview">
+              <img
+                class="preview__image"
+                alt="email preview"
+                src={
+                  require("assets/img/email.png")
+                }
+              />
+              <div className="preview__content preview__content--email">
+                <div className="ql-editor" dangerouslySetInnerHTML={{__html: email }}></div>
+              </div>
+            </div>
           </Col>
         </Row>
         
