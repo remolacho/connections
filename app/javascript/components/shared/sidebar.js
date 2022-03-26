@@ -303,7 +303,7 @@ export default function Sidebar() {
                   to="/email/send"
                   tag={NavLinkRRD}
                   onClick={() => setCollapseOption({...collapseOption, email: !collapseOption.email})} 
-                  className="d-flex justify-content-between nav-link"
+                  className="navbar__group d-flex justify-content-between nav-link"
                 >
                   <span className="d-block">
                     <i className="ni ni-email-83 pr-4 text-primary"></i>
@@ -370,7 +370,7 @@ export default function Sidebar() {
                   to="/admin/enterprise"
                   tag={NavLinkRRD}
                   onClick={() => setCollapseOption({...collapseOption, admin: !collapseOption.admin})} 
-                  className="d-flex justify-content-between nav-link"
+                  className="navbar__group d-flex justify-content-between nav-link"
                 >
                   <span className="d-block">
                     <i className="fas fa-cog pr-4"></i>
@@ -470,7 +470,7 @@ export default function Sidebar() {
                   to="/superadmin/users"
                   tag={NavLinkRRD}
                   onClick={() => setCollapseOption({...collapseOption, superadmin: !collapseOption.superadmin})} 
-                  className="d-flex justify-content-between nav-link"
+                  className="navbar__group d-flex justify-content-between nav-link"
                 >
                   <span className="d-block">
                     <i className="fas fa-cog pr-4"></i>
