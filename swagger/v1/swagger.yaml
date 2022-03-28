@@ -8,7 +8,7 @@ paths:
     get:
       summary: Retorna un json dummy para la prueba del setting API DOC
       tags:
-      - Proveedores v1 categories
+      - Connectus v1 dummy EP
       description: Retorna un json dummy para la prueba del setting API DOC
       parameters:
       - name: is_error
@@ -43,6 +43,192 @@ paths:
                     default: false
                   message:
                     type: string
+  "/v1/users/change-password":
+    post:
+      summary: Retorna una confirmación de la acción
+      tags:
+      - Connectus v1 users
+      description: Este EP valoida si el token aun esta vivo y cambia la contraseña
+        anterior por la nueva
+      parameters: []
+      responses:
+        '200':
+          description: success!!!
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    default: true
+                  message:
+                    type: string
+        '401':
+          description: invalid password no match!!!
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    default: false
+                  message:
+                    type: string
+        '403':
+          description: error token expired!!!
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    default: false
+                  message:
+                    type: string
+        '422':
+          description: invalid arguments!!!
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    default: false
+                  message:
+                    type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                change_password:
+                  type: object
+                  properties:
+                    recover_token:
+                      type: string
+                    password:
+                      type: string
+                    password_confirmation:
+                      type: string
+  "/v1/users/recover-password":
+    post:
+      summary: Envia un email con el token de recuperacion
+      tags:
+      - Connectus v1 users
+      description: Se envia el email y el password para validar la autorizacion en
+        caso de ser correcta retornara un JWT que sera usado para consumir los EPs
+      parameters: []
+      responses:
+        '200':
+          description: success!!!
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    default: true
+                  message:
+                    type: string
+        '404':
+          description: error user!!!
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    default: false
+                  message:
+                    type: string
+        '422':
+          description: invalid arguments!!!
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    default: false
+                  message:
+                    type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                recover_password:
+                  type: object
+                  properties:
+                    email:
+                      type: string
+  "/v1/users/signIn":
+    post:
+      summary: Retorna un JWT que sera valido durante 1 day
+      tags:
+      - Connectus v1 users
+      description: Se envia el email y el password para validar la autorizacion en
+        caso de ser correcta retornara un JWT que sera usado para consumir los EPs
+      parameters: []
+      responses:
+        '200':
+          description: success!!!
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    default: true
+                  jwt:
+                    type: string
+        '403':
+          description: error password!!!
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    default: false
+                  message:
+                    type: string
+        '422':
+          description: invalid arguments!!!
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    default: false
+                  message:
+                    type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                sign_in:
+                  type: object
+                  properties:
+                    email:
+                      type: string
+                    password:
+                      type: string
 servers:
 - url: https://{defaultHost}
   variables:
