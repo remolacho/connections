@@ -1,5 +1,6 @@
 import React from "react";
 import Axios from "axios";
+import Toastr from 'toastr'
 import { useCookies } from "react-cookie"
 import { useNavigate } from "react-router-dom";
 import {
@@ -54,7 +55,11 @@ export default function Login(){
         handleSuccessfulAuth(response)
       }
     }).catch(errorResponse => {
-      console.log(errorResponse.response.data)
+      Toastr.options.closeButton = true;
+      Toastr.options.timeOut = 5000;
+      Toastr.options.extendedTimeOut = 1000;
+      Toastr.options.positionClass = "toast-bottom-right";
+      Toastr.error(errorResponse.response.data.message);
     })
   }
 
