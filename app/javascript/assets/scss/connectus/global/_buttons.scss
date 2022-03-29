@@ -1,26 +1,33 @@
-.cn {
-  &-btn-pill {
-    background-color: white;
-    color: #32325D;
-    font-weight: 600;
-    font-size: 14px;
-    padding: 10px;
+.button--warning {
+  background-color: $cn-color-warning;
+  color: white;
+}
 
-    &-select {
-      background-color: #5DB7E5;
-    }
-    
-    &-left {
-      border-radius: 5px 0 0 5px;
-    }
-  
-    &-right {
-      border-radius: 0 5px 5px 0;
-    }
-  
-    &:hover {
-      background-color: #D2E3EE;
-      cursor: pointer;
-    }
-  }
+.button--danger {
+  background-color: $cn-color-danger;
+  color: white;
+}
+
+.button--success {
+  background-color: $cn-color-success;
+  color: white;
+}
+
+.button--info {
+  background-color: $cn-color-info;
+  color: white;
+}
+
+.button--secondary {
+  background-color: $cn-color-secondary;
+  color: white;
+}
+
+.button--primary {
+  background-color: $cn-color-primary;
+  color: white;
+}
+
+.button--default {
+  color: $cn-color-default
 }
