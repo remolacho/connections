@@ -1,4 +1,6 @@
 import React from "react";
+import Axios from "axios";
+import { useCookies } from "react-cookie"
 import { useNavigate } from "react-router-dom";
 import {
   Button,
@@ -17,15 +19,41 @@ import {
 
 export default function Login(){
   const navigate = useNavigate()
+  const [_, setCookie] = useCookies()
   const [session, setSession] = React.useState({
     email: '',
-    pass: '',
+    password: '',
     remember_me: false
   })
 
+  function handleSuccessfulAuth(response) {
+    setCookie("authorization", response.data.jwt, {
+      maxAge: 30 * 24 * 60 * 60, // 30 days
+      sameSite: "lax",
+      path: "/",
+    })
+  }
+
   function handleLogin(event) {
     event.preventDefault()
-    console.log(session)
+    Axios({
+      method: "post",
+      url: "/v1/users/signIn",
+      data: {
+        sign_in: {
+          email: session.email,
+          password: session.password
+        }
+      }
+    })
+    .then(response => {
+      console.log(response)
+      if ( response.data.success ) {
+        handleSuccessfulAuth(response)
+      }
+    }).catch(errorResponse => {
+      console.log(errorResponse.response.data)
+    })
   }
 
   return (
@@ -59,11 +87,11 @@ export default function Login(){
                     </InputGroupText>
                   </InputGroupAddon>
                   <Input
-                    onChange={event => setSession({...session, pass: event.target.value})}
+                    onChange={event => setSession({...session, password: event.target.value})}
                     placeholder="Password"
                     type="password"
                     autoComplete="new-password"
-                    value={ session.pass }
+                    value={ session.password }
                   />
                 </InputGroup>
               </FormGroup>
