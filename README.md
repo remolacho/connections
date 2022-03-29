@@ -55,6 +55,8 @@ And now you can visit `{defaultHost}/api-docs/index.html`
 ### Frontend
 - [react-router-dom](https://github.com/remix-run/react-router/blob/f59ee5488bc343cf3c957b7e0cc395ef5eb572d2/docs/installation/getting-started.md) - For the routes in the front
 - [react-quill](https://github.com/zenoamaro/react-quill) - A WYSIWYG component for React.
+- [react-cookie](https://github.com/reactivestack/cookies/tree/master/packages/react-cookie) - Use cookies with react hooks
+- [axios](https://github.com/axios/axios) - For the requests
 ### Backend
 - [rspec](https://github.com/rspec/rspec-rails) - Unit test in rails
 - [rack-cors](https://github.com/cyu/rack-cors) - Rack Middleware for handling Cross-Origin Resource Sharing (CORS)
