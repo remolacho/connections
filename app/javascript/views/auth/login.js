@@ -27,13 +27,15 @@ export default function Login(){
   })
 
   function handleSuccessfulAuth(response) {
+    // 30 days or 1 day
+    let days = session.remember_me ? (30 * 24 * 60 * 60) : (24 * 60 * 60)
     setCookie("authorization", response.data.jwt, {
-      maxAge: 30 * 24 * 60 * 60, // 30 days
+      maxAge: days,
       sameSite: "lax",
       path: "/",
     })
   }
-
+  
   function handleLogin(event) {
     event.preventDefault()
     Axios({
