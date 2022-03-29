@@ -57,6 +57,7 @@ And now you can visit `{defaultHost}/api-docs/index.html`
 - [react-quill](https://github.com/zenoamaro/react-quill) - A WYSIWYG component for React.
 - [react-cookie](https://github.com/reactivestack/cookies/tree/master/packages/react-cookie) - Use cookies with react hooks
 - [axios](https://github.com/axios/axios) - For the requests
+- [toastr](https://codeseven.github.io/toastr/demo.html) - Simple javascript toast notifications 
 ### Backend
 - [rspec](https://github.com/rspec/rspec-rails) - Unit test in rails
 - [rack-cors](https://github.com/cyu/rack-cors) - Rack Middleware for handling Cross-Origin Resource Sharing (CORS)
