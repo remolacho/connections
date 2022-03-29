@@ -1,5 +1,6 @@
 import React from 'react'
 import { Routes, Route, Navigate } from "react-router-dom";
+import { useCookies } from 'react-cookie';
 
 // import AdminExampleLayout from "layouts/examples/Admin.js";
 // import AuthExampleLayout from "layouts/examples/Auth.js";
@@ -62,90 +63,97 @@ import SignupUser from "views/auth/signup-user";
 import Checkout from 'views/checkout';
 
 export default function Router(){
+  const [cookies] = useCookies(["authorization"])
   return (
     <div>
       <Routes>
-        <Route path="/" element={<DashboardLayout />} >
-          <Route index element={<Navigate to="/dashboard/sales" />} />
-          <Route path="dashboard" element={<DashboardNavbar />}>
+        { cookies.authorization ? 
+          <Route path="/" element={<DashboardLayout />} >
             <Route index element={<Navigate to="/dashboard/sales" />} />
-            <Route path="sales" element={<DashboardSales />} />
-            <Route path="messages" element={<DashboardMessages />} />
-            <Route path="clients-smpp" element={<DashboardClientsSMPP />} />
-            <Route path="providers-smpp" element={<DashboardProvidersSMPP />} />
-          </Route>
-          <Route path="dashboard-seller" element={<DashboardNavbar />}>
-            <Route index element={<Navigate to="/dashboard-seller/sales" />} />
-            <Route path="sales" element={<DashboardSellerSales />} />
-            <Route path="messages" element={<DashboardSellerMessages />} />
-          </Route>
-          <Route path="dashboard-admin-client" element={<DashboardNavbar />}>
-            <Route index element={<DashboardAdminClient />}/>
-          </Route>
-          <Route path="dashboard-client" element={<DashboardNavbar />}>
-            <Route index element={<DashboardClient />}/>
-          </Route>
-          <Route path="contact" element={<Contact />} />
-          <Route path="sms">
-            <Route path=':sms_id' element={<SMSId />} />
-            <Route path="send" element={<SMS />} />
-            <Route path="shipped-and-scheduled">
-              <Route index element={<SMSShippedScheduled />} />
-              <Route path=":shipped_id" element={<SMSShippedId />} />
+            <Route path="dashboard" element={<DashboardNavbar />}>
+              <Route index element={<Navigate to="/dashboard/sales" />} />
+              <Route path="sales" element={<DashboardSales />} />
+              <Route path="messages" element={<DashboardMessages />} />
+              <Route path="clients-smpp" element={<DashboardClientsSMPP />} />
+              <Route path="providers-smpp" element={<DashboardProvidersSMPP />} />
             </Route>
-            <Route path="auto-preset" element={<SMSAutoPreset />} />
-            <Route path="received" element={<SMSReceived />} />
-            <Route path="unsubscribed" element={<SMSUnsubscribed />} />
-          </Route>
-          <Route path="email">
-            <Route path=':email_id' element={<EmailId />} />
-            <Route path="send" element={<Email />} />
-            <Route path="shipped-and-scheduled">
-              <Route index element={<EmailShippedScheduled />} />
-              <Route path=":shipped_id" element={<EmailShippedId />} />
+            <Route path="dashboard-seller" element={<DashboardNavbar />}>
+              <Route index element={<Navigate to="/dashboard-seller/sales" />} />
+              <Route path="sales" element={<DashboardSellerSales />} />
+              <Route path="messages" element={<DashboardSellerMessages />} />
             </Route>
-            <Route path="auto-preset" element={<EmailAutoPreset />} />
-            <Route path="unsubscribed" element={<EmailUnsubscribed />} />
+            <Route path="dashboard-admin-client" element={<DashboardNavbar />}>
+              <Route index element={<DashboardAdminClient />}/>
+            </Route>
+            <Route path="dashboard-client" element={<DashboardNavbar />}>
+              <Route index element={<DashboardClient />}/>
+            </Route>
+            <Route path="contact" element={<Contact />} />
+            <Route path="sms">
+              <Route path=':sms_id' element={<SMSId />} />
+              <Route path="send" element={<SMS />} />
+              <Route path="shipped-and-scheduled">
+                <Route index element={<SMSShippedScheduled />} />
+                <Route path=":shipped_id" element={<SMSShippedId />} />
+              </Route>
+              <Route path="auto-preset" element={<SMSAutoPreset />} />
+              <Route path="received" element={<SMSReceived />} />
+              <Route path="unsubscribed" element={<SMSUnsubscribed />} />
+            </Route>
+            <Route path="email">
+              <Route path=':email_id' element={<EmailId />} />
+              <Route path="send" element={<Email />} />
+              <Route path="shipped-and-scheduled">
+                <Route index element={<EmailShippedScheduled />} />
+                <Route path=":shipped_id" element={<EmailShippedId />} />
+              </Route>
+              <Route path="auto-preset" element={<EmailAutoPreset />} />
+              <Route path="unsubscribed" element={<EmailUnsubscribed />} />
+            </Route>
+            <Route path="admin">
+              <Route path="enterprise" element={<AdminEnterprise />}/>
+              <Route path="account" element={<AdminAccount />} />
+              <Route path="reports" element={<AdminReport />} />
+              <Route path="purchase">
+                <Route index element={<AdminPurchase />} />
+                <Route path="detail">
+                  <Route path=":detail_id" element={<AdminPurchaseDetailId />} />
+                </Route>
+              </Route>
+              <Route path="users" element={<AdminUser />} />
+              <Route path="clients" element={<AdminClient />} />
+              <Route path="transform-balance" element={<AdminTransformBalance />} />
+            </Route>
+            <Route path="superadmin">
+              <Route path="users" element={<SuperadminUser />} />
+              <Route path="clients">
+                <Route index element={<SuperadminClient />} />
+                <Route path=":client_id" element={<SuperadminClientId />} />
+              </Route>
+              <Route path="buy" element={<SuperadminBuy />} />
+              <Route path="postpago" element={<SuperadminPostpago />} />
+            </Route>
+            <Route path="user">
+              <Route path="profile" element={<UserProfile />} />
+            </Route>
+            <Route path="checkout" element={<Checkout />} />
+            <Route path="*" element={<Navigate to="/dashboard" />} />
           </Route>
-          <Route path="admin">
-            <Route path="enterprise" element={<AdminEnterprise />}/>
-            <Route path="account" element={<AdminAccount />} />
-            <Route path="reports" element={<AdminReport />} />
-            <Route path="purchase">
-              <Route index element={<AdminPurchase />} />
-              <Route path="detail">
-                <Route path=":detail_id" element={<AdminPurchaseDetailId />} />
+          :
+          <>
+            <Route path="auth" element={<AuthLayout />}>
+              <Route index element={<Navigate to="/auth/login" />} />
+              <Route path="login" element={<Login />} />
+              <Route path="recovery-password" element={<RecoveryPassword />} />
+              <Route path="signup">
+                <Route index element={<SignupType />} />
+                <Route path="company" element={<SignupCompany />} />
+                <Route path="user" element={<SignupUser />} />
               </Route>
             </Route>
-            <Route path="users" element={<AdminUser />} />
-            <Route path="clients" element={<AdminClient />} />
-            <Route path="transform-balance" element={<AdminTransformBalance />} />
-          </Route>
-          <Route path="superadmin">
-            <Route path="users" element={<SuperadminUser />} />
-            <Route path="clients">
-              <Route index element={<SuperadminClient />} />
-              <Route path=":client_id" element={<SuperadminClientId />} />
-            </Route>
-            <Route path="buy" element={<SuperadminBuy />} />
-            <Route path="postpago" element={<SuperadminPostpago />} />
-          </Route>
-          <Route path="user">
-            <Route path="profile" element={<UserProfile />} />
-          </Route>
-          <Route path="checkout" element={<Checkout />} />
-          <Route path="*" element={<Navigate to="/dashboard" />} />
-        </Route>
-        <Route path="auth" element={<AuthLayout />}>
-          <Route index element={<Navigate to="/auth/login" />} />
-          <Route path="login" element={<Login />} />
-          <Route path="recovery-password" element={<RecoveryPassword />} />
-          <Route path="signup">
-            <Route index element={<SignupType />} />
-            <Route path="company" element={<SignupCompany />} />
-            <Route path="user" element={<SignupUser />} />
-          </Route>
-        </Route>
+            <Route path="*" element={<Navigate to="/auth/login" />} />
+          </>
+        }
       </Routes>
     </div>
   )
