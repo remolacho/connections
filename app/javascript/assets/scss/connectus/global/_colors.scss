@@ -1,5 +1,13 @@
 $gray-1: #E9ECEF;
 $gray-2: #F6F9FC;
+$cn-green: #5CC95A;
+$cn-color-warning: #FFD600;
+$cn-color-danger: #CB5256;
+$cn-color-success: #78C23A;
+$cn-color-info: #C1D5FC;
+$cn-color-secondary: #F4BB4C;
+$cn-color-primary: #5DB7E5;
+$cn-color-default: #5E72E4;
 
 .cn-bg-gray-1 {
   background-color: $gray-1;
@@ -7,4 +15,8 @@ $gray-2: #F6F9FC;
 
 .cn-bg-gray-2 {
   background-color: $gray-2;
+}
+
+.bg-info {
+  background-color: $cn-color-primary !important;
 }
