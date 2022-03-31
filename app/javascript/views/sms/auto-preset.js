@@ -47,14 +47,14 @@ export default function AutoPreset(){
                 <Table className="align-items-center table-flush" responsive borderless>
                   <thead className="thead-light">
                     <tr>
-                      <th scope="col" className="text-center table-header">
+                      <th scope="col" className="text-center title-with-sort">
                         Nombre
                         <i class="fas fa-sort"></i>
                       </th>
-                      <th scope="col" className="text-center table-header">
+                      <th scope="col" className="text-center title-with-sort">
                         Contenido
                         <i class="fas fa-sort"></i></th>
-                      <th scope="col" className="text-center table-header">
+                      <th scope="col" className="text-center title-with-sort">
                         SMS automático
                         <i class="fas fa-sort"></i></th>
                     </tr>

@@ -52,23 +52,23 @@ export default function Received(){
             <Table className="align-items-center table-flush" responsive borderless>
               <thead className="thead-light">
                 <tr>
-                  <th scope="col" className="text-center table-header">
+                  <th scope="col" className="text-center title-with-sort">
                     Identificador único
                     <i class="fas fa-sort"></i>
                   </th>
-                  <th scope="col" className="text-center table-header">
+                  <th scope="col" className="text-center title-with-sort">
                     Número de origen
                     <i class="fas fa-sort"></i>
                   </th>
-                  <th scope="col" className="text-center table-header">
+                  <th scope="col" className="text-center title-with-sort">
                     Proveedor de origen
                     <i class="fas fa-sort"></i>
                   </th>
-                  <th scope="col" className="text-center table-header">
+                  <th scope="col" className="text-center title-with-sort">
                     Número de destino
                     <i class="fas fa-sort"></i>
                   </th>
-                  <th scope="col" className="text-center table-header">
+                  <th scope="col" className="text-center title-with-sort">
                     Recibido
                     <i class="fas fa-sort"></i>
                   </th>
