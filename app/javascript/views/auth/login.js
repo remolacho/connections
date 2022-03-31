@@ -1,6 +1,6 @@
 import React from "react";
 import Axios from "axios";
-import Toastr from 'toastr'
+import Toastr from 'toastr';
 import { useCookies } from "react-cookie"
 import { useNavigate } from "react-router-dom";
 import {
@@ -18,20 +18,20 @@ import {
   Col,
 } from "reactstrap";
 
+import { GlobalContext } from "contexts/global";
+
 export default function Login(){
+  const global = React.useContext(GlobalContext)
   const navigate = useNavigate()
-  const [_, setCookie] = useCookies()
+  const [_cookies, setCookie] = useCookies()
   const [session, setSession] = React.useState({
     email: '',
-    password: '',
-    remember_me: false
+    password: ''
   })
 
   function handleSuccessfulAuth(response) {
-    // 30 days or 1 day
-    let days = session.remember_me ? (30 * 24 * 60 * 60) : (24 * 60 * 60)
     setCookie("authorization", response.data.jwt, {
-      maxAge: days,
+      maxAge: 30 * 24 * 60 * 60, // 30 days or 1 day
       sameSite: "lax",
       path: "/",
     })
@@ -50,16 +50,19 @@ export default function Login(){
       }
     })
     .then(response => {
-      console.log(response)
       if ( response.data.success ) {
         handleSuccessfulAuth(response)
       }
-    }).catch(errorResponse => {
-      Toastr.options.closeButton = true;
-      Toastr.options.timeOut = 5000;
-      Toastr.options.extendedTimeOut = 1000;
-      Toastr.options.positionClass = "toast-bottom-right";
-      Toastr.error(errorResponse.response.data.message);
+    }).catch(error => {
+      if(error.response.status === 401){
+        global.handleRemoveCookie(false, error.response.data.message )
+      } else {
+        Toastr.options.closeButton = true;
+        Toastr.options.timeOut = 5000;
+        Toastr.options.extendedTimeOut = 1000;
+        Toastr.options.positionClass = "toast-bottom-right";
+        Toastr.error(errorResponse.response.data.message);
+      }
     })
   }
 
@@ -102,20 +105,6 @@ export default function Login(){
                   />
                 </InputGroup>
               </FormGroup>
-              <div className="custom-control custom-control-alternative custom-checkbox">
-                <input
-                  onChange={event => setSession({...session, remember_me: event.target.checked})}
-                  className="custom-control-input"
-                  id=" customCheckLogin"
-                  type="checkbox"
-                />
-                <label
-                  className="custom-control-label"
-                  htmlFor=" customCheckLogin"
-                >
-                  <span className="text-muted">Remember me</span>
-                </label>
-              </div>
               <div className="text-center">
                 <Button type="submit" className="my-4" color="info" block>
                   Ingresar
