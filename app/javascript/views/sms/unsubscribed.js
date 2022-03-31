@@ -2,6 +2,10 @@ import React from "react"
 import {
   Card,
   CardHeader,
+  CardFooter,
+  Pagination,
+  PaginationItem,
+  PaginationLink,
   Table,
   Container,
   Row,
@@ -15,9 +19,9 @@ export default function Unsubscribed(){
     <Container className="pt-7" fluid>
         <div className="d-flex justify-content-between">
           <h1 className="mb-0">Numeros Desuscritos</h1>
-          <Button className="btn-outline-danger">
+          <button className="btn button--secondary">
             Agregar numero
-          </Button>
+          </button>
         </div>
         <hr className="mt-3"/>
       {/* <Row className="mb-4">
@@ -52,11 +56,26 @@ export default function Unsubscribed(){
             <Table className="align-items-center table-flush" responsive borderless>
               <thead className="thead-light">
                 <tr>
-                  <th scope="col" className="text-center">Numero de usuario</th>
-                  <th scope="col" className="text-center">Numero de origen</th>
-                  <th scope="col" className="text-center">Proveedor de origen</th>
-                  <th scope="col" className="text-center">Fecha y hora de ingreso</th>
-                  <th scope="col" className="text-center">Acciones</th>
+                  <th scope="col" className="text-center title-with-sort">
+                    Numero de usuario
+                    <i class="fas fa-sort"></i>
+                  </th>
+                  <th scope="col" className="text-center title-with-sort">
+                    Numero de origen
+                    <i class="fas fa-sort"></i>
+                  </th>
+                  <th scope="col" className="text-center title-with-sort">
+                    Proveedor de origen
+                    <i class="fas fa-sort"></i>
+                  </th>
+                  <th scope="col" className="text-center title-with-sort">
+                    Fecha y hora de ingreso
+                    <i class="fas fa-sort"></i>
+                  </th>
+                  <th scope="col" className="text-center title-with-sort">
+                    Acciones
+                    <i class="fas fa-sort"></i>
+                  </th>
                 </tr>
               </thead>
               <tbody>
@@ -147,6 +166,58 @@ export default function Unsubscribed(){
                 </tr>
               </tbody>
             </Table>
+            <CardFooter className="py-4">
+              <nav aria-label="...">
+                <Pagination
+                  className="pagination justify-content-end mb-0"
+                  listClassName="justify-content-end mb-0"
+                >
+                  <PaginationItem className="disabled">
+                    <PaginationLink
+                      href="#pablo"
+                      onClick={(e) => e.preventDefault()}
+                      tabIndex="-1"
+                    >
+                      <i className="fas fa-angle-left" />
+                      <span className="sr-only">Previous</span>
+                    </PaginationLink>
+                  </PaginationItem>
+                  <PaginationItem className="active">
+                    <PaginationLink
+                      href="#pablo"
+                      onClick={(e) => e.preventDefault()}
+                    >
+                      1
+                    </PaginationLink>
+                  </PaginationItem>
+                  <PaginationItem>
+                    <PaginationLink
+                      href="#pablo"
+                      onClick={(e) => e.preventDefault()}
+                    >
+                      2 <span className="sr-only">(current)</span>
+                    </PaginationLink>
+                  </PaginationItem>
+                  <PaginationItem>
+                    <PaginationLink
+                      href="#pablo"
+                      onClick={(e) => e.preventDefault()}
+                    >
+                      3
+                    </PaginationLink>
+                  </PaginationItem>
+                  <PaginationItem>
+                    <PaginationLink
+                      href="#pablo"
+                      onClick={(e) => e.preventDefault()}
+                    >
+                      <i className="fas fa-angle-right" />
+                      <span className="sr-only">Next</span>
+                    </PaginationLink>
+                  </PaginationItem>
+                </Pagination>
+              </nav>
+            </CardFooter>
           </Card>
         </div>
       </Row>
