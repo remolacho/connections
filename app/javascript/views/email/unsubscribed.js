@@ -15,9 +15,9 @@ export default function Unsubscribed(){
     <Container className="pt-7" fluid>
         <div className="d-flex justify-content-between">
           <h1 className="mb-0">EMAIL desuscritos</h1>
-          <Button className="btn-outline-danger">
+          <button className="btn button--secondary">
             Generar reporte
-          </Button>
+          </button>
         </div>
         <hr className="mt-3"/>
       <Row className="mb-4">
@@ -52,10 +52,22 @@ export default function Unsubscribed(){
             <Table className="align-items-center table-flush" responsive borderless>
               <thead className="thead-light">
                 <tr>
-                  <th scope="col" className="text-center">Email de origen</th>
-                  <th scope="col" className="text-center">Email de destino</th>
-                  <th scope="col" className="text-center">Fecha y hora de registro</th>
-                  <th scope="col" className="text-center">Acciones</th>
+                  <th scope="col" className="text-center title-with-sort">
+                    Email de origen
+                    <i class="fas fa-sort"></i>
+                  </th>
+                  <th scope="col" className="text-center title-with-sort">
+                    Email de destino
+                    <i class="fas fa-sort"></i>
+                  </th>
+                  <th scope="col" className="text-center title-with-sort">
+                    Fecha y hora de registro
+                    <i class="fas fa-sort"></i>
+                  </th>
+                  <th scope="col" className="text-center title-with-sort">
+                    Acciones
+                    <i class="fas fa-sort"></i>
+                  </th>
                 </tr>
               </thead>
               <tbody>
