@@ -140,14 +140,13 @@ export default function Send() {
                               </select>
                             </Col>
                             <Col md="3">
-                              <Button 
-                                block 
-                                className="button--secondary"
+                              <button 
+                                className="btn btn-block button--secondary"
                                 type="button"
                                 onClick={() => setShowModal(!showModal)}
                               >
                                 Agregar Lista
-                              </Button>
+                              </button>
                             </Col>
                         </Row>
                         </FormGroup>
@@ -170,13 +169,12 @@ export default function Send() {
                               </select>
                             </Col>
                             <Col md="3">
-                              <Button 
-                                block 
-                                className="button--secondary"
+                              <button 
+                                className="btn btn-block button--secondary"
                                 type="button"
                               >
                                 Editar
-                              </Button>
+                              </button>
                             </Col>
                           </Row>
                         </FormGroup>
