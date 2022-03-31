@@ -90,8 +90,9 @@ export default function Router(){
             </Route>
             <Route path="contact" element={<Contact />} />
             <Route path="sms">
-              <Route path=':sms_id' element={<SMSId />} />
+              <Route index element={<Navigate to="/sms/send" />} />
               <Route path="send" element={<SMS />} />
+              <Route path=':sms_id' element={<SMSId />} />
               <Route path="shipped-and-scheduled">
                 <Route index element={<SMSShippedScheduled />} />
                 <Route path=":shipped_id" element={<SMSShippedId />} />

@@ -20,9 +20,9 @@ export default function ShippedScheduled(){
     <Container className="pt-7" fluid>
         <div className="d-flex justify-content-between">
           <h1 className="mb-0">Historial de envíos de EMAIL</h1>
-          <Button className="btn-outline-danger">
+          <NavLink to="/email/send" type="button" className="btn button--secondary">
             Enviar Email
-          </Button>
+          </NavLink>
         </div>
         <hr className="mt-3"/>
       <Row>
@@ -46,12 +46,30 @@ export default function ShippedScheduled(){
             <Table className="align-items-center table-flush" responsive borderless>
               <thead className="thead-light">
                 <tr>
-                  <th scope="col" className="text-center">Nombre</th>
-                  <th scope="col" className="text-center">Tipo</th>
-                  <th scope="col" className="text-center">Fecha de creación (fecha programada)</th>
-                  <th scope="col" className="text-center">Emails</th>
-                  <th scope="col" className="text-center">Enviados</th>
-                  <th scope="col" className="text-center">Acciones</th>
+                  <th scope="col" className="text-center title-with-sort">
+                    Nombre
+                    <i class="fas fa-sort"></i>
+                  </th>
+                  <th scope="col" className="text-center title-with-sort">
+                    Tipo
+                    <i class="fas fa-sort"></i>
+                  </th>
+                  <th scope="col" className="text-center title-with-sort">
+                    Fecha de creación (fecha programada)
+                    <i class="fas fa-sort"></i>
+                  </th>
+                  <th scope="col" className="text-center title-with-sort">
+                    Emails
+                    <i class="fas fa-sort"></i>
+                  </th>
+                  <th scope="col" className="text-center title-with-sort">
+                    Enviados
+                    <i class="fas fa-sort"></i>
+                  </th>
+                  <th scope="col" className="text-center title-with-sort">
+                    Acciones
+                    <i class="fas fa-sort"></i>
+                  </th>
                 </tr>
               </thead>
               <tbody>
