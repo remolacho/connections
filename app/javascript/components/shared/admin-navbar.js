@@ -21,12 +21,13 @@ export default function AdminNavbar(){
       <Navbar className="navbar-top navbar-dark bg-info" expand="md" id="navbar-main">
         <Container fluid>
           <Form className="navbar-search navbar-search-dark form-inline mr-3 d-none d-md-flex ml-lg-auto">
-            <Button
+            <button
+              className="btn button--secondary"
               color="warning"
               onClick={() => navigate("/checkout")}
             >
               Comprar créditos
-            </Button>
+            </button>
           </Form>
           <Nav className="align-items-center d-none d-md-flex ml-2" navbar>
             <i className="ni ni-bell-55 text-white mx-2"></i>

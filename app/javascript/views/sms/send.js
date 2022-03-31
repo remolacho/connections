@@ -142,7 +142,7 @@ export default function Send() {
                             <Col md="3">
                               <Button 
                                 block 
-                                className="btn-outline-danger"
+                                className="button--secondary"
                                 type="button"
                                 onClick={() => setShowModal(!showModal)}
                               >
@@ -172,7 +172,7 @@ export default function Send() {
                             <Col md="3">
                               <Button 
                                 block 
-                                className="btn-outline-danger"
+                                className="button--secondary"
                                 type="button"
                               >
                                 Editar
