@@ -1,0 +1,29 @@
+es:
+  services:
+    users:
+      change_password:
+        success: 'La contraseña fue cambiada'
+        password_empty: 'La contraseña es requerida'
+        password_confirmation_empty: 'La confirmación de la contraseña es requerida'
+        token_expired: 'El token caducó, tienes que hacer una nueva solicitud'
+      confirmation:
+        success: 'El usuario ha sido activado con éxito'
+      recover_password:
+        success: 'Se envia un token de cambio a tu correo'
+        not_found:
+          email: 'El email es requerido'
+          user: 'El usuario no fue encontrado'
+      sign_in:
+        not_found:
+          email: '  El email es requerido'
+          password: 'La contraseña es requerida'
+          user: 'El usuario no esta registrado'
+        inactive: 'El usuario no esta activo, validar la información enviada a su correo'
+        authenticate: 'No se pudo iniciar la cuenta validar su correo o contraseña'
+        error:
+          jwt: 'Error inesperado al crear la autenticación, por favor comunicarse con soporte'
+      sign_up:
+        sms:
+          content: 'Hola! para confirmar tu cuenta haz click en el siguiente enlace %{link}'
+          success: 'Se crea el usuario exitosamente en breve recibirá un enlace via SMS para su activación'
+          error: 'Estamos presentando problemas con el envío de mensajes comunicarse con soporte'

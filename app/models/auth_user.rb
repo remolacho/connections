@@ -42,4 +42,16 @@ class AuthUser < ApplicationRecord
 	belongs_to :account, class_name: "Account", foreign_key: 'id_account', optional: true
 
 	validates :password, presence: true, on: :create
+	validates :email, uniqueness: {  message: I18n.t('models.auth_user.validations.email') }
+	validates_presence_of %i[email first_name last_name phone], message: I18n.t('models.auth_user.validations.required')
+
+	ROLE_ADMIN = 'ADMIN'
+
+	def self.generate_registration_key
+		Digest::MD5.hexdigest("C0nn3ctu22020Et1n3R-#{SecureRandom.uuid.split('-').join}-#{Time.now.strftime('%d%m%Y%H%M%S')}")
+	end
+
+	def current_phone
+		Rails.env.production? ? phone : ENV['DST_PHONE']
+	end
 end

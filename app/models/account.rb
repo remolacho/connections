@@ -35,6 +35,7 @@
 class Account < ApplicationRecord
 	self.table_name = "account"
 
+	belongs_to :country, class_name: "AddrCountry", foreign_key: 'id_country'
 	has_many :account_emails, class_name: "AccountEmail", foreign_key: "id_account"
 	has_many :users, class_name: "AuthUser", foreign_key: "id_account"
 	has_many :settings, class_name: "AccountSetting", foreign_key: "id_account"
@@ -54,7 +55,17 @@ class Account < ApplicationRecord
 	has_many :invitations, class_name: "AuthUserInvitation", foreign_key: "id_account"
 	has_many :api_keys, class_name: "AuthUserApiKey", foreign_key: "id_unique_account"
 
+	validates_presence_of %i[email name phone rut id_country], message: I18n.t('models.account.validations.required')
+	validates :email, uniqueness: {  message: I18n.t('models.account.validations.email') }
 
+	def self.generate_unique_id
+		SecureRandom.uuid.split('-').join
+	end
+
+	def self.authorization_sms
+		base64 = Base64.strict_encode64("#{ENV['ID_UNIQUE_API']}:#{ENV['SECRET_API']}")
+		"Basic #{base64}"
+	end
 end
 
 

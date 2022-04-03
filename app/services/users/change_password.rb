@@ -12,14 +12,14 @@ module Users
 
       user.clear_reset_password_key!(data[:password], data[:password_confirmation])
 
-      { success: true, message: 'the password was changed'.freeze }
+      { success: true, message: I18n.t('services.users.change_password.success') }
     end
 
     private
 
     def validate_change
-      raise ArgumentError,'the password is required' unless data[:password_confirmation].present?
-      raise ArgumentError, 'the password confirmation is required'unless data[:password].present?
+      raise ArgumentError, I18n.t('services.users.change_password.password_empty') unless data[:password].present?
+      raise ArgumentError, I18n.t('services.users.change_password.password_confirmation_empty') unless data[:password_confirmation].present?
     end
 
     def user
@@ -32,7 +32,7 @@ module Users
 
       return resource if resource.present?
 
-      raise PolicyException, 'the token expired, you have that do new request'
+      raise PolicyException, I18n.t('services.users.change_password.token_expired')
     end
   end
 end

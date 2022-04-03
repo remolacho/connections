@@ -43,6 +43,7 @@ FactoryBot.define do
     password { password }
     password_confirmation { password }
     last_login { Time.now }
+    phone { "573174131147" }
   end
 
 end

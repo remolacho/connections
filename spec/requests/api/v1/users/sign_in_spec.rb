@@ -43,7 +43,7 @@ RSpec.describe Api::V1::Users::SignInController, type: :request do
             end
           end
 
-          response 403, 'error password!!!' do
+          response 403, 'error password or user is not active!!!' do
             schema type: :object,
                    properties: {
                      success: { type: :boolean, default: false },
@@ -54,6 +54,20 @@ RSpec.describe Api::V1::Users::SignInController, type: :request do
               {
                 sign_in: { email: user.email, password: 'error'.freeze }
               }
+            }
+
+            run_test! do |response|
+              body = JSON.parse(response.body)
+              expect(body['success']).to eq(false)
+              expect(body['jwt'].present?).to eq(false)
+            end
+
+            ##### the user is not active #####
+            let(:credentials) {
+              user.registration_key = AuthUser.generate_registration_key
+              user.save!
+
+              { sign_in: { email: user.email, password: 'error'.freeze } }
             }
 
             run_test! do |response|

@@ -4,6 +4,43 @@ info:
   title: Connectus API V1
   version: v1
 paths:
+  "/v1/addresses/countries/list":
+    get:
+      summary: Lista de paises
+      tags:
+      - Connectus v1 addresses
+      description: Nos permite obtener un listado de los paises disponibles en la
+        plataforma
+      responses:
+        '200':
+          description: success!!!
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    default: true
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                        currency:
+                          type: string
+                        name:
+                          type: string
+                        short:
+                          type: string
+                        code:
+                          type: integer
+                        flag_emoji:
+                          type: string
+                        number_length:
+                          type: integer
   "/v1/test":
     get:
       summary: Retorna un json dummy para la prueba del setting API DOC
@@ -115,6 +152,61 @@ paths:
                       type: string
                     password_confirmation:
                       type: string
+  "/v1/users/confirmation":
+    post:
+      summary: Retorna una confirmación de la acción
+      tags:
+      - Connectus v1 users
+      description: Este EP valoida si el token es valido y activa al usuario registrado
+      parameters: []
+      responses:
+        '200':
+          description: success!!!
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    default: true
+                  message:
+                    type: string
+        '422':
+          description: token empty!!!
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    default: false
+                  message:
+                    type: string
+        '404':
+          description: token not found!!!
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    default: false
+                  message:
+                    type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                confirmation:
+                  type: object
+                  properties:
+                    token:
+                      type: string
   "/v1/users/recover-password":
     post:
       summary: Envia un email con el token de recuperacion
@@ -193,7 +285,7 @@ paths:
                   jwt:
                     type: string
         '403':
-          description: error password!!!
+          description: error password or user is not active!!!
           content:
             application/json:
               schema:
@@ -228,6 +320,66 @@ paths:
                     email:
                       type: string
                     password:
+                      type: string
+  "/v1/users/signUp":
+    post:
+      summary: Creara un usuario
+      tags:
+      - Connectus v1 users
+      description: crea un usuario el cual puede ingresar al sistema luego de su valicdacion
+        via SNS
+      parameters: []
+      responses:
+        '200':
+          description: success!!!
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    default: true
+                  message:
+                    type: string
+        '401':
+          description: Email unique, campos obligatorios!!!
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    default: false
+                  message:
+                    type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                sign_up:
+                  type: object
+                  properties:
+                    email:
+                      type: string
+                    first_name:
+                      type: string
+                    last_name:
+                      type: string
+                    password:
+                      type: string
+                    password_confirmation:
+                      type: string
+                    phone:
+                      type: string
+                    country_id:
+                      type: integer
+                    rut:
+                      type: string
+                    enterprise_name:
                       type: string
 servers:
 - url: https://{defaultHost}

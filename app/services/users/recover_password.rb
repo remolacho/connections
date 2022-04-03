@@ -13,14 +13,14 @@ module Users
       user.generate_password_token!(1.day.from_now)
       UsersMailer.recover_password(user: user).deliver_now!
 
-      { success: true, message: 'the recover token was sent to you email'.freeze }
+      { success: true, message: I18n.t('services.users.recover_password.success') }
     end
 
     private
 
     def validate_recover
-      raise ArgumentError,'the email is required' unless data[:email].present?
-      raise ActiveRecord::RecordNotFound, 'the email not found' unless user.present?
+      raise ArgumentError, I18n.t('services.users.recover_password.not_found.email') unless data[:email].present?
+      raise ActiveRecord::RecordNotFound, I18n.t('services.users.recover_password.not_found.user') unless user.present?
     end
 
     def user

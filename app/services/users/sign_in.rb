@@ -16,11 +16,12 @@ module Users
     private
 
     def validate_sign_in
-      raise ArgumentError,'the email is required' unless credentials[:email].present?
-      raise ArgumentError, 'the password is required'unless credentials[:password].present?
-      raise PolicyException, 'the user or password not valid' unless user.present?
-      raise PolicyException, 'the user or password not valid' unless user.authenticate(credentials[:password])
-      raise PolicyException auth_jwt[:message] unless auth_jwt[:success]
+      raise ArgumentError, I18n.t('services.users.sign_in.not_found.email') unless credentials[:email].present?
+      raise ArgumentError, I18n.t('services.users.sign_in.not_found.password') unless credentials[:password].present?
+      raise PolicyException, I18n.t('services.users.sign_in.not_found.user') unless user.present?
+      raise PolicyException, I18n.t('services.users.sign_in.inactive') if user.registration_key.present?
+      raise PolicyException,I18n.t('services.users.sign_in.authenticate') unless user.authenticate(credentials[:password])
+      raise PolicyException manage_message(auth_jwt) unless auth_jwt[:success]
     end
 
     def auth_jwt
@@ -33,6 +34,12 @@ module Users
 
     def last_login
       user.update!(last_login: Time.now)
+    end
+
+    def manage_message(response)
+      return  response[:message] unless Rails.env.production?
+
+      I18n.t('services.users.sign_in.error.jwt')
     end
   end
 end

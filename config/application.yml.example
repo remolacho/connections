@@ -13,7 +13,10 @@ development:
   EMAIL_PROVIDER: smtp.gmail.com
   EMAIL_PORT: "587"
   EMAIL_DOMAIN: localhost
-  BASE_API: http://localhost:3000
+  BASE_APP: http://localhost:3000
+  ID_UNIQUE_API: "ID unico de la cuenta a usar para enviar SMS"
+  SECRET_API: "la clave secreta de la API"
+  DST_PHONE: "telefono movil de destino para pruebas"
 test:
   DB_HOSTNAME: localhost
   DB_NAME: connectus_test
@@ -27,5 +30,7 @@ test:
   EMAIL_PROVIDER: smtp.gmail.com
   EMAIL_PORT: "587"
   EMAIL_DOMAIN: localhost
-  BASE_API: http://localhost:3000
-
+  BASE_APP: http://localhost:3000
+  ID_UNIQUE_API: "ID unico de la cuenta a usar para enviar SMS"
+  SECRET_API: "la clave secreta de la API"
+  DST_PHONE: "telefono movil de destino para pruebas"
