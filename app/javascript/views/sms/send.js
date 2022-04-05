@@ -387,14 +387,12 @@ export default function Send() {
               }
               <Row className="mt-4">
                 <Col className="text-left" xs="12" md="4">
-                  <Button
-                    color="info"
-                    href="#pablo"
+                  <button
+                    className="btn button--primary"
                     onClick={(e) => e.preventDefault()}
-                    size="md"
                   >
                     Enviar SMS
-                  </Button>
+                  </button>
                 </Col>
               </Row>
             </Form>
@@ -578,15 +576,14 @@ export default function Send() {
             </p>
           </div>
           <div className="modal-footer">
-            <Button 
+            <Link 
               to="/user/profile"
-              tag={Link}
-              color="info"
+              className="btn button--primary"
               type="button"
 
             >
               Ir al perfil de usuario
-            </Button>
+            </Link>
             <Button
               className="ml-auto"
               color="link"
@@ -905,15 +902,13 @@ export default function Send() {
             
           </div>
           <div className="modal-footer">
-            <Button 
-              to="/user/profile"
-              tag={Link}
-              color="info"
+            <button 
+              onClick={() => setShowModalBanned(!showModalBanned)}
+              className="btn button--primary"
               type="button"
-
             >
-              Ir al perfil de usuario
-            </Button>
+              Finalizar
+            </button>
             <Button
               className="ml-auto"
               color="link"
