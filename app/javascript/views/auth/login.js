@@ -61,7 +61,7 @@ export default function Login(){
         Toastr.options.timeOut = 5000;
         Toastr.options.extendedTimeOut = 1000;
         Toastr.options.positionClass = "toast-bottom-right";
-        Toastr.error(errorResponse.response.data.message);
+        Toastr.error(error.response.data.message);
       }
     })
   }

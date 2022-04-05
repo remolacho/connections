@@ -144,14 +144,12 @@ export default function Send() {
                               </select>
                             </Col>
                             <Col md="3">
-                              <Button 
-                                block 
-                                className="btn-warning"
-                                type="button"
+                              <button 
+                                className="btn btn-block button--secondary"
                                 onClick={() => setShowModalListContact(!showModalListContact)}
                               >
                                 Agregar Lista
-                              </Button>
+                              </button>
                             </Col>
                         </Row>
                         </FormGroup>
@@ -211,14 +209,13 @@ export default function Send() {
                           </select>
                         </Col>
                         <Col md="3">
-                          <Button 
-                            block 
-                            className="btn-warning"
+                          <button 
+                            className="btn btn-block button--secondary"
                             type="button"
                             onClick={() => setShowModalAddEmail(!showModalAddEmail)}
                           >
                             Agregar correo
-                          </Button>
+                          </button>
                         </Col>
                       </Row>
                     </FormGroup>
@@ -389,13 +386,12 @@ export default function Send() {
                           </select>
                         </Col>
                         <Col md="3">
-                          <Button 
-                            block 
-                            className="btn-warning"
+                          <button 
+                            className="btn btn-block button--secondary"
                             type="button"
                           >
                             Insertar archivo
-                          </Button>
+                          </button>
                         </Col>
                       </Row>
                     </FormGroup>
@@ -450,14 +446,12 @@ export default function Send() {
               </Card>
               <Row className="mt-4">
                 <Col className="text-left" xs="4">
-                  <Button
-                    color="info"
-                    href="#pablo"
+                  <button
+                    className="btn button--primary"
                     onClick={(e) => e.preventDefault()}
-                    size="md"
                   >
                     Enviar EMAIL
-                  </Button>
+                  </button>
                 </Col>
               </Row>
             </Form>
@@ -686,15 +680,13 @@ export default function Send() {
             </p>
           </div>
           <div className="modal-footer">
-            <Button 
+            <Link 
               to="/user/profile"
-              tag={Link}
-              color="info"
               type="button"
-
+              className="btn button--primary"
             >
               Ir al perfil de usuario
-            </Button>
+            </Link>
             <Button
               className="ml-auto"
               color="link"
