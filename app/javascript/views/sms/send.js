@@ -1,18 +1,22 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { 
   Card,
+  CardHeader,
   CardBody,
+  CardFooter,
+  Pagination,
+  PaginationItem,
+  PaginationLink,
+  Table,
   Form,
   FormGroup,
   Input,
   Container,
   Row,
   Col,
-  CardHeader,
   Button,
-  Modal,
-  Alert
+  Modal
 } from "reactstrap";
 
 export default function Send() {
@@ -20,6 +24,7 @@ export default function Send() {
   const [shippingTime, setShippingTime] = React.useState('as_possible')
   const [showModal, setShowModal] = React.useState(false)
   const [showModalPermissions, setShowModalPermissions] = React.useState(false)
+  const [showModalBanned, setShowModalBanned] = React.useState(false)
   const [message, setMessage] = React.useState({
     phone_number: "+5644231777",
     send_date: "Miercoles 4 de Agosto - 14:30",
@@ -172,6 +177,7 @@ export default function Send() {
                               <button 
                                 className="btn btn-block button--secondary"
                                 type="button"
+                                onClick={() => setShowModalBanned(!showModalBanned)}
                               >
                                 Editar
                               </button>
@@ -397,7 +403,7 @@ export default function Send() {
             <h3 className="pb-3">Vista Previa</h3>
             <div className="preview">
               <img
-                class="preview__image"
+                className="preview__image"
                 alt="phone preview"
                 src={
                   require("assets/img/mobile.png")
@@ -543,6 +549,7 @@ export default function Send() {
           </div>
         </Modal>
 
+        {/* Modal Permissions - START */}
         <Modal
           className="modal-dialog-centered"
           size="md"
@@ -591,6 +598,334 @@ export default function Send() {
             </Button>
           </div>
         </Modal>
+        {/* Modal Permissions - END */}
+
+        {/* Modal Banned - START */}
+        <Modal
+          className="modal-dialog-centered"
+          size="lg"
+          isOpen={showModalBanned}
+          toggle={() => setShowModalBanned(!showModalBanned)}
+        >
+          <div className="modal-header">
+            <h6 className="modal-title text-lg" id="modal-title-default">
+              Editar lista de contactos
+            </h6>
+            <button
+              aria-label="Close"
+              className="close"
+              data-dismiss="modal"
+              type="button"
+              onClick={() => setShowModalBanned(!showModalBanned)}
+            >
+              <span aria-hidden={true}>×</span>
+            </button>
+          </div>
+          <div className="modal-body">
+            <p className="font-weight-600">Banear o desbanear números</p>
+            <div className="alert fade show" role="alert" style={{ backgroundColor: "#C1D5FC", borderColor: "#C1D5FC" }}>
+              <span className="d-inline-block">
+                Escoja los números de su lista de contactos que desee <strong>bloquear o desbloquear</strong>
+              </span>
+              <button
+                aria-label="Close Alert"
+                className="close"
+                type="button"
+              >
+                <span className="text-white" aria-hidden={true}>×</span>
+              </button>
+            </div>
+
+            <Row>
+              <div className="col">
+                <Card className="shadow">
+                  <CardHeader className="border-0">
+                    <Row>
+                      <Col md="7">
+                        <h2>"Mi Lista.CSV"</h2>
+                      </Col>
+                      <Col md='5'>
+                        <Input
+                            className="form-control-alternative"
+                            id="input-phone"
+                            placeholder="Buscar"
+                            type="text"
+                          />
+                      </Col>
+                    </Row>
+                  </CardHeader>
+                  <Table className="align-items-center table-flush" responsive borderless>
+                    <thead className="thead-light">
+                      <tr>
+                        <th scope="col" className="text-center">Teléfono</th>
+                        <th scope="col" className="text-center">Nombre</th>
+                        <th scope="col" className="text-center">Hora</th>
+                        <th scope="col" className="text-center">Bloquear</th>
+                        <th scope="col" className="text-center">Desbloquear</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="row" className="mb-0 text-sm text-center d-block">
+                          +568867005
+                        </th>
+                        <td className="text-center">Emanuel</td>
+                        <td className="text-center">10:00</td>
+                        <td className="text-center">
+                          <div className="custom-control custom-control-alternative custom-radio ml-4">
+                            <input
+                              // onChange={() => ...}
+                              className="custom-control-input"
+                              id="customRadio1"
+                              name="custom-radio-1"
+                              type="radio"
+                            />
+                            <label className="custom-control-label" htmlFor="customRadio1">
+                              &nbsp;
+                            </label>
+                          </div>
+                        </td>
+                        <td className="text-center">
+                          <div className="custom-control custom-control-alternative custom-radio ml-4">
+                            <input
+                              // onChange={() => ...}
+                              className="custom-control-input"
+                              id="customRadio2"
+                              name="custom-radio-1"
+                              type="radio"
+                              defaultChecked
+                            />
+                            <label className="custom-control-label" htmlFor="customRadio2">
+                              &nbsp;
+                            </label>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th scope="row" className="mb-0 text-sm text-center d-block">
+                          +568867005
+                        </th>
+                        <td className="text-center">Emanuel</td>
+                        <td className="text-center">10:00</td>
+                        <td className="text-center">
+                          <div className="custom-control custom-control-alternative custom-radio ml-4">
+                            <input
+                              // onChange={() => ...}
+                              className="custom-control-input"
+                              id="customRadio3"
+                              name="custom-radio-2"
+                              type="radio"
+                              defaultChecked
+                            />
+                            <label className="custom-control-label" htmlFor="customRadio3">
+                              &nbsp;
+                            </label>
+                          </div>
+                        </td>
+                        <td className="text-center">
+                          <div className="custom-control custom-control-alternative custom-radio ml-4">
+                            <input
+                              // onChange={() => ...}
+                              className="custom-control-input"
+                              id="customRadio4"
+                              name="custom-radio-2"
+                              type="radio"
+                            />
+                            <label className="custom-control-label" htmlFor="customRadio4">
+                              &nbsp;
+                            </label>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th scope="row" className="mb-0 text-sm text-center d-block">
+                          +568867005
+                        </th>
+                        <td className="text-center">Emanuel</td>
+                        <td className="text-center">10:00</td>
+                        <td className="text-center">
+                          <div className="custom-control custom-control-alternative custom-radio ml-4">
+                            <input
+                              // onChange={() => ...}
+                              className="custom-control-input"
+                              id="customRadio5"
+                              name="custom-radio-3"
+                              type="radio"
+                            />
+                            <label className="custom-control-label" htmlFor="customRadio5">
+                              &nbsp;
+                            </label>
+                          </div>
+                        </td>
+                        <td className="text-center">
+                          <div className="custom-control custom-control-alternative custom-radio ml-4">
+                            <input
+                              // onChange={() => ...}
+                              className="custom-control-input"
+                              id="customRadio6"
+                              name="custom-radio-3"
+                              type="radio"
+                              defaultChecked
+                            />
+                            <label className="custom-control-label" htmlFor="customRadio6">
+                              &nbsp;
+                            </label>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th scope="row" className="mb-0 text-sm text-center d-block">
+                          +568867005
+                        </th>
+                        <td className="text-center">Emanuel</td>
+                        <td className="text-center">10:00</td>
+                        <td className="text-center">
+                          <div className="custom-control custom-control-alternative custom-radio ml-4">
+                            <input
+                              // onChange={() => ...}
+                              className="custom-control-input"
+                              id="customRadio7"
+                              name="custom-radio-4"
+                              type="radio"
+                              defaultChecked
+                            />
+                            <label className="custom-control-label" htmlFor="customRadio7">
+                              &nbsp;
+                            </label>
+                          </div>
+                        </td>
+                        <td className="text-center">
+                          <div className="custom-control custom-control-alternative custom-radio ml-4">
+                            <input
+                              // onChange={() => ...}
+                              className="custom-control-input"
+                              id="customRadio8"
+                              name="custom-radio-4"
+                              type="radio"
+                            />
+                            <label className="custom-control-label" htmlFor="customRadio8">
+                              &nbsp;
+                            </label>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th scope="row" className="mb-0 text-sm text-center d-block">
+                          +568867005
+                        </th>
+                        <td className="text-center">Emanuel</td>
+                        <td className="text-center">10:00</td>
+                        <td className="text-center">
+                          <div className="custom-control custom-control-alternative custom-radio ml-4">
+                            <input
+                              // onChange={() => ...}
+                              className="custom-control-input"
+                              id="customRadio9"
+                              name="custom-radio-5"
+                              type="radio"
+                              />
+                            <label className="custom-control-label" htmlFor="customRadio9">
+                              &nbsp;
+                            </label>
+                          </div>
+                        </td>
+                        <td className="text-center">
+                          <div className="custom-control custom-control-alternative custom-radio ml-4">
+                            <input
+                              // onChange={() => ...}
+                              className="custom-control-input"
+                              id="customRadio10"
+                              name="custom-radio-5"
+                              type="radio"
+                              defaultChecked
+                            />
+                            <label className="custom-control-label" htmlFor="customRadio10">
+                              &nbsp;
+                            </label>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </Table>
+                  <CardFooter className="py-4">
+                    <nav aria-label="...">
+                      <Pagination
+                        className="pagination justify-content-end mb-0"
+                        listClassName="justify-content-end mb-0"
+                      >
+                        <PaginationItem className="disabled">
+                          <PaginationLink
+                            href="#pablo"
+                            onClick={(e) => e.preventDefault()}
+                            tabIndex="-1"
+                          >
+                            <i className="fas fa-angle-left" />
+                            <span className="sr-only">Previous</span>
+                          </PaginationLink>
+                        </PaginationItem>
+                        <PaginationItem className="active">
+                          <PaginationLink
+                            href="#pablo"
+                            onClick={(e) => e.preventDefault()}
+                          >
+                            1
+                          </PaginationLink>
+                        </PaginationItem>
+                        <PaginationItem>
+                          <PaginationLink
+                            href="#pablo"
+                            onClick={(e) => e.preventDefault()}
+                          >
+                            2 <span className="sr-only">(current)</span>
+                          </PaginationLink>
+                        </PaginationItem>
+                        <PaginationItem>
+                          <PaginationLink
+                            href="#pablo"
+                            onClick={(e) => e.preventDefault()}
+                          >
+                            3
+                          </PaginationLink>
+                        </PaginationItem>
+                        <PaginationItem>
+                          <PaginationLink
+                            href="#pablo"
+                            onClick={(e) => e.preventDefault()}
+                          >
+                            <i className="fas fa-angle-right" />
+                            <span className="sr-only">Next</span>
+                          </PaginationLink>
+                        </PaginationItem>
+                      </Pagination>
+                    </nav>
+                  </CardFooter>
+                </Card>
+              </div>
+            </Row>
+            
+          </div>
+          <div className="modal-footer">
+            <Button 
+              to="/user/profile"
+              tag={Link}
+              color="info"
+              type="button"
+
+            >
+              Ir al perfil de usuario
+            </Button>
+            <Button
+              className="ml-auto"
+              color="link"
+              data-dismiss="modal"
+              type="button"
+              onClick={() => setShowModalBanned(!showModalBanned)}
+            >
+              Cancelar
+            </Button>
+          </div>
+        </Modal>
+        {/* Modal Banned - END */}
       </Container>
     </div>
   );
