@@ -64,14 +64,12 @@ export default function Index() {
                       </Row>
                     </FormGroup>
                   </div>
-                  <Button
-                    color="info"
-                    outline
+                  <button
+                    className="btn button--default"
                     onClick={(e) => e.preventDefault()}
-                    size="md"
                   >
                     Modificar
-                  </Button>
+                  </button>
                 </CardBody>
               </Card>
             </Form>
@@ -102,14 +100,12 @@ export default function Index() {
                       </Row>
                     </FormGroup>
                   </div>
-                  <Button
-                    color="info"
-                    outline
+                  <button
+                    className="btn button--default"
                     onClick={(e) => e.preventDefault()}
-                    size="md"
                   >
                     Modificar
-                  </Button>
+                  </button>
                 </CardBody>
               </Card>
             </Form>
@@ -125,11 +121,9 @@ export default function Index() {
                     </Col>
                     <Col className="text-right" xs="4">
                       <Button
-                        color="info"
-                        outline
-                        href="#"
-                        onClick={(e) => e.preventDefault()}
                         size="sm"
+                        className="button--default"
+                        onClick={(e) => e.preventDefault()}
                       >
                         Generar Token
                       </Button>
@@ -151,11 +145,10 @@ export default function Index() {
                       </Col>
                       <Col md="3">
                         <Button
-                          color="info"
-                          outline
                           block
-                          onClick={(e) => e.preventDefault()}
                           size="sm"
+                          className="button--default"
+                          onClick={(e) => e.preventDefault()}
                         >
                           Copiar
                         </Button>
@@ -186,10 +179,9 @@ export default function Index() {
                       </Col>
                       <Col md="4">
                         <Button
-                          color="info"
-                          outline
-                          onClick={(e) => e.preventDefault()}
                           size="sm"
+                          className="button--default"
+                          onClick={(e) => e.preventDefault()}
                         >
                           Agregar correo
                         </Button>
