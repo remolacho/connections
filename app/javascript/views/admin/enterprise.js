@@ -16,11 +16,8 @@ import {
 export default function Enterprise(){
   return (
     <Container className='pt-7' fluid>
-      <div className="d-flex justify-content-between">
+      <div>
         <h1 className="mb-0">Brisaguas</h1>
-        <Button className="btn-outline-danger">
-          Agregar contacto
-        </Button>
       </div>
       <hr className="mt-3"/>
 
