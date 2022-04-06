@@ -13,7 +13,15 @@ import {
   Media
 } from "reactstrap";
 
+import useDisplayImage from 'utilities/useDisplayImage';
+
 export default function Enterprise(){
+  const [enterpriseData, setEnterpriseData] = React.useState({
+    profile_image: null
+  })
+  const hiddenInputFile = React.useRef(null)
+  const [result, uploader] = useDisplayImage();
+
   return (
     <Container className='pt-7' fluid>
       <div>
@@ -30,7 +38,13 @@ export default function Enterprise(){
                 <Row className="align-items-center">
                   <Col>
                     <Media className="align-items-center">
-                      <span className="avatar rounded-circle mr-3 bg-red"></span>
+                      { result ?
+                        <span className="avatar rounded-circle mr-3 bg-green">
+                          {<img src={result} alt="enterprise image" />}
+                        </span>
+                      :
+                        <span className="avatar rounded-circle mr-3 bg-red"></span>
+                      }
                       <Media>
                         <h2 className="mb-0">
                           Brisaguas
@@ -42,10 +56,20 @@ export default function Enterprise(){
                     <Button
                       size="sm"
                       className="button--default"
-                      onClick={(e) => e.preventDefault()}
+                      onClick={() => hiddenInputFile.current.click()}
                     >
                       Cambiar Image
                     </Button>
+                    <input
+                      onChange={(event) => {
+                        setEnterpriseData({...enterpriseData, profile_image: event.target.files[0]});
+                        uploader(event);
+                      }}
+                      type="file"
+                      name="profile_image"
+                      ref={hiddenInputFile}
+                      hidden
+                    />
                   </Col>
                 </Row>
               </CardHeader>
