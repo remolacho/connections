@@ -1,0 +1,6 @@
+es:
+  models:
+    account:
+      validations:
+        email: 'El correo ya existe!!!'
+        required: 'es un campo obligatorio'

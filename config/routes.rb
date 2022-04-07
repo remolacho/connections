@@ -21,6 +21,14 @@ Rails.application.routes.draw do
         resources :sign_in, path: 'signIn', only: [:create]
         resources :recover_password, path: 'recover-password', only: [:create]
         resources :change_password, path: 'change-password', only: [:create]
+        resources :sign_up, path: 'signUp', only: [:create]
+        resources :confirmation, only: [:create]
+      end
+
+      namespace :addresses do
+        namespace :countries do
+          resources :list, only: [:index]
+        end
       end
 
     end

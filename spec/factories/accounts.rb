@@ -39,5 +39,8 @@ FactoryBot.define do
     email {
       "#{FFaker::Name.first_name}.#{20 + Random.rand(11)}#{20 + Random.rand(11)}#{20 + Random.rand(11)}@test.com"
     }
+    rut { "#{FFaker::IdentificationESCL.rut}-#{20 + Random.rand(11)}" }
+    phone { "573174131147" }
+    country { FactoryBot.create(:addr_country) }
   end
 end

@@ -1,0 +1,8 @@
+es:
+  exceptions:
+    parameter_missing: 'Falta el parámetro requerido: %{field}'
+    forbidden: 'acceso denegado: %{message}'
+    api:
+      users:
+        confirmation:
+          token_empty: 'No se envió ningún token de activación'
