@@ -13,14 +13,19 @@ import {
   Media
 } from "reactstrap";
 
+import useDisplayImage from 'utilities/useDisplayImage';
+
 export default function Enterprise(){
+  const [enterpriseData, setEnterpriseData] = React.useState({
+    profile_image: null
+  })
+  const hiddenInputFile = React.useRef(null)
+  const [result, uploader] = useDisplayImage();
+
   return (
     <Container className='pt-7' fluid>
-      <div className="d-flex justify-content-between">
+      <div>
         <h1 className="mb-0">Brisaguas</h1>
-        <Button className="btn-outline-danger">
-          Agregar contacto
-        </Button>
       </div>
       <hr className="mt-3"/>
 
@@ -33,7 +38,13 @@ export default function Enterprise(){
                 <Row className="align-items-center">
                   <Col>
                     <Media className="align-items-center">
-                      <span className="avatar rounded-circle mr-3 bg-red"></span>
+                      { result ?
+                        <span className="avatar rounded-circle mr-3 bg-green">
+                          {<img src={result} alt="enterprise image" />}
+                        </span>
+                      :
+                        <span className="avatar rounded-circle mr-3 bg-red"></span>
+                      }
                       <Media>
                         <h2 className="mb-0">
                           Brisaguas
@@ -43,13 +54,22 @@ export default function Enterprise(){
                   </Col>
                   <Col className="text-right">
                     <Button
-                      color="white"
-                      href="#"
-                      onClick={(e) => e.preventDefault()}
                       size="sm"
+                      className="button--default"
+                      onClick={() => hiddenInputFile.current.click()}
                     >
                       Cambiar Image
                     </Button>
+                    <input
+                      onChange={(event) => {
+                        setEnterpriseData({...enterpriseData, profile_image: event.target.files[0]});
+                        uploader(event);
+                      }}
+                      type="file"
+                      name="profile_image"
+                      ref={hiddenInputFile}
+                      hidden
+                    />
                   </Col>
                 </Row>
               </CardHeader>
@@ -214,6 +234,12 @@ export default function Enterprise(){
                     </Col>
                   </Row>
                 </FormGroup>
+                <button
+                  className="btn button--default"
+                  onClick={(e) => e.preventDefault()}
+                >
+                  Modificar
+                </button>
               </CardBody>
             </Card>
           </Form>
@@ -225,11 +251,6 @@ export default function Enterprise(){
           <Card className="shadow my-3">
             <CardHeader className="bg-white">
               <h6 className="align-items-center d-flex heading mb-0">
-                <span 
-                  className="align-items-center bg-info text-white d-flex justify-content-center mr-3 rounded-circle" 
-                  style={{height: '25px', width: '25px'}}>
-                  2
-                </span>
                 Datos de Facturación
               </h6>
             </CardHeader>
@@ -252,7 +273,7 @@ export default function Enterprise(){
                           Brisaguas / 96.864.190-5
                           <p className='d-inline-block m-0 text-xs font-weight-100'>Arturo Pratt 1093, oficina 506 / Providencia</p>
                         </label>
-                        <a href="#">Modificar</a>
+                        <a href="#" className="button--default">Modificar</a>
                       </div>
                     </Row>
                     <Row className='border border-gray rounded-lg p-3 my-3'>
@@ -269,12 +290,12 @@ export default function Enterprise(){
                           Claro SPA / 98.383.292-4
                           <p className='d-inline-block m-0 text-xs font-weight-100'>Arturo Pratt 1093, oficina 506 / Providencia</p>
                         </label>
-                        <a href="#">Modificar</a>
+                        <a href="#" className="button--default">Modificar</a>
                       </div>
                     </Row>
                     <Row className='border border-gray rounded-lg p-3 my-3'>
                       <div className="d-flex align-items-center">
-                        <a href="#" className='font-weight-600'>+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Agregar nueva empresa</a>
+                        <a href="#" className='font-weight-600 button--default'>+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Agregar nueva empresa</a>
                       </div>
                     </Row>
                   </Col>
