@@ -54,6 +54,7 @@ class Account < ApplicationRecord
 	has_many :clients, class_name: "Client", foreign_key: "id_account"
 	has_many :invitations, class_name: "AuthUserInvitation", foreign_key: "id_account"
 	has_many :api_keys, class_name: "AuthUserApiKey", foreign_key: "id_unique_account"
+	has_many :msg_transactions, class_name: "MsgTransaction", foreign_key: "id_account"
 
 	validates_presence_of %i[email name phone rut id_country], message: I18n.t('models.account.validations.required')
 	validates :email, uniqueness: {  message: I18n.t('models.account.validations.email') }
