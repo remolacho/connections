@@ -10,12 +10,14 @@ import {
   Col,
   Button,
   Input,
-  Media
+  Media,
+  Modal
 } from "reactstrap";
 
 import useDisplayImage from 'utilities/useDisplayImage';
 
 export default function Enterprise(){
+  const [showModalAddEnterprise, setShowModalAddEnteprise] = React.useState(true)
   const [enterpriseData, setEnterpriseData] = React.useState({
     profile_image: null
   })
@@ -234,12 +236,14 @@ export default function Enterprise(){
                     </Col>
                   </Row>
                 </FormGroup>
-                <button
-                  className="btn button--default"
-                  onClick={(e) => e.preventDefault()}
+                <Button
+                  color="info"
+                  outline
+                  size="md"
+                  className='button--default'
                 >
                   Modificar
-                </button>
+                </Button>
               </CardBody>
             </Card>
           </Form>
@@ -307,6 +311,130 @@ export default function Enterprise(){
       </Row>
 
 
+      {/* Modal Add Enterprise - START */}
+      <Modal
+        className="modal-dialog-centered"
+        size="lg"
+        isOpen={showModalAddEnterprise}
+        toggle={() => setShowModalAddEnteprise(!showModalAddEnterprise)}
+      >
+        <div className="modal-header">
+          <h6 className="modal-title text-lg" id="modal-title-default">
+            Agregar Datos facturación empresa
+          </h6>
+          <button
+            aria-label="Close"
+            className="close"
+            data-dismiss="modal"
+            type="button"
+            onClick={() => setShowModalAddEnteprise(!showModalAddEnterprise)}
+          >
+            <span aria-hidden={true}>×</span>
+          </button>
+        </div>
+        <div className="modal-body">
+          <Form>
+            <FormGroup>
+              <Row className="my-3">
+                <Col md="3">
+                  <label
+                    className="form-control-label pt-2"
+                    htmlFor="input-razon-social"
+                  >
+                    Razon Social
+                  </label>
+                </Col>
+                <Col md="9">
+                  <Input
+                    className="form-control-alternative"
+                    id="input-razon-social"
+                    placeholder="Nombre Fantasía"
+                    type="text"
+                  />
+                </Col>
+              </Row>
+            </FormGroup>
+            <FormGroup>
+              <Row className="my-3">
+                <Col md="3">
+                  <label
+                    className="form-control-label pt-2"
+                    htmlFor="input-rut"
+                  >
+                    Rut
+                  </label>
+                </Col>
+                <Col md="9">
+                  <Input
+                    className="form-control-alternative"
+                    id="input-rut"
+                    placeholder="76.476.564-8"
+                    type="text"
+                  />
+                </Col>
+              </Row>
+            </FormGroup>
+            <FormGroup>
+              <Row className="my-3">
+                <Col md="3">
+                  <label
+                    className="form-control-label pt-2"
+                    htmlFor="input-direccion"
+                  >
+                    Dirección
+                  </label>
+                </Col>
+                <Col md="9">
+                  <Input
+                    className="form-control-alternative"
+                    id="input-direccion"
+                    placeholder="Arturo Prat 135, Providencia"
+                    type="text"
+                  />
+                </Col>
+              </Row>
+            </FormGroup>
+            <FormGroup>
+              <Row className="my-3">
+                <Col md="3">
+                  <label
+                    className="form-control-label pt-2"
+                    htmlFor="input-comuna"
+                  >
+                    Comuna
+                  </label>
+                </Col>
+                <Col md="9">
+                  <Input
+                    className="form-control-alternative"
+                    id="input-comuna"
+                    type="text"
+                  />
+                </Col>
+              </Row>
+            </FormGroup>
+          </Form>
+        </div>
+        <div className="modal-footer">
+          <button 
+            onClick={() => setShowModalBanned(!showModalBanned)}
+            className="btn button--primary"
+            type="button"
+          >
+            Agregar
+          </button>
+          <Button
+            className="ml-auto"
+            color="link"
+            data-dismiss="modal"
+            type="button"
+            onClick={() => setShowModalAddEnteprise(!showModalAddEnterprise)}
+          >
+            Cancelar
+          </Button>
+        </div>
+      </Modal>
+      {/* Modal Add Enterprise - END */}
     </Container>
   )
 }
