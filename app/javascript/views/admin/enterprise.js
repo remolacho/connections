@@ -234,12 +234,14 @@ export default function Enterprise(){
                     </Col>
                   </Row>
                 </FormGroup>
-                <button
-                  className="btn button--default"
-                  onClick={(e) => e.preventDefault()}
+                <Button
+                  color="info"
+                  outline
+                  size="md"
+                  className='button--default'
                 >
                   Modificar
-                </button>
+                </Button>
               </CardBody>
             </Card>
           </Form>
