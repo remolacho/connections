@@ -46,8 +46,8 @@ export default function Profile(){
                   </Col>
                   <Col className="text-right">
                     <Button
+                      className='button--default'
                       color="white"
-                      href="#"
                       size="sm"
                     >
                       Cambiar Image
@@ -142,6 +142,7 @@ export default function Profile(){
                   color="info"
                   outline
                   size="md"
+                  className='button--default'
                 >
                   Modificar
                 </Button>
@@ -312,6 +313,7 @@ export default function Profile(){
                   color="info"
                   outline
                   size="md"
+                  className='button--default'
                 >
                   Modificar
                 </Button>
