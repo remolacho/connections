@@ -15,6 +15,7 @@ import {
 
 export default function Index() {
   const [showModalToken, setShowModalToken] = React.useState(false)
+  const [showModalEmail, setShowModalEmail] = React.useState(false)
 
   return (
     <div className="pt-7">
@@ -187,7 +188,7 @@ export default function Index() {
                         <Button
                           size="sm"
                           className="button--default"
-                          onClick={(e) => e.preventDefault()}
+                          onClick={() => setShowModalEmail(!showModalEmail)}
                         >
                           Agregar correo
                         </Button>
@@ -322,6 +323,77 @@ export default function Index() {
             </div>
           </Modal>
         {/* Modal Add Enterprise - END */}
+
+        {/* Modal Add Email - START */}
+          <Modal
+            className="modal-dialog-centered"
+            size="lg"
+            isOpen={showModalEmail}
+            toggle={() => setShowModalEmail(!showModalEmail)}
+          >
+            <div className="modal-header">
+              <h6 className="modal-title text-lg" id="modal-title-default">
+                Agregar Correo
+              </h6>
+              <button
+                aria-label="Close"
+                className="close"
+                data-dismiss="modal"
+                type="button"
+                onClick={() => setShowModalEmail(!showModalEmail)}
+              >
+                <span aria-hidden={true}>×</span>
+              </button>
+            </div>
+            <div className="modal-body">
+              <Row className="my-3">
+                <Col>
+                  <p>Para agregar el correo a su cuenta, este deberá ser validado. Se le enviará un Email.</p>
+                  <Form>
+                    <FormGroup>
+                      <Row className="my-3">
+                        <Col md="3">
+                          <label
+                            className="form-control-label pt-2"
+                            htmlFor="input-email-correo"
+                          >
+                            Correo
+                          </label>
+                        </Col>
+                        <Col md="9">
+                          <Input
+                            className="form-control-alternative"
+                            id="input-email-correo"
+                            placeholder="nombre@email.com"
+                            type="email"
+                          />
+                        </Col>
+                      </Row>
+                    </FormGroup>
+                  </Form>
+                </Col>
+              </Row>
+            </div>
+            <div className="modal-footer">
+              <button 
+                onClick={() => setShowModalEmail(!showModalEmail)}
+                className="btn button--primary"
+                type="button"
+              >
+                Enviar
+              </button>
+              <Button
+                className="ml-auto"
+                color="link"
+                data-dismiss="modal"
+                type="button"
+                onClick={() => setShowModalEmail(!showModalEmail)}
+              >
+                Cancelar
+              </Button>
+            </div>
+          </Modal>
+        {/* Modal Add Email - END */}
       </Container>
     </div>
   );
