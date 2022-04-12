@@ -532,9 +532,12 @@ export default function Send() {
             </div>
           </div>
           <div className="modal-footer">
-            <Button color="info" type="button">
+            <button 
+              className="btn button--primary"
+              type="button"
+            >
               Aceptar
-            </Button>
+            </button>
             <Button
               className="ml-auto"
               color="link"
