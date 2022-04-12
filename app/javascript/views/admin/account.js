@@ -66,12 +66,14 @@ export default function Index() {
                       </Row>
                     </FormGroup>
                   </div>
-                  <button
-                    className="btn button--default"
-                    onClick={(e) => e.preventDefault()}
+                  <Button
+                    color="info"
+                    outline
+                    size="md"
+                    className='button--default'
                   >
                     Modificar
-                  </button>
+                  </Button>
                 </CardBody>
               </Card>
             </Form>
@@ -102,12 +104,14 @@ export default function Index() {
                       </Row>
                     </FormGroup>
                   </div>
-                  <button
-                    className="btn button--default"
-                    onClick={(e) => e.preventDefault()}
+                  <Button
+                    color="info"
+                    outline
+                    size="md"
+                    className='button--default'
                   >
                     Modificar
-                  </button>
+                  </Button>
                 </CardBody>
               </Card>
             </Form>
