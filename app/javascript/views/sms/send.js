@@ -25,6 +25,7 @@ export default function Send() {
   const [showModal, setShowModal] = React.useState(false)
   const [showModalPermissions, setShowModalPermissions] = React.useState(false)
   const [showModalBanned, setShowModalBanned] = React.useState(false)
+  const [showModalInsertFile, setShowModalInsertFile] = React.useState(false)
   const [message, setMessage] = React.useState({
     phone_number: "+5644231777",
     send_date: "Miercoles 4 de Agosto - 14:30",
@@ -227,7 +228,7 @@ export default function Send() {
                         <i className="fa fa-link" />
                         <span className="ml-1">Generar Link corto</span>
                       </button>
-                      <button type="button" className="btn" style={{fontSize: "14px"}}>
+                      <button type="button" className="btn" onClick={() => setShowModalInsertFile(!showModalInsertFile)} style={{fontSize: "14px"}}>
                         <i className="fa fa-file" />
                         <span className="ml-1">Insertar Archivo</span>
                       </button>
@@ -921,6 +922,154 @@ export default function Send() {
           </div>
         </Modal>
         {/* Modal Banned - END */}
+
+        {/* Modal Insert Files - START */}
+        <Modal
+          className="modal-dialog-centered"
+          size="lg"
+          isOpen={showModalInsertFile}
+          toggle={() => setShowModalInsertFile(!showModalInsertFile)}
+        >
+          <div className="modal-header">
+            <h6 className="modal-title text-lg" id="modal-title-default">
+              Insertar Archivo
+            </h6>
+            <button
+              aria-label="Close"
+              className="close"
+              data-dismiss="modal"
+              type="button"
+              onClick={() => setShowModalInsertFile(!showModalInsertFile)}
+            >
+              <span aria-hidden={true}>×</span>
+            </button>
+          </div>
+          <div className="modal-body">
+            <div className="alert fade show" role="alert" style={{ backgroundColor: "#C1D5FC", borderColor: "#C1D5FC" }}>
+              <span className="d-inline-block">
+                Formatos adminisibles: PDF, JPEG, ZIP, Microsoft Office (Word, Excel y Power Point)
+              </span>
+              <button
+                aria-label="Close Alert"
+                className="close"
+                type="button"
+              >
+                <span className="text-white" aria-hidden={true}>×</span>
+              </button>
+            </div>
+
+            <Row>
+              <div className="col">
+                <Card className="shadow">
+                  <CardHeader className="border-0">
+                    <Row>
+                      <Col md="7">
+                        <h2>Archivos Adjuntos</h2>
+                      </Col>
+                    </Row>
+                  </CardHeader>
+                  <Table className="align-items-center table-flush" responsive borderless>
+                    <thead className="thead-light">
+                      <tr>
+                        <th scope="col" className="text-center">Archivo</th>
+                        <th scope="col" className="text-center">Link Corto</th>
+                        <th scope="col" className="text-center">Acciones</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="row" className="mb-0 text-sm text-center d-block">
+                          Screen Shot 2020-05-27.jpg
+                        </th>
+                        <td className="text-center">
+                          <a href="#">
+                            cnt.us/5Sdely
+                          </a>
+                        </td>
+                        <td className="text-center text-danger">Eliminar</td>
+                      </tr>
+                      <tr>
+                        <th scope="row" className="mb-0 text-sm text-center d-block">
+                          Screen Shot 2020-05-27.jpg
+                        </th>
+                        <td className="text-center">
+                          <a href="#">
+                            cnt.us/5Sdely
+                          </a>
+                        </td>
+                        <td className="text-center text-danger">Eliminar</td>
+                      </tr>
+                      <tr>
+                        <th scope="row" className="mb-0 text-sm text-center d-block">
+                          Screen Shot 2020-05-27.jpg
+                        </th>
+                        <td className="text-center">
+                          <a href="#">
+                            cnt.us/5Sdely
+                          </a>
+                        </td>
+                        <td className="text-center text-danger">Eliminar</td>
+                      </tr>
+                      <tr>
+                        <th scope="row" className="mb-0 text-sm text-center d-block">
+                          Screen Shot 2020-05-27.jpg
+                        </th>
+                        <td className="text-center">
+                          <a href="#">
+                            cnt.us/5Sdely
+                          </a>
+                        </td>
+                        <td className="text-center text-danger">Eliminar</td>
+                      </tr>
+                      <tr>
+                        <th scope="row" className="mb-0 text-sm text-center d-block">
+                          Screen Shot 2020-05-27.jpg
+                        </th>
+                        <td className="text-center">
+                          <a href="#">
+                            cnt.us/5Sdely
+                          </a>
+                        </td>
+                        <td className="text-center text-danger">Eliminar</td>
+                      </tr>
+                    </tbody>
+                  </Table>
+                </Card>
+              </div>
+            </Row>
+
+            <Row className="my-2">
+              <Col>
+                <h2>Insertar Archivo</h2>
+                <div className="form-group">
+                  <label htmlFor="file-list" className="font-weight-600 text-sm">Subir e insertar archivo nuevo</label>
+                  <input type="file" className="form-control-file" id="file-list" />
+                </div>
+              </Col>
+            </Row>
+            
+          </div>
+          <div className="modal-footer">
+            <button 
+              onClick={() => setShowModalInsertFile(!showModalInsertFile)}
+              className="btn button--primary"
+              type="button"
+            >
+              Finalizar
+            </button>
+            <Button
+              className="ml-auto"
+              color="link"
+              data-dismiss="modal"
+              type="button"
+              onClick={() => setShowModalInsertFile(!showModalInsertFile)}
+            >
+              Cancelar
+            </Button>
+          </div>
+        </Modal>
+        {/* Modal Insert Files - END */}
+
       </Container>
     </div>
   );
