@@ -9,10 +9,12 @@ import {
   Container, 
   Row, 
   Col, 
-  Button, 
+  Button,
+  Modal
 } from "reactstrap";
 
 export default function Index() {
+  const [showModalToken, setShowModalToken] = React.useState(false)
 
   return (
     <div className="pt-7">
@@ -123,7 +125,7 @@ export default function Index() {
                       <Button
                         size="sm"
                         className="button--default"
-                        onClick={(e) => e.preventDefault()}
+                        onClick={() => setShowModalToken(!showModalToken)}
                       >
                         Generar Token
                       </Button>
@@ -255,6 +257,67 @@ export default function Index() {
             </Form>
           </Col>
         </Row>
+
+        {/* Modal Add Enterprise - START */}
+          <Modal
+            className="modal-dialog-centered"
+            size="lg"
+            isOpen={showModalToken}
+            toggle={() => setShowModalToken(!showModalToken)}
+          >
+            <div className="modal-header">
+              <h6 className="modal-title text-lg" id="modal-title-default">
+                Generar Llave
+              </h6>
+              <button
+                aria-label="Close"
+                className="close"
+                data-dismiss="modal"
+                type="button"
+                onClick={() => setShowModalToken(!showModalToken)}
+              >
+                <span aria-hidden={true}>×</span>
+              </button>
+            </div>
+            <div className="modal-body">
+              <Row className="my-3">
+                <Col>
+                  <p>Copie y guarde la llave, esta será la única vez que se mostrará completa. En caso de perderla deberá generar una nueva.</p>
+                  <label
+                    className="form-control-label pt-2"
+                    htmlFor="input-token"
+                  >
+                    Su nueva llave de API es:
+                  </label>
+                  <Input
+                    className="form-control-alternative"
+                    id="input-token"
+                    placeholder="Token"
+                    type="text"
+                  />
+                </Col>
+              </Row>
+            </div>
+            <div className="modal-footer">
+              <button 
+                onClick={() => setShowModalToken(!showModalToken)}
+                className="btn button--primary"
+                type="button"
+              >
+                Copiar
+              </button>
+              <Button
+                className="ml-auto"
+                color="link"
+                data-dismiss="modal"
+                type="button"
+                onClick={() => setShowModalToken(!showModalToken)}
+              >
+                Cerrar
+              </Button>
+            </div>
+          </Modal>
+        {/* Modal Add Enterprise - END */}
       </Container>
     </div>
   );
