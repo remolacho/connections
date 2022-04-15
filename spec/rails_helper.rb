@@ -82,4 +82,5 @@ RSpec.configure do |config|
   # config.include Warden::Test::Helpers, type: :request
   config.include RequestHelpers, type: :controller
   config.include RequestHelpers, type: :request
+  config.include RequestHelpers, type: :service
 end

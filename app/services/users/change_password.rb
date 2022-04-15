@@ -1,5 +1,5 @@
 module Users
-  class ChangePassword
+  class ChangePassword < BaseService
 
     attr_accessor :data
 

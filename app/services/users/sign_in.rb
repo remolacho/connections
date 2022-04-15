@@ -1,5 +1,5 @@
 module Users
-  class SignIn
+  class SignIn < BaseService
 
     attr_accessor :credentials
 

@@ -63,4 +63,6 @@ gem 'auth_jwt_go', '~> 1.0.3'
 gem 'annotate'
 gem 'bcrypt', '~> 3.1.7'
 gem 'rest-client'
+gem 'active_model_serializers'
+
 

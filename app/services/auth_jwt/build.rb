@@ -1,5 +1,5 @@
 module AuthJwt
-  class Build
+  class Build < BaseService
     include AuthJwtGo
 
     attr_accessor :prefix, :quantity, :unit, :user
@@ -33,13 +33,11 @@ module AuthJwt
 
     def user_attributes
       {
-        user: {
-          id: user.id,
-          last_login: user.last_login,
-          first_name: user.first_name,
-          last_name: user.last_name,
-          email: user.email
-        }
+        id: user.id,
+        last_login: user.last_login,
+        first_name: user.first_name,
+        last_name: user.last_name,
+        email: user.email
       }
     end
 
