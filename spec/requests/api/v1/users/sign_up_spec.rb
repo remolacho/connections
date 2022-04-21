@@ -37,7 +37,12 @@ RSpec.describe Api::V1::Users::SignUpController , type: :request do
                      message: { type: :string }
                    }
 
-            let(:sign_up) { { sign_up:  new_user  } }
+            let(:sign_up) {
+              default_number
+              pricing_plan
+
+              { sign_up:  new_user  }
+            }
 
             run_test!
           end
