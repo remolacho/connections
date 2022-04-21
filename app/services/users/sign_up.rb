@@ -10,6 +10,8 @@ module Users
 
     def call
       user = create_account.users.create!(user_params)
+      create_default_number
+      create_sms_free
       response = send_confirmation(user)
 
       { success: true, message: manage_message(response) }
@@ -61,6 +63,20 @@ module Users
       else
         response[:message]
       end
+    end
+
+    def create_default_number
+      default_number = ElasticNumber.find_by!(id_account: nil)
+      default_number.id_account = create_account.id
+      default_number.is_default = 'T'
+      default_number.save!
+    end
+
+    def create_sms_free
+      create_account.msg_transactions.create!(increase: 5,
+                                              msg_transaction_type: MsgTransaction::FREE,
+                                              id_country: 1,
+                                              id_pricing_plan: 1)
     end
   end
 end

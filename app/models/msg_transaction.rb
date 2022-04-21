@@ -35,4 +35,5 @@ class MsgTransaction < ApplicationRecord
 	belongs_to :pricing_plan, class_name: "PricingPlan", foreign_key: 'id_pricing_plan', optional: true
 	belongs_to :country, class_name: "AddrCountry", foreign_key: 'id_country'
 	belongs_to :account, class_name: "Account", foreign_key: 'id_account'
+	FREE = 'FREE'.freeze
 end

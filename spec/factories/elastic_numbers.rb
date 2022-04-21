@@ -19,8 +19,11 @@
 #
 #  elastic_number_ibfk_1  (id_account => account.id) ON DELETE => cascade
 #
-class ElasticNumber < ApplicationRecord
-	self.table_name = "elastic_number"
 
-	belongs_to :country, class_name: "AddrCountry", foreign_key: 'id_country'
+FactoryBot.define do
+	factory :elastic_number do
+		elastic_number { ENV['DST_PHONE'] }
+		country { FactoryBot.create(:addr_country) }
+		is_default  { 'F' }
+	end
 end
