@@ -17,6 +17,8 @@ development:
   ID_UNIQUE_API: "ID unico de la cuenta a usar para enviar SMS"
   SECRET_API: "la clave secreta de la API"
   DST_PHONE: "telefono movil de destino para pruebas"
+  JWT_PASSWORD: correr el comando 'rake secret'
+  SEND_SMS: false # se activa a true si quieren probar recepccion de mensajes
 test:
   DB_HOSTNAME: localhost
   DB_NAME: connectus_test
@@ -34,3 +36,5 @@ test:
   ID_UNIQUE_API: "ID unico de la cuenta a usar para enviar SMS"
   SECRET_API: "la clave secreta de la API"
   DST_PHONE: "telefono movil de destino para pruebas"
+  JWT_PASSWORD: test123
+  SEND_SMS: false # se activa a true si quieren probar recepccion de mensajes

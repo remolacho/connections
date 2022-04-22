@@ -1,7 +1,7 @@
  require 'swagger_helper'
 
   RSpec.describe Api::V1::Addresses::Countries::ListController, type: :request do
-    include_context 'addresses_stuff'
+    include_context 'countries_stuff'
 
     describe 'Lista los paises' do
       path "/v1/addresses/countries/list" do

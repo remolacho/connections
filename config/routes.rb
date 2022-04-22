@@ -31,6 +31,16 @@ Rails.application.routes.draw do
         end
       end
 
+      namespace :sms do
+        resources :validations, only: [] do
+          collection do
+            get :balance
+          end
+        end
+
+        resources :msg_templates, only: [:index]
+      end
+
     end
   end
 

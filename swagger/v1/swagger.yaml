@@ -41,6 +41,101 @@ paths:
                           type: string
                         number_length:
                           type: integer
+  "/v1/sms/msg_templates":
+    get:
+      summary: Lista los templates por usuario
+      tags:
+      - Connectus v1 sms
+      description: Este genera una lista de mensajes guardados por cuenta de usuario
+        llamados templates
+      parameters:
+      - name: Authorization
+        in: header
+        required: true
+      responses:
+        '200':
+          description: success!!!
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    default: true
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                        name:
+                          type: string
+                        text:
+                          type: string
+        '403':
+          description: Forbidden !!!
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    default: false
+                  message:
+                    type: string
+  "/v1/sms/validations/balance":
+    get:
+      summary: valida si posee saldo
+      tags:
+      - Connectus v1 sms
+      description: Revisar que se tenga saldo de al menos 1 mensaje de salida
+      parameters:
+      - name: Authorization
+        in: header
+        required: true
+      - name: id_country
+        in: query
+        required: true
+      responses:
+        '200':
+          description: success!!!
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    default: true
+                  message:
+                    type: string
+        '403':
+          description: Forbidden !!!
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    default: false
+                  message:
+                    type: string
+        '404':
+          description: error not balance!!!
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    default: false
+                  message:
+                    type: string
   "/v1/test":
     get:
       summary: Retorna un json dummy para la prueba del setting API DOC

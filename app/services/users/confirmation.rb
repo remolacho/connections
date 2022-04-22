@@ -1,5 +1,5 @@
 module Users
-  class Confirmation
+  class Confirmation < BaseService
     attr_accessor :user
 
     def initialize(user:)

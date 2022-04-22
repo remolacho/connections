@@ -1,5 +1,5 @@
 module Users
-  class SignUp
+  class SignUp < BaseService
     include RequestEngine
 
     attr_accessor :user_data
@@ -44,6 +44,8 @@ module Users
     end
 
     def send_confirmation(user)
+      return { success: true } unless can_send_sms?
+
       api_url = "https://api.connectus.cl/api_v2/send_sms".freeze
       link    = "#{ENV['BASE_APP']}/users/confirmation?token=#{user.registration_key}"
 

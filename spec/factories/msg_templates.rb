@@ -29,12 +29,13 @@
 #  msg_template_ibfk_3  (id_product => product.id) ON DELETE => cascade
 #  msg_template_ibfk_4  (id_elastic_number => elastic_number.id) ON DELETE => cascade
 #
-class MsgTemplate < ApplicationRecord
-	self.table_name = "msg_template"
 
-	belongs_to :user, class_name: "AuthUser", foreign_key: 'id_auth_user', optional: true
-	belongs_to :account, class_name: "Account", foreign_key: 'id_account', optional: true
-	belongs_to :product, class_name: "Product", foreign_key: 'id_product', optional: true
-
-	scope :list_by_account, ->(account) { where(id_account: account.id, id_product: 1) }
+FactoryBot.define do
+	factory :msg_template do
+		account { account }
+    user { user }
+    product { product }
+    name { FFaker::Book.title }
+		template_text { FFaker::Book.title }
+	end
 end

@@ -1,0 +1,6 @@
+es:
+  services:
+    sms:
+      balance:
+        success: 'Posee saldo para el envio de sms !!!'
+        error: 'La cuenta no tiene saldo para el país seleccionado'

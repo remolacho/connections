@@ -1,24 +1,21 @@
 module RequestHelpers
   extend ActiveSupport::Concern
-  include AuthJwtGo
 
   private
 
   def sign_in
-    "Bearer #{encode_token(payload).dig(:jwt)}"
+    AuthJwt::Build.new(user: current_user).call[:jwt]
   end
 
-  def payload
-    {
-      api: 'Connectus API',
-      user: {
-        id: user.id,
-        last_login: user.last_login,
-        first_name: user.first_name,
-        last_name: user.last_name,
-        email: user.email
-      },
-      exp: (Time.now + 1.day).to_i
-    }
+  def current_user
+    @current_user ||= FactoryBot.create(:auth_user, account: account, email: account.email)
+  end
+
+  def account
+    @account ||= FactoryBot.create(:account)
+  end
+
+  def current_product
+    @current_product ||= FactoryBot.create(:product)
   end
 end

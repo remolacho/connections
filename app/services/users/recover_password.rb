@@ -1,5 +1,5 @@
 module Users
-  class RecoverPassword
+  class RecoverPassword < BaseService
 
     attr_accessor :data
 

@@ -27,10 +27,25 @@
 #  delivery_ibfk_3  (id_product => product.id) ON DELETE => cascade
 #
 class Delivery < ApplicationRecord
+	include Dirigible
+
 	self.table_name = "delivery"
 	has_many :msg_transactions, class_name: "MsgTransaction", foreign_key: "id_delivery"
 	belongs_to :account, class_name: "Account", foreign_key: 'id_account', optional: true
 	belongs_to :auth_user, class_name: "AuthUser", foreign_key: 'id_auth_user', optional: true
 	belongs_to :product, class_name: "Product", foreign_key: 'id_product', optional: true
 
+	scope :between_begin_at_end_created, ->{ where(created_at: range_date) }
+
+	scope :by_name_platform_sms, ->(user) {
+		where(name: assign_name_platform_sms(user), delivery_type: PLATFORM)
+	}
+
+	def self.generate_unique_id
+		SecureRandom.uuid.split('-').join
+	end
+
+	def self.range_date
+		"#{Date.today.at_beginning_of_month.to_s} 00:00:00".."#{Date.today.at_end_of_month.to_s} 23:59:59"
+	end
 end
