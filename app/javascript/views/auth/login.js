@@ -109,7 +109,7 @@ export default function Login(){
                 <Button type="submit" className="my-4" color="info" block>
                   Ingresar
                 </Button>
-                <Button onClick={() => navigate("/auth/signup")} className="my-4" color="info" outline type="button" block>
+                <Button onClick={() => navigate("/auth/signup/company")} className="my-4" color="info" outline type="button" block>
                   Crear cuenta
                 </Button>
                 <Button onClick={() => navigate("/auth/recovery-password")} className="my-4" color="info" outline type="button" block>
