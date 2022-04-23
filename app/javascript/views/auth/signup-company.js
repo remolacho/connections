@@ -17,26 +17,51 @@ import {
 
 export default function SignupCompany(){
   const navigate = useNavigate()
+  const [countries, setCountries] = React.useState([])
+  const [selectedCountry, setSelectedCountry] = React.useState({})
   const [session, setSession] = React.useState({
-    first_name: 'paulo',
-    last_name: 'adrian',
-    email: '1234@gmail.com',
-    enterprise_name: '11',
-    rut: '70761142',
-    country_id: 1,
-    phone: '990449006',
-    password: 'qwerty',
-    password_confirmation: 'qwerty',
+    first_name: '',
+    last_name: '',
+    email: '',
+    enterprise_name: '',
+    rut: '',
+    country_id: null,
+    phone: '',
+    password: '',
+    password_confirmation: '',
   })
+  
+  React.useEffect(() => {
+    Axios({
+      method: "get",
+      url: "/v1/addresses/countries/list",
+    }).then(response => {
+      if(response.data.success) {
+        let listCountries = response.data.data
+        setCountries(listCountries)
+        setSelectedCountry(listCountries.find(country => country.id == parseInt(listCountries[0].id)))
+      }
+    }).catch(error => {
+      console.log(error.response.data.message)
+      setCountries([])
+    })
+  }, [])
+
+  function handleSelectCountry(event){
+    setSession({ ...session, country_id: parseInt(event.target.value) })
+    setSelectedCountry(countries.find(country => country.id == parseInt(event.target.value)))
+  }
 
   function handleSignUp(event) {
     event.preventDefault()
-    console.log(session)
     Axios({
       method: "post",
       url: "/v1/users/signUp",
       data: {
-        sign_up: { ...session }
+        sign_up: { 
+          ...session,
+          phone: selectedCountry.code + session.phone
+        }
       }
     })
     .then(response => {
@@ -46,6 +71,7 @@ export default function SignupCompany(){
         Toastr.options.extendedTimeOut = 1000;
         Toastr.options.positionClass = "toast-bottom-right";
         Toastr.success(response.data.message);
+        navigate("/auth/login")
       }
     }).catch(error => {
       Toastr.options.closeButton = true;
@@ -136,36 +162,24 @@ export default function SignupCompany(){
                 </InputGroup>
               </FormGroup>
               <FormGroup className="mb-3">
-                <select className="form-control">
-                  <option value="chile" defaultValue>Chile</option>
-                  <option value="argentina" >Argentina</option>
-                  <option value="bolivia">Bolivia</option>
-                  <option value="brasil">Brasil</option>
-                  <option value="colombia">Colombia</option>
-                  <option value="costa-rica">Costa Rica</option>
-                  <option value="ecuador">Ecuador</option>
-                  <option value="eeuu">EEUU</option>
-                  <option value="espana">Espana</option>
-                  <option value="guatemala">Guatemala</option>
-                  <option value="mexico">Mexico</option>
-                  <option value="paraguay">Paraguay</option>
-                  <option value="peru">Peru</option>
-                  <option value="suecia">Suecia</option>
-                  <option value="uruguay">Uruguay</option>
+                <select onChange={ event => handleSelectCountry(event) } className="form-control">
+                  { countries.map((country, index) => (
+                    <option value={country.id} key={`C#${index}`} >{country.name}</option>
+                  )) }
                 </select>
               </FormGroup>
               <FormGroup className="mb-3">
                 <div className="input-group has-validation">
                   <div className="input-group-prepend border-right">
-                    <span className="input-group-text">+56</span>
+                    <span className="input-group-text">+{selectedCountry.code || '00'}</span>
                   </div>
                   <input 
                     onChange={ event => setSession({...session, phone: event.target.value})}
                     value={ session.phone }
-                    type="text" 
-                    className="form-control pl-2" 
-                    placeholder="1 234 567" 
-                    required 
+                    type="text"
+                    className="form-control pl-2"
+                    maxLength={ selectedCountry.number_length }
+                    required
                   />
                 </div>
               </FormGroup>
