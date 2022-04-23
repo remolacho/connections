@@ -40,4 +40,13 @@
 #
 class SmsOutgoing < ApplicationRecord
 	self.table_name = "sms_outgoing"
+
+	belongs_to :account, class_name: "Account", foreign_key: 'id_account', optional: true
+	belongs_to :delivery, class_name: "Delivery", foreign_key: 'id_delivery', optional: true
+
+	STATUS_NEW = 'NEW'.freeze
+
+	def self.generate_unique_id
+		SecureRandom.uuid.split('-').join
+	end
 end

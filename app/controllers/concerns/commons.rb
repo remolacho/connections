@@ -10,6 +10,6 @@ module Commons
   end
 
   def current_product
-    @current_product ||= Product.find(1)
+    @current_product ||= Product.first
   end
 end

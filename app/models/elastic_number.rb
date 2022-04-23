@@ -22,5 +22,6 @@
 class ElasticNumber < ApplicationRecord
 	self.table_name = "elastic_number"
 
+	belongs_to :account, class_name: "Account", foreign_key: 'id_account', optional: true
 	belongs_to :country, class_name: "AddrCountry", foreign_key: 'id_country'
 end

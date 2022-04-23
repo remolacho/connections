@@ -39,6 +39,7 @@ Rails.application.routes.draw do
         end
 
         resources :msg_templates, only: [:index]
+        resources :send_individual, only: [:create]
       end
 
     end

@@ -4,3 +4,10 @@ es:
       balance:
         success: 'Posee saldo para el envio de sms !!!'
         error: 'La cuenta no tiene saldo para el país seleccionado'
+      multiplier:
+        content_empty: 'El contenido del mensaje esta vacio'
+      clear_content:
+        content_empty: 'El contenido del mensaje esta vacio'
+      send_individual:
+        dst_number_empty: 'No hay un numero de destino'
+        success: 'Se crea el envió con éxito'
