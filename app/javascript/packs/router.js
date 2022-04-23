@@ -61,6 +61,7 @@ import PasswordChange from "views/auth/password-change"
 import SignupType from "views/auth/signup-type";
 import SignupCompany from "views/auth/signup-company";
 import SignupUser from "views/auth/signup-user";
+import Confirmation from "views/auth/confirmation";
 import Checkout from 'views/checkout';
 
 export default function Router(){
@@ -148,6 +149,7 @@ export default function Router(){
               <Route path="login" element={<Login />} />
               <Route path="recovery-password" element={<RecoveryPassword />} />
               <Route path="password-change" element={<PasswordChange />} />
+              <Route path="confirmation" element={<Confirmation />} />
               <Route path="signup">
                 <Route index element={<SignupType />} />
                 <Route path="company" element={<SignupCompany />} />

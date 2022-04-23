@@ -131,10 +131,13 @@ export default function SignupUser(){
                 </InputGroup>
               </FormGroup>
               <div className="text-center">
-                <Button className="my-4" color="info" type="button" block>
+                <button className="btn button--primary my-4 btn-block">
                   Crear cuenta
-                </Button>
-                <Button onClick={() => navigate("/auth/signup")} className="my-4" color="info" outline type="button" block>
+                </button>
+                <Button 
+                  onClick={() => navigate("/auth/signup")} 
+                  className="btn button--default my-4 btn-block" 
+                >
                   Regresar
                 </Button>
               </div>

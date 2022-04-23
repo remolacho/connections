@@ -48,12 +48,18 @@ export default function SignupType(){
               </label>
             </div>
             <div className="text-center">
-              <Button onClick={() => navigate("/auth/signup/" + type)} className="my-4" color="info" type="button" block>
+              <button 
+                onClick={() => navigate("/auth/signup/" + type)} 
+                className="btn button--primary my-4 btn-block"
+              >
                 Crear cuenta
-              </Button>
-              <Button onClick={() => navigate("/auth/login")} className="my-4" color="info" outline type="button" block>
+              </button>
+              <button 
+                onClick={() => navigate("/auth/login")} 
+                className="btn button--default my-4 btn-block" 
+              >
                 Regresar
-              </Button>
+              </button>
             </div>
           </CardBody>
         </Card>

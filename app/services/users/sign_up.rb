@@ -47,7 +47,7 @@ module Users
       return { success: true } unless can_send_sms?
 
       api_url = "https://api.connectus.cl/api_v2/send_sms".freeze
-      link    = "#{ENV['BASE_APP']}/users/confirmation?token=#{user.registration_key}"
+      link    = "#{ENV['BASE_APP']}/auth/confirmation?token=#{user.registration_key}"
 
       response_post(api_url, {
         sms_content: I18n.t('services.users.sign_up.sms.content', link: link),

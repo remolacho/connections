@@ -97,7 +97,7 @@ export default function PasswordChange(){
                 </InputGroup>
               </FormGroup>
               <div className="text-center">
-                <Button className="my-4" color="info" type="submit" block>
+                <Button type="submit" className="btn button--primary my-4 btn-block">
                   Cambiar mi contraseña
                 </Button>
               </div>
