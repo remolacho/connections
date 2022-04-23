@@ -144,7 +144,6 @@ export default function Router(){
           </Route>
           :
           <>
-            {/* "http://localhost:3000/users/confirmation?token=cce5c72533fda528f59b102601ecdf96" */}
             <Route path="auth" element={<AuthLayout />}>
               <Route index element={<Navigate to="/auth/login" />} />
               <Route path="login" element={<Login />} />
