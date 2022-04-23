@@ -1,6 +1,7 @@
 import React from "react";
 import Axios from "axios";
 import Toastr from "toastr";
+import { useNavigate } from "react-router-dom"
 import {
   Button,
   Card,
@@ -16,6 +17,7 @@ import {
 } from "reactstrap";
 
 export default function RecoveryPassword(){
+  const navigate = useNavigate()
   const [email, setEmail] =  React.useState('')
 
   function handleRecovery(event){
@@ -75,12 +77,15 @@ export default function RecoveryPassword(){
                 </InputGroup>
               </FormGroup>
               <div className="text-center">
-                <Button className="my-4" color="info" type="submit" block>
+                <Button type="submit" className="btn button--primary my-4 btn-block">
                   Cambiar mi contraseña
                 </Button>
-                {/* <Button onClick={() => navigate("/auth/login")} className="my-4" color="info" outline type="button" block>
+                <button 
+                  onClick={() => navigate("/auth/login")} 
+                  className="btn button--default my-4 btn-block" 
+                >
                   Regresar
-                </Button> */}
+                </button>
               </div>
             </Form>
           </CardBody>

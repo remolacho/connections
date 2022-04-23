@@ -106,15 +106,21 @@ export default function Login(){
                 </InputGroup>
               </FormGroup>
               <div className="text-center">
-                <Button type="submit" className="my-4" color="info" block>
+                <button type="submit" className="btn button--primary my-4 btn-block">
                   Ingresar
-                </Button>
-                <Button onClick={() => navigate("/auth/signup/company")} className="my-4" color="info" outline type="button" block>
+                </button>
+                <button 
+                  onClick={() => navigate("/auth/signup/company")} 
+                  className="btn button--default my-4 btn-block" 
+                >
                   Crear cuenta
-                </Button>
-                <Button onClick={() => navigate("/auth/recovery-password")} className="my-4" color="info" outline type="button" block>
+                </button>
+                <button 
+                  onClick={() => navigate("/auth/recovery-password")} 
+                  className="btn button--default my-4 btn-block"
+                >
                   Recuperar clave
-                </Button>
+                </button>
               </div>
             </Form>
           </CardBody>

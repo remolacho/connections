@@ -214,12 +214,15 @@ export default function SignupCompany(){
                 </InputGroup>
               </FormGroup>
               <div className="text-center">
-                <Button className="my-4" color="info" type="submit" block>
+                <button type="submit" className="btn button--primary my-4 btn-block">
                   Crear cuenta
-                </Button>
-                <Button onClick={() => navigate("/auth/signup")} className="my-4" color="info" outline type="button" block>
+                </button>
+                <button 
+                  onClick={() => navigate("/auth/signup")} 
+                  className="btn button--default my-4 btn-block" 
+                >
                   Regresar
-                </Button>
+                </button>
               </div>
             </Form>
           </CardBody>

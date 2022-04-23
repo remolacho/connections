@@ -73,9 +73,12 @@ export default function Confirmation(){
           </CardHeader>
           <CardBody className="px-lg-5">
             <div className="text-center">
-              <Button onClick={() => navigate("/auth/login")} className="my-4" color="info" block>
+              <button 
+                onClick={() => navigate("/auth/login")} 
+                className="btn button--primary my-4 btn-block"
+              >
                 Iniciar Session
-              </Button>
+              </button>
             </div>
           </CardBody>
         </Card>
