@@ -61,6 +61,7 @@ import PasswordChange from "views/auth/password-change"
 import SignupType from "views/auth/signup-type";
 import SignupCompany from "views/auth/signup-company";
 import SignupUser from "views/auth/signup-user";
+import Confirmation from "views/auth/confirmation";
 import Checkout from 'views/checkout';
 
 export default function Router(){
@@ -143,11 +144,13 @@ export default function Router(){
           </Route>
           :
           <>
+            {/* "http://localhost:3000/users/confirmation?token=cce5c72533fda528f59b102601ecdf96" */}
             <Route path="auth" element={<AuthLayout />}>
               <Route index element={<Navigate to="/auth/login" />} />
               <Route path="login" element={<Login />} />
               <Route path="recovery-password" element={<RecoveryPassword />} />
               <Route path="password-change" element={<PasswordChange />} />
+              <Route path="confirmation" element={<Confirmation />} />
               <Route path="signup">
                 <Route index element={<SignupType />} />
                 <Route path="company" element={<SignupCompany />} />
