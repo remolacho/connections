@@ -13,6 +13,7 @@ development:
   EMAIL_PROVIDER: smtp.gmail.com
   EMAIL_PORT: "587"
   EMAIL_DOMAIN: localhost
+  EMAIL_AUTHENTICATION: plain
   BASE_APP: http://localhost:3000
   ID_UNIQUE_API: "ID unico de la cuenta a usar para enviar SMS"
   SECRET_API: "la clave secreta de la API"

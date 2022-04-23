@@ -57,6 +57,7 @@ import SuperadminBuy from "views/superadmin/buy";
 import UserProfile from "views/user/profile";
 import Login from "views/auth/login";
 import RecoveryPassword from "views/auth/recovery-password";
+import PasswordChange from "views/auth/password-change"
 import SignupType from "views/auth/signup-type";
 import SignupCompany from "views/auth/signup-company";
 import SignupUser from "views/auth/signup-user";
@@ -146,6 +147,7 @@ export default function Router(){
               <Route index element={<Navigate to="/auth/login" />} />
               <Route path="login" element={<Login />} />
               <Route path="recovery-password" element={<RecoveryPassword />} />
+              <Route path="password-change" element={<PasswordChange />} />
               <Route path="signup">
                 <Route index element={<SignupType />} />
                 <Route path="company" element={<SignupCompany />} />
