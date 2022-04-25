@@ -34,6 +34,7 @@ class Delivery < ApplicationRecord
 	belongs_to :account, class_name: "Account", foreign_key: 'id_account', optional: true
 	belongs_to :auth_user, class_name: "AuthUser", foreign_key: 'id_auth_user', optional: true
 	belongs_to :product, class_name: "Product", foreign_key: 'id_product', optional: true
+	has_many :sms_outgoings, class_name: 'SmsOutgoing', foreign_key: 'id_delivery'
 
 	scope :between_begin_at_end_created, ->{ where(created_at: range_date) }
 

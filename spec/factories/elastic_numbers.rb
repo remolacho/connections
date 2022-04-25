@@ -25,5 +25,10 @@ FactoryBot.define do
 		elastic_number { ENV['DST_PHONE'] }
 		country { FactoryBot.create(:addr_country) }
 		is_default  { 'F' }
+  end
+
+	trait :with_account do
+    account { account }
+		is_default  { 'T' }
 	end
 end

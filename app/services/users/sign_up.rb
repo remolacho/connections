@@ -75,7 +75,7 @@ module Users
     def create_sms_free
       create_account.msg_transactions.create!(increase: 5,
                                               msg_transaction_type: MsgTransaction::FREE,
-                                              id_country: 1,
+                                              id_country: AddrCountry.first.id,
                                               id_pricing_plan: 1)
     end
   end
