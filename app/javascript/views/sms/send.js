@@ -1,7 +1,7 @@
 import React from "react";
 import Axios from "axios";
 import Toastr from 'toastr';
-import { Link, Navigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useCookies } from 'react-cookie';
 import { 
   Card,
@@ -23,9 +23,11 @@ import {
 } from "reactstrap";
 
 export default function Send() {
+  const navigate = useNavigate()
   const [cookies] = useCookies(["authorization"])
   const [countries, setCountries] = React.useState([])
   const [selectedCountry, setSelectedCountry] = React.useState({})
+  const [countryBalance, setCountryBalance] = React.useState()
   const [shippingType, setShippingType] = React.useState('individual')
   const [shippingTime, setShippingTime] = React.useState('as_possible')
   const [showModal, setShowModal] = React.useState(false)
@@ -51,6 +53,19 @@ export default function Send() {
     }).catch(error => {
       console.log(error.response.data.message)
       setCountries([])
+    })
+
+    Axios({
+      method: "get",
+      url: "/v1/sms/validations/balance?id_country=1",
+      headers: { 'Authorization': cookies.authorization }
+    }).then(response => {
+      if(response.data.success) {
+        setCountryBalance(response.data.balance)
+      }
+    }).catch(error => {
+      console.log(error.response.data.message)
+      setCountryBalance(0)
     })
   }, [])
 
@@ -79,7 +94,7 @@ export default function Send() {
         Toastr.options.extendedTimeOut = 1000;
         Toastr.options.positionClass = "toast-bottom-right";
         Toastr.success("Mensaje enviado");
-        Navigate(`/sms/${response.data.unique_id}`)
+        navigate(`/sms/${response.data.data.id_unique}`)
       }
     }).catch(error => {
       Toastr.options.closeButton = true;
