@@ -56,13 +56,10 @@ class Account < ApplicationRecord
 	has_many :api_keys, class_name: "AuthUserApiKey", foreign_key: "id_unique_account"
 	has_many :msg_transactions, class_name: "MsgTransaction", foreign_key: "id_account"
 	has_many :sms_outgoings, class_name: 'SmsOutgoing', foreign_key: 'id_account'
+	has_many :send_bulk_transactions, class_name: 'SendBulkTransaction', foreign_key: 'id_account'
 
 	validates_presence_of %i[email name phone rut id_country], message: I18n.t('models.account.validations.required')
 	validates :email, uniqueness: {  message: I18n.t('models.account.validations.email') }
-
-	def self.generate_unique_id
-		SecureRandom.uuid.split('-').join
-	end
 
 	def self.authorization_sms
 		base64 = Base64.strict_encode64("#{ENV['ID_UNIQUE_API']}:#{ENV['SECRET_API']}")

@@ -43,6 +43,7 @@ class AuthUser < ApplicationRecord
 	has_many :deliveries, class_name: "Delivery", foreign_key: "id_auth_user"
 
 	belongs_to :account, class_name: "Account", foreign_key: 'id_account', optional: true
+	has_many :send_bulk_transactions, class_name: 'SendBulkTransaction', foreign_key: 'id_auth_user'
 
 	validates :password, presence: true, on: :create
 	validates :email, uniqueness: {  message: I18n.t('models.auth_user.validations.email') }

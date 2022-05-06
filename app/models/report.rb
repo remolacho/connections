@@ -8,7 +8,7 @@
 #  file_key     :string(512)      not null
 #  file_name    :string(512)      not null
 #  file_type    :string(512)      not null
-#  generated_at :datetime         default(Thu, 25 Jan 2018 01:31:01.000000000 UTC +00:00), not null
+#  generated_at :datetime         default(Wed, 24 Jan 2018 22:31:01.000000000 -03 -03:00), not null
 #  id_account   :integer          not null
 #  id_auth_user :integer
 #  id_delivery  :integer

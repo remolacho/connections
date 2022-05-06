@@ -5,6 +5,7 @@
 #  id                 :integer          not null, primary key
 #  contact_list_type  :string(512)
 #  id_account         :integer
+#  id_transaction     :integer
 #  id_unique          :string(64)
 #  name               :string(512)
 #  number_of_contacts :integer

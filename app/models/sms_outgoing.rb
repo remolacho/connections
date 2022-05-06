@@ -45,8 +45,4 @@ class SmsOutgoing < ApplicationRecord
 	belongs_to :delivery, class_name: "Delivery", foreign_key: 'id_delivery', optional: true
 
 	STATUS_NEW = 'NEW'.freeze
-
-	def self.generate_unique_id
-		SecureRandom.uuid.split('-').join
-	end
 end

@@ -42,10 +42,6 @@ class Delivery < ApplicationRecord
 		where(name: assign_name_platform_sms(user), delivery_type: PLATFORM)
 	}
 
-	def self.generate_unique_id
-		SecureRandom.uuid.split('-').join
-	end
-
 	def self.range_date
 		"#{Date.today.at_beginning_of_month.to_s} 00:00:00".."#{Date.today.at_end_of_month.to_s} 23:59:59"
 	end
