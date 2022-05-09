@@ -86,6 +86,74 @@ paths:
                     default: false
                   message:
                     type: string
+  "/v1/sms/send_bulk":
+    post:
+      summary: crea una transaccion para ejecutar el envio masivo en segundo plano
+      tags:
+      - Connectus v1 sms
+      description: Crea una transaccion para ejecutar el envio masivo en segundo plano
+      parameters:
+      - name: Authorization
+        in: header
+        required: true
+      responses:
+        '200':
+          description: success!!!
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    default: true
+                  data:
+                    type: object
+                    properties:
+                      token:
+                        type: string
+                      status:
+                        type: string
+                      name:
+                        type: string
+        '403':
+          description: Forbidden !!!
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    default: false
+                  message:
+                    type: string
+        '422':
+          description: El archivo debe ser obligatorio !!!
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    default: false
+                  message:
+                    type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                send_bulk:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                    file:
+                      type: string
+                      required: true
   "/v1/sms/send_individual":
     post:
       summary: crea un registro de envio para queluego sea enviado

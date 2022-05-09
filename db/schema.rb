@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_13_020941) do
+ActiveRecord::Schema.define(version: 2022_05_06_151322) do
 
   create_table "account", id: :integer, charset: "utf8mb3", force: :cascade do |t|
     t.string "name", limit: 512, null: false
@@ -52,6 +52,34 @@ ActiveRecord::Schema.define(version: 2022_03_13_020941) do
     t.string "email_header_from_connectus", limit: 1, default: "T"
     t.string "email_unsubscribe", limit: 1, default: "T"
     t.string "email_link_tracking", limit: 1
+  end
+
+  create_table "active_storage_attachments", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "record_type", null: false
+    t.bigint "record_id", null: false
+    t.bigint "blob_id", null: false
+    t.datetime "created_at", null: false
+    t.index ["blob_id"], name: "index_active_storage_attachments_on_blob_id"
+    t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
+  end
+
+  create_table "active_storage_blobs", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "key", null: false
+    t.string "filename", null: false
+    t.string "content_type"
+    t.text "metadata"
+    t.string "service_name", null: false
+    t.bigint "byte_size", null: false
+    t.string "checksum", null: false
+    t.datetime "created_at", null: false
+    t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
+  end
+
+  create_table "active_storage_variant_records", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "blob_id", null: false
+    t.string "variation_digest", null: false
+    t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
   create_table "addr_country", id: :integer, charset: "utf8mb4", collation: "utf8mb4_bin", force: :cascade do |t|
@@ -220,6 +248,7 @@ ActiveRecord::Schema.define(version: 2022_03_13_020941) do
     t.datetime "updated_at"
     t.string "contact_list_type", limit: 512
     t.integer "number_of_contacts"
+    t.integer "id_transaction"
     t.index ["id_account"], name: "id_account__idx"
   end
 
@@ -619,6 +648,21 @@ ActiveRecord::Schema.define(version: 2022_03_13_020941) do
     t.index ["worker_name"], name: "worker_name", unique: true
   end
 
+  create_table "send_bulk_transactions", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.integer "id_account", null: false
+    t.integer "id_auth_user", null: false
+    t.integer "status", default: 0
+    t.string "send_type"
+    t.string "observation"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "name"
+    t.string "token"
+    t.index ["id_account"], name: "index_send_bulk_transactions_on_id_account"
+    t.index ["id_auth_user"], name: "index_send_bulk_transactions_on_id_auth_user"
+    t.index ["token"], name: "index_send_bulk_transactions_on_token", unique: true
+  end
+
   create_table "short_link", id: :integer, charset: "utf8mb3", force: :cascade do |t|
     t.integer "id_account"
     t.integer "id_auth_user"
@@ -759,6 +803,8 @@ ActiveRecord::Schema.define(version: 2022_03_13_020941) do
 
   add_foreign_key "account", "addr_region_county", column: "id_county", name: "account_ibfk_1", on_delete: :cascade
   add_foreign_key "account_email", "account", column: "id_account", name: "account_email_ibfk_1", on_delete: :cascade
+  add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "addr_region", "addr_country", column: "country_id", name: "addr_region_ibfk_1", on_delete: :cascade
   add_foreign_key "addr_region_county", "addr_region", column: "region_id", name: "addr_region_county_ibfk_1", on_delete: :cascade
   add_foreign_key "auth_cas", "auth_user", column: "user_id", name: "auth_cas_ibfk_1", on_delete: :cascade

@@ -3,12 +3,8 @@ class Api::V1::Addresses::Countries::ListController < BaseApiController
 
   # GET /v1/addresses/countries/list
   def index
-    render json: { success: true, data: AddrCountry.select(:id,
-                                                           :name,
-                                                           :short,
-                                                           :currency,
-                                                           :code,
-                                                           :flag_emoji,
-                                                           :number_length) }
+    service = Addresses::Countries.instance
+
+    render json: { success: true, data: service.countries }
   end
 end

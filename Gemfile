@@ -34,8 +34,8 @@ group :development, :test do
   gem 'pry-rails'
   gem 'rspec-rails', '~> 5.0.0'
   gem 'factory_bot_rails'
-  #gem 'ffaker', require: false
-  #gem 'faker', require: false
+  gem 'ffaker'
+  gem 'faker', git: 'https://github.com/stympy/faker.git', branch: 'master'
   gem 'database_cleaner'
   gem 'rubocop', require: false
   gem 'rubocop-rails', require: false
@@ -64,5 +64,8 @@ gem 'annotate'
 gem 'bcrypt', '~> 3.1.7'
 gem 'rest-client'
 gem 'active_model_serializers'
+gem 'sidekiq'
+
+
 
 

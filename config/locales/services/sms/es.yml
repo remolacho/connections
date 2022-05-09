@@ -4,6 +4,7 @@ es:
       balance:
         success: 'Posee saldo para el envio de sms !!!'
         error: 'La cuenta no tiene saldo para el país seleccionado'
+        error_row: 'La cuenta no tiene saldo para el país seleccionado en la fila %{num_row}'
       multiplier:
         content_empty: 'El contenido del mensaje esta vacio'
       clear_content:
@@ -11,3 +12,16 @@ es:
       send_individual:
         dst_number_empty: 'No hay un numero de destino'
         success: 'Se crea el envió con éxito'
+      contacts_bulk:
+        verification:
+          error:
+            separator: 'Separador no permitido utilizar , o ;'
+            header:
+              too_long: 'La cabecera tiene mas de 10 columnas'
+              phone: 'La primera columna debe decir telefono'
+            rows:
+              empty: 'El archivo no tiene filas que registrar'
+            row:
+              size: 'La fila %{num_row} tienes mas elementos que la cabecera'
+              number_nil: 'La fila %{num_row} no tiene numero telefonico'
+              number_not_found: 'El numero no es valido en la fila %{num_row}'

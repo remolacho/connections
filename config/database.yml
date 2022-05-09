@@ -1,15 +1,18 @@
 default: &default
   adapter: mysql2
   encoding: utf8mb4
+  host: <%= ENV.fetch("DB_HOSTNAME") %>
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username:  <%= ENV.fetch("DB_USERNAME") %>
+  password:  <%= ENV.fetch("DB_PASSWORD") %>
+  socket: /tmp/mysql.sock
 
 development:
   <<: *default
-  database:  connectus_development
-
+  database:  <%= ENV.fetch("DB_NAME") %>
 test:
   <<: *default
-  database:  connectus_test
-
+  database:  <%= ENV.fetch("DB_NAME_TEST") %>
 production:
   <<: *default
-  database:  connectus_test
+  database: <%= ENV.fetch("DB_NAME") %>

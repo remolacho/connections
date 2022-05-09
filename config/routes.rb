@@ -1,15 +1,10 @@
+require 'sidekiq/web'
+
 Rails.application.routes.draw do
-  # authenticate_or_request_with_http_basic do |user, password|
-  #  user == ENV["USER_DOC"] && password == ENV["PASS_DOC"]
+  mount Sidekiq::Web => '/sidekiq'
+  mount Rswag::Ui::Engine => '/api-docs'
+  mount Rswag::Api::Engine => '/api-docs'
 
-    mount Rswag::Ui::Engine => '/api-docs'
-    mount Rswag::Api::Engine => '/api-docs'
-  # end
-
-  # Swagger routes Here
-
-  # Devise routes here
-  
   root to: 'pages#index'
 
   # API routes here
@@ -40,6 +35,7 @@ Rails.application.routes.draw do
 
         resources :msg_templates, only: [:index]
         resources :send_individual, only: [:create]
+        resources :send_bulk, only: [:create]
       end
 
     end

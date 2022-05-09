@@ -1,0 +1,6 @@
+es:
+  controllers:
+    sms_bulk:
+      error:
+        file_empty: 'el archivo es obligatorio'
+        file_ext: 'La extensión no es valida, debe ser CSV'

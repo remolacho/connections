@@ -87,4 +87,7 @@ Rails.application.configure do
     authentication: ENV['EMAIL_AUTHENTICATION'],
     enable_starttls_auto: true
   }
+
+  config.active_job.queue_adapter = :sidekiq
+  config.active_storage.queues = Hash.new(:default)
 end

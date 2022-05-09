@@ -42,6 +42,10 @@ And run this in another terminal to start just the frontend
     - rails g rspec:swagger namespace::controller_name
     - rspec
 
+
+* How to run sidekiq
+    - bundle exec sidekiq -e development -C config/sidekiq.yml
+
 ## Docs
 
 ### API

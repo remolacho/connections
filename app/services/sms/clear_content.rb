@@ -1,20 +1,24 @@
 module Sms
   class ClearContent < BaseService
-    attr_accessor :sms_content
+    attr_accessor :sms_content, :resource, :skip_nil
 
-    def initialize(sms_content:)
+    def initialize(sms_content:, resource: 'individual', skip_nil: false)
       @sms_content = sms_content
+      @resource = resource
+      @skip_nil = skip_nil
     end
 
     def call
-      raise ArgumentError, I18n.t('services.sms.clear_content.content_empty') unless sms_content.present?
+      if !skip_nil && !sms_content.present?
+        raise ArgumentError, I18n.t('services.sms.clear_content.content_empty')
+      end
 
-      message = sms_content.encode("iso-8859-1").force_encoding("utf-8")
+      message = sms_content&.encode("iso-8859-1")&.force_encoding("utf-8") || ''
       message = ActiveSupport::Inflector.transliterate(message)
 
-      {success: true, sms_content: message}
+      {success: true, sms_content: message.strip}
     rescue Encoding::UndefinedConversionError => e
-      raise ArgumentError, "error: #{e.to_s}"
+      raise ArgumentError, "error #{resource}: #{e.to_s}"
     end
   end
 end

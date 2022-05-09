@@ -20,6 +20,7 @@ development:
   DST_PHONE: "telefono movil de destino para pruebas"
   JWT_PASSWORD: correr el comando 'rake secret'
   SEND_SMS: false # se activa a true si quieren probar recepccion de mensajes
+  REDIS_URL: redis://127.0.0.1:6379/0
 test:
   DB_HOSTNAME: localhost
   DB_NAME: connectus_test
@@ -40,3 +41,4 @@ test:
   DST_PHONE: "telefono movil de destino para pruebas"
   JWT_PASSWORD: test123
   SEND_SMS: false # se activa a true si quieren probar recepccion de mensajes
+  REDIS_URL: redis://127.0.0.1:6379/0

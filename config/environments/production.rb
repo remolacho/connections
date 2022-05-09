@@ -130,4 +130,8 @@ Rails.application.configure do
     authentication: :login,
     enable_starttls_auto: true
   }
+
+  config.active_job.queue_name_prefix = "connectus_#{Rails.env}"
+  config.active_job.queue_adapter = :sidekiq
+  config.active_storage.queues = Hash.new(:default)
 end
