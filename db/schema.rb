@@ -734,8 +734,9 @@ ActiveRecord::Schema.define(version: 2022_05_06_151322) do
     t.integer "id_account"
     t.string "id_message", limit: 512, null: false
     t.string "src_provider", limit: 512
-    t.bigint "src_number", null: false
+    t.bigint "e", null: false
     t.bigint "dst_number", null: false
+    t.string "dst_country"
     t.text "sms_content", size: :long
     t.text "sms_content_hex", size: :long
     t.datetime "created_at"

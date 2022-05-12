@@ -36,8 +36,14 @@ Rails.application.routes.draw do
         resources :msg_templates, only: [:index]
         resources :send_individual, only: [:create]
         resources :send_bulk, only: [:create]
+        resources :incoming, only: [:index, :show] do
+          get :download_report, on: :collection
+        end
       end
 
+      namespace :accounts, path: '' do
+        resources :numbers, only: [:index]
+      end
     end
   end
 
