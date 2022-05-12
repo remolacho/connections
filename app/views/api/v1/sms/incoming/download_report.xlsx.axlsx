@@ -1,0 +1,21 @@
+wb = xlsx_package.workbook
+
+wb.add_worksheet(name: "Reporte de recibidos") do |sheet|
+  headers = ['Identificador único',	
+             'Número de origen',
+             'Proveedor de origen',
+             'Número de destino',
+             'Recibido',
+             'Contenido mensaje']
+
+  sheet.add_row(headers)
+
+  @all_incoming_sms.each do |sms|
+    sheet.add_row([sms[:id_unique],
+                   sms[:src_number],
+                   sms[:src_provider],
+                   sms[:dst_number],
+                   sms[:created_at].strftime("%d-%m-%Y"),
+                   sms[:sms_content]])
+  end
+end
