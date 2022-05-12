@@ -1,5 +1,8 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import Axios from "axios";
+import Toastr from 'toastr';
+import { Link, useNavigate } from "react-router-dom";
+import { useCookies } from 'react-cookie';
 import { 
   Card,
   CardHeader,
@@ -20,17 +23,87 @@ import {
 } from "reactstrap";
 
 export default function Send() {
+  const navigate = useNavigate()
+  const [cookies] = useCookies(["authorization"])
+  const [countries, setCountries] = React.useState([])
+  const [selectedCountry, setSelectedCountry] = React.useState({})
+  const [countryBalance, setCountryBalance] = React.useState()
   const [shippingType, setShippingType] = React.useState('individual')
   const [shippingTime, setShippingTime] = React.useState('as_possible')
   const [showModal, setShowModal] = React.useState(false)
   const [showModalPermissions, setShowModalPermissions] = React.useState(false)
   const [showModalBanned, setShowModalBanned] = React.useState(false)
   const [showModalInsertFile, setShowModalInsertFile] = React.useState(false)
-  const [message, setMessage] = React.useState({
-    phone_number: "+5644231777",
-    send_date: "Miercoles 4 de Agosto - 14:30",
-    content: "aadfasdfasdf"
+  const [data, setData] = React.useState({
+    dst_number: "",
+    sms_content: "aaa",
+    country_id: 1
   })
+
+  React.useEffect(() => {
+    Axios({
+      method: "get",
+      url: "/v1/addresses/countries/list",
+    }).then(response => {
+      if(response.data.success) {
+        let listCountries = response.data.data
+        setCountries(listCountries)
+        setSelectedCountry(listCountries.find(country => country.id == parseInt(listCountries[0].id)))
+      }
+    }).catch(error => {
+      console.log(error.response.data.message)
+      setCountries([])
+    })
+
+    Axios({
+      method: "get",
+      url: "/v1/sms/validations/balance?id_country=1",
+      headers: { 'Authorization': cookies.authorization }
+    }).then(response => {
+      if(response.data.success) {
+        setCountryBalance(response.data.balance)
+      }
+    }).catch(error => {
+      console.log(error.response.data.message)
+      setCountryBalance(0)
+    })
+  }, [])
+
+  function handleSelectCountry(event){
+    setData({ ...data, country_id: parseInt(event.target.value) })
+    setSelectedCountry(countries.find(country => country.id == parseInt(event.target.value)))
+  }
+
+  function handleSendMessage(event){
+    event.preventDefault()
+    Axios({
+      method: "post",
+      url: "/v1/sms/send_individual",
+      headers: { 'Authorization': cookies.authorization },
+      data: {
+        send_individual: {
+          ...data,
+          dst_number: selectedCountry.code + data.dst_number
+        }
+      }
+    })
+    .then(response => {
+      if( response.data.success ){
+        Toastr.options.closeButton = true;
+        Toastr.options.timeOut = 5000;
+        Toastr.options.extendedTimeOut = 1000;
+        Toastr.options.positionClass = "toast-bottom-right";
+        Toastr.success("Mensaje enviado");
+        navigate(`/sms/${response.data.data.id_unique}`)
+      }
+    }).catch(error => {
+      Toastr.options.closeButton = true;
+      Toastr.options.timeOut = 5000;
+      Toastr.options.extendedTimeOut = 1000;
+      Toastr.options.positionClass = "toast-bottom-right";
+      Toastr.error(error.response.data.message);
+    })
+  }
 
   function handleType(event){
     setShippingType(event.target.id)
@@ -43,7 +116,7 @@ export default function Send() {
         <Row>
           <Col md="8">
             <h3 className="pb-3">Enviar SMS</h3>
-            <Form>
+            <Form onSubmit={event => handleSendMessage(event)} role="form" >
               <Card className="shadow my-3">
                 <CardHeader className="bg-white">
                   <h6 className="align-items-center d-flex heading mb-0">
@@ -92,11 +165,10 @@ export default function Send() {
                               </label>
                             </Col>
                             <Col md="9">
-                              <select className="form-control">
-                                <option defaultValue>Choose...</option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
+                              <select onChange={ event => handleSelectCountry(event) } className="form-control">
+                                { countries.map((country, index) => (
+                                  <option value={country.id} key={`C#${index}`} >{country.name}</option>
+                                )) }
                               </select>
                             </Col>
                         </Row>
@@ -112,15 +184,19 @@ export default function Send() {
                               </label>
                             </Col>
                             <Col md="9">
-                              <Input
-                                onChange={e => setMessage({...message, phone_number: e.target.value })}
-                                className="form-control-alternative"
-                                id="input-phone"
-                                placeholder="Número de teléfono"
-                                pattern="0-9"
-                                type="tel"
-                                value={message.phone_number}
-                              />
+                              <div className="input-group has-validation">
+                                <div className="input-group-prepend border-right">
+                                  <span className="input-group-text">+{selectedCountry.code || '00'}</span>
+                                </div>
+                                <input 
+                                  onChange={ event => setData({...data, dst_number: event.target.value})}
+                                  value={ data.dst_number }
+                                  type="text"
+                                  className="form-control pl-2"
+                                  maxLength={ selectedCountry.number_length }
+                                  required
+                                />
+                              </div>
                             </Col>
                           </Row>
                         </FormGroup>
@@ -240,11 +316,11 @@ export default function Send() {
                     <FormGroup>
                       <label className="form-control-label pt-2">Contenido</label>
                       <Input
-                        onChange={e => setMessage({...message, content: e.target.value})}
+                        onChange={e => setData({...data, sms_content: e.target.value})}
                         className="form-control-alternative"
                         placeholder="A few words about you ..."
                         rows="4"
-                        defaultValue={message.content}
+                        defaultValue={data.sms_content}
                         type="textarea"
                       />
                       { shippingType === 'massive' &&
@@ -389,8 +465,8 @@ export default function Send() {
               <Row className="mt-4">
                 <Col className="text-left" xs="12" md="4">
                   <button
+                    type="submit"
                     className="btn button--primary"
-                    onClick={(e) => e.preventDefault()}
                   >
                     Enviar SMS
                   </button>
@@ -409,10 +485,10 @@ export default function Send() {
                 }
               />
               <div className="preview__content">
-                <h3 className="preview__content__title h1">{message.phone_number}</h3>
-                <span className="preview__content__date text-xs">{message.send_date}</span>
+                <h3 className="preview__content__title h1">{data.dst_number}</h3>
+                <span className="preview__content__date text-xs">Miercoles 4 de Agosto - 14:30</span>
                 <p className="preview__content__message--sms p-3 rounded-right rounded-top text-white">
-                  {message.content}
+                  {data.sms_content}
                 </p>
               </div>
             </div>

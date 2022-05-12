@@ -30,6 +30,7 @@ Rails.application.routes.draw do
         resources :validations, only: [] do
           collection do
             get :balance
+            get :outgoing
           end
         end
 
