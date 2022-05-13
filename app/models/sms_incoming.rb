@@ -24,4 +24,6 @@
 #
 class SmsIncoming < ApplicationRecord
 	self.table_name = "sms_incoming"
+
+	paginates_per 5
 end

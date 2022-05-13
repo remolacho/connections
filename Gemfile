@@ -65,6 +65,10 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'rest-client'
 gem 'active_model_serializers'
 gem 'sidekiq'
+gem 'kaminari'
+gem 'roo'
+gem 'caxlsx'
+gem 'caxlsx_rails'
 
 
 

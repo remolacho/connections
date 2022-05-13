@@ -10,4 +10,11 @@ class BaseApiController < ApplicationController
   skip_before_action :verify_authenticity_token
 
   before_action :authorized_user
+  
+  def meta_data_pagination(resource)
+    meta_data = {}
+    meta_data[:current_page] = resource.current_page
+    meta_data[:total_pages] = resource.total_pages
+    meta_data
+  end
 end

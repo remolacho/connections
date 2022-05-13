@@ -276,7 +276,7 @@ export default function Sidebar() {
                 </NavItem>
                 <NavItem>
                   <NavLink
-                    to="/sms/received"
+                    to="/sms/incoming"
                     tag={NavLinkRRD}
                     onClick={closeCollapse}
                   >
