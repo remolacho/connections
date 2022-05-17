@@ -19,12 +19,17 @@ module Sms
       private
 
       def contact_list
-        @contact_list ||= ContactList.create!(contact_list_type: "telefono",
-                                              id_account: account.id,
-                                              id_unique: ContactList.generate_unique_id,
-                                              name: transaction.name,
-                                              number_of_contacts: csv.rows.size,
-                                              id_transaction: transaction.id)
+        resource = ContactList.create!(contact_list_type: "telefono",
+                                       id_account: account.id,
+                                       id_unique: ContactList.generate_unique_id,
+                                       name: transaction.name,
+                                       number_of_contacts: csv.rows.size,
+                                       header: csv.header)
+
+        transaction.adjustable = resource
+        transaction.save!
+
+        resource
       end
 
       # simpre el primer attributo es id_contact_list y el ultimo contact_data ya que en este se guarda toda la info

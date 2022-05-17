@@ -18,4 +18,7 @@
 #
 class ContactListData < ApplicationRecord
 	self.table_name = "contact_list_data"
+
+	belongs_to :contact_list, class_name: 'ContactList', foreign_key: 'id_contact_list'
+
 end

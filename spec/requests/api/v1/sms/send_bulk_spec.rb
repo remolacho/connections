@@ -32,8 +32,10 @@ RSpec.describe Api::V1::Sms::SendBulkController, type: :request do
                      properties: {
                        token: { type: :string },
                        status: { type: :string },
-                       name: { type: :string }
-                    }
+                       name: { type: :string },
+                       queue: { type: :string, nullable: true },
+                       observation: { type: :string, nullable: true }
+                     }
                    }
                  }
 

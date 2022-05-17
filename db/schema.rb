@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_05_06_151322) do
+ActiveRecord::Schema.define(version: 2022_05_17_000514) do
 
   create_table "account", id: :integer, charset: "utf8mb3", force: :cascade do |t|
     t.string "name", limit: 512, null: false
@@ -248,7 +248,7 @@ ActiveRecord::Schema.define(version: 2022_05_06_151322) do
     t.datetime "updated_at"
     t.string "contact_list_type", limit: 512
     t.integer "number_of_contacts"
-    t.integer "id_transaction"
+    t.text "header"
     t.index ["id_account"], name: "id_account__idx"
   end
 
@@ -658,6 +658,10 @@ ActiveRecord::Schema.define(version: 2022_05_06_151322) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "name"
     t.string "token"
+    t.integer "adjustable_id"
+    t.string "adjustable_type"
+    t.string "queue"
+    t.index ["adjustable_id", "adjustable_type"], name: "index_transactions_adjustable_type_and_adjustable_id"
     t.index ["id_account"], name: "index_send_bulk_transactions_on_id_account"
     t.index ["id_auth_user"], name: "index_send_bulk_transactions_on_id_auth_user"
     t.index ["token"], name: "index_send_bulk_transactions_on_token", unique: true

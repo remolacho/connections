@@ -36,24 +36,6 @@ RSpec.describe Api::V1::Sms::SendBulkController, type: :controller do
           FileUtils.remove_entry_secure('./tmp/storage/test', true)
         end
 
-        it 'success and worker canceled number found without balance!!!' do
-          addr_countries
-          country_without_balance
-          country_with_balance
-
-          request.headers['Authorization'] = sign_in
-          post :create, params: send_bulk(:error_number_not_balance),  as: :json
-          body = JSON.parse(response.body)
-          transaction = SendBulkTransaction.find_by!(token: body['data']['token'])
-          expect(body['success']).to eq(true)
-          expect(transaction.file.attached?).to eq(true)
-          expect(transaction.canceled?).to eq(true)
-          expect(transaction.observation).to eq(I18n.t('services.sms.balance.error_row', {num_row: 3}))
-
-          transaction.file.purge
-          FileUtils.remove_entry_secure('./tmp/storage/test', true)
-        end
-
         it 'success and worker completed !!!' do
           addr_countries
           country_with_balance
@@ -62,12 +44,13 @@ RSpec.describe Api::V1::Sms::SendBulkController, type: :controller do
           post :create, params: send_bulk(:success),  as: :json
           body = JSON.parse(response.body)
           transaction = SendBulkTransaction.find_by!(token: body['data']['token'])
-          contact_list = ContactList.find_by!(id_transaction: transaction.id)
+          contact_list = transaction.adjustable
           expect(body['success']).to eq(true)
           expect(transaction.file.attached?).to eq(true)
           expect(transaction.completed?).to eq(true)
           expect(transaction.observation).to eq(nil)
           expect(contact_list.number_of_contacts).to eq(5) # 5 son lineas reales del archivo success.csv
+          expect(contact_list.header.present?).to eq(true)
 
           transaction.file.purge
           FileUtils.remove_entry_secure('./tmp/storage/test', true)

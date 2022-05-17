@@ -44,7 +44,7 @@ module Sms
           next if row.empty?
 
           text = clear_row(row[0], index_row)
-          new_row = text.split(csv.col_sep)
+          new_row = text.split(csv.col_sep)&.map(&:strip)
           count_row_elements(new_row, index_row)
           number_valid.call(number: new_row[0], i_row: index_row)
           csv.rows << new_row
@@ -85,7 +85,7 @@ module Sms
       def build_header(header)
         col_sep = separator(header)
         text    =  clear_header(header)
-        header  = text.split(col_sep)
+        header  = text.split(col_sep)&.map(&:strip)
         { col_sep: col_sep, header: header}
       end
 

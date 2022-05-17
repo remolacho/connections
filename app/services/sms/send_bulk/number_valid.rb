@@ -26,9 +26,6 @@ module Sms
           raise ArgumentError, I18n.t('services.sms.contacts_bulk.verification.error.row.number_not_found', {num_row: i_row})
         end
 
-        service = balance_account_service(country)
-        raise ArgumentError, service[:message] unless service[:success]
-
         {success: true, number: number, country: current_country}
       end
 
@@ -51,13 +48,6 @@ module Sms
 
       def number_length(num_code)
         @number.size - num_code
-      end
-
-      def balance_account_service(country)
-        Sms::Balance::Account.new(user: user,
-                                  account: account,
-                                  country: country,
-                                  i_row: @i_row).call
       end
     end
   end

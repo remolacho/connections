@@ -41,6 +41,82 @@ paths:
                           type: string
                         number_length:
                           type: integer
+  "/v1/transactions/{token}":
+    get:
+      summary: Se envia el token generado y esta retorna la info de la trnsaccion
+      tags:
+      - Connectus v1 core
+      description: |-
+        Se envia el token generado y esta retorna la info de la trnsaccion enviada en segundo plano
+         <br>los estados manejados son:
+        <ul>
+          <li>unstarted</li>
+          <li>in_progress</li>
+          <li>completed</li>
+          <li>canceled</li>
+        </ul>
+         el atributo observation: retorna las inquietudes que hubo en el proceso
+         <br>atributo resource_token: retorna el id unique del recurso padre que implemento la trasaccion
+      parameters:
+      - name: Authorization
+        in: header
+        required: true
+      - name: token
+        in: path
+        required: true
+      responses:
+        '200':
+          description: success completed!!!
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    default: true
+                  data:
+                    type: object
+                    properties:
+                      token:
+                        type: string
+                      status:
+                        type: string
+                      name:
+                        type: string
+                      queue:
+                        type: string
+                        nullable: true
+                      observation:
+                        type: string
+                        nullable: true
+                      resource_token:
+                        type: string
+                        nullable: true
+        '403':
+          description: Forbidden !!!
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    default: false
+                  message:
+                    type: string
+        '404':
+          description: la trasaccion no existe !!!
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    default: false
+                  message:
+                    type: string
   "/v1/sms/msg_templates":
     get:
       summary: Lista los templates por usuario
@@ -116,6 +192,12 @@ paths:
                         type: string
                       name:
                         type: string
+                      queue:
+                        type: string
+                        nullable: true
+                      observation:
+                        type: string
+                        nullable: true
         '403':
           description: Forbidden !!!
           content:

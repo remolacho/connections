@@ -3,7 +3,8 @@ class Api::V1::Sms::SendBulkController < BaseApiController
 
   # POST /v1/sms/send_bulk
   def create
-    render json: Contacts::SendBulk.new(user: current_user, account: account, data: allowed_params).call
+    transaction = Contacts::SendBulk.new(user: current_user, account: account, data: allowed_params).call
+    render json: {success: true, data: TransactionSerializer.new(transaction)}, status: :ok
   end
 
   private

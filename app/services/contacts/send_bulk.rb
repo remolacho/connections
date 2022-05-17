@@ -10,15 +10,9 @@ module Contacts
     end
 
     def call
-      {
-        success: true,
-        data: {
-          token:  transaction.token,
-          name:   transaction.name,
-          status: transaction.status,
-          queue:  transaction.factory_worker('send_contacts')
-        }
-      }
+      transaction.queue = transaction.factory_worker('send_contacts')
+      transaction.save!
+      transaction.reload
     end
 
     private

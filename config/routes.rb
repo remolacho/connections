@@ -45,6 +45,10 @@ Rails.application.routes.draw do
       namespace :accounts, path: '' do
         resources :numbers, only: [:index]
       end
+
+      namespace :core, path: '' do
+        resources :transactions, param: :token, only: [:show]
+      end
     end
   end
 
